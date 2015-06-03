@@ -17,10 +17,6 @@
  */
 package com.johngohce.phoenixpd.items;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
@@ -29,18 +25,12 @@ import com.johngohce.phoenixpd.actors.Actor;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.buffs.SnipersMark;
 import com.johngohce.phoenixpd.actors.hero.Hero;
-import com.johngohce.phoenixpd.effects.Degradation;
 import com.johngohce.phoenixpd.effects.Speck;
-import com.johngohce.phoenixpd.items.armor.Armor;
 import com.johngohce.phoenixpd.items.bags.Bag;
-import com.johngohce.phoenixpd.items.rings.Ring;
-import com.johngohce.phoenixpd.items.wands.Wand;
-import com.johngohce.phoenixpd.items.weapon.Weapon;
 import com.johngohce.phoenixpd.items.weapon.missiles.MissileWeapon;
 import com.johngohce.phoenixpd.mechanics.Ballistica;
 import com.johngohce.phoenixpd.scenes.CellSelector;
 import com.johngohce.phoenixpd.scenes.GameScene;
-import com.johngohce.phoenixpd.sprites.CharSprite;
 import com.johngohce.phoenixpd.sprites.ItemSprite;
 import com.johngohce.phoenixpd.sprites.MissileSprite;
 import com.johngohce.phoenixpd.ui.QuickSlot;
@@ -49,7 +39,10 @@ import com.johngohce.phoenixpd.utils.Utils;
 import com.johngohce.utils.Bundlable;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Callback;
-import com.johngohce.utils.PointF;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Item implements Bundlable {
 
@@ -286,6 +279,8 @@ public class Item implements Bundlable {
 	}
 	
 	public void use() {
+        //item degradation
+        /*
 		if (level > 0) {
 			int threshold = (int)(maxDurability() * DURABILITY_WARNING_LEVEL);
 			if (durability-- >= threshold && threshold > durability) {
@@ -312,6 +307,7 @@ public class Item implements Bundlable {
 				}
 			}
 		}
+		*/
 	}
 	
 	public void fix() {
