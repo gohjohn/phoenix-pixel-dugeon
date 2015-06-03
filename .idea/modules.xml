@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/pixel-dungeon.iml" filepath="$PROJECT_DIR$/pixel-dungeon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pixeldungeon/pixeldungeon.iml" filepath="$PROJECT_DIR$/pixeldungeon/pixeldungeon.iml" />
+    </modules>
+  </component>
+</project>
+
