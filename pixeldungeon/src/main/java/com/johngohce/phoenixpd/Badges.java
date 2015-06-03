@@ -17,15 +17,6 @@
  */
 package com.johngohce.phoenixpd;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-
 import com.johngohce.noosa.Game;
 import com.johngohce.phoenixpd.actors.mobs.Acidic;
 import com.johngohce.phoenixpd.actors.mobs.Albino;
@@ -47,6 +38,15 @@ import com.johngohce.phoenixpd.scenes.PixelScene;
 import com.johngohce.phoenixpd.utils.GLog;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Callback;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 
 public class Badges {
 	

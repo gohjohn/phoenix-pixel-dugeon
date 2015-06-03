@@ -100,6 +100,7 @@ import com.johngohce.phoenixpd.ui.AttackIndicator;
 import com.johngohce.phoenixpd.ui.BuffIndicator;
 import com.johngohce.phoenixpd.utils.GLog;
 import com.johngohce.phoenixpd.windows.WndMessage;
+import com.johngohce.phoenixpd.windows.WndRespawn;
 import com.johngohce.phoenixpd.windows.WndResurrect;
 import com.johngohce.phoenixpd.windows.WndTradeItem;
 import com.johngohce.utils.Bundle;
@@ -135,6 +136,7 @@ public class Hero extends Char {
 	
 	public HeroClass heroClass = HeroClass.ROGUE;
 	public HeroSubClass subClass = HeroSubClass.NONE;
+    public HeroMonsterClass monsterClass = HeroMonsterClass.NONE;
 	
 	private int attackSkill = 10;
 	private int defenseSkill = 5;
@@ -195,6 +197,7 @@ public class Hero extends Char {
 		
 		heroClass.storeInBundle( bundle );
 		subClass.storeInBundle( bundle );
+        monsterClass.storeInBundle( bundle );
 		
 		bundle.put( ATTACK, attackSkill );
 		bundle.put( DEFENSE, defenseSkill );
@@ -213,7 +216,8 @@ public class Hero extends Char {
 		
 		heroClass = HeroClass.restoreInBundle( bundle );
 		subClass = HeroSubClass.restoreInBundle( bundle );
-		
+        monsterClass = HeroMonsterClass.restoreInBundle( bundle );
+
 		attackSkill = bundle.getInt( ATTACK );
 		defenseSkill = bundle.getInt( DEFENSE );
 		
@@ -231,6 +235,7 @@ public class Hero extends Char {
 	}
 	
 	public String className() {
+        if (monsterClass != null && monsterClass != HeroMonsterClass.NONE) return monsterClass.title();
 		return subClass == null || subClass == HeroSubClass.NONE ? heroClass.title() : subClass.title();
 	}
 	
@@ -1152,15 +1157,24 @@ public class Hero extends Char {
 		super.die( cause );
 		
 		Ankh ankh = (Ankh)belongings.getItem( Ankh.class );
+        HeroMonsterClass newMonsterClass = HeroMonsterClass.getMonsterClass(cause);
 		if (ankh == null) {
-			
-			reallyDie( cause );
-			
+            if(newMonsterClass != null || monsterClass != null){
+                Dungeon.deleteGame( Dungeon.hero.heroClass, false );
+                if(newMonsterClass != null){
+                    GameScene.show( new WndRespawn( this, newMonsterClass , true , cause ) );
+                }else{
+                    GameScene.show( new WndRespawn( this, monsterClass , false , cause ) );
+                }
+            }else{
+                reallyDie( cause );
+            }
+
 		} else {
-			
+
 			Dungeon.deleteGame( Dungeon.hero.heroClass, false );
 			GameScene.show( new WndResurrect( ankh, cause ) );
-			
+
 		}
 	}
 	
@@ -1380,7 +1394,7 @@ public class Hero extends Char {
 		
 		return smthFound;
 	}
-	
+
 	public void resurrect( int resetLevel ) {
 		
 		HP = HT;

@@ -17,9 +17,6 @@
  */
 package com.johngohce.phoenixpd.scenes;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import com.johngohce.noosa.Camera;
 import com.johngohce.noosa.Game;
 import com.johngohce.noosa.Group;
@@ -69,11 +66,14 @@ import com.johngohce.phoenixpd.ui.Toast;
 import com.johngohce.phoenixpd.ui.Toolbar;
 import com.johngohce.phoenixpd.ui.Window;
 import com.johngohce.phoenixpd.utils.GLog;
+import com.johngohce.phoenixpd.windows.WndBag;
 import com.johngohce.phoenixpd.windows.WndBag.Mode;
 import com.johngohce.phoenixpd.windows.WndGame;
-import com.johngohce.phoenixpd.windows.WndBag;
 import com.johngohce.phoenixpd.windows.WndStory;
 import com.johngohce.utils.Random;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class GameScene extends PixelScene {
 	

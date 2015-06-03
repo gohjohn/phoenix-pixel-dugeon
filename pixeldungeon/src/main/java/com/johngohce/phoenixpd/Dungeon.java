@@ -17,14 +17,6 @@
  */
 package com.johngohce.phoenixpd;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashSet;
-
 import com.johngohce.noosa.Game;
 import com.johngohce.phoenixpd.actors.Actor;
 import com.johngohce.phoenixpd.actors.Char;
@@ -33,8 +25,8 @@ import com.johngohce.phoenixpd.actors.buffs.Light;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.actors.mobs.npcs.Blacksmith;
-import com.johngohce.phoenixpd.actors.mobs.npcs.Imp;
 import com.johngohce.phoenixpd.actors.mobs.npcs.Ghost;
+import com.johngohce.phoenixpd.actors.mobs.npcs.Imp;
 import com.johngohce.phoenixpd.actors.mobs.npcs.Wandmaker;
 import com.johngohce.phoenixpd.items.Ankh;
 import com.johngohce.phoenixpd.items.Item;
@@ -68,6 +60,14 @@ import com.johngohce.utils.Bundle;
 import com.johngohce.utils.PathFinder;
 import com.johngohce.utils.Random;
 import com.johngohce.utils.SparseArray;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashSet;
 
 public class Dungeon {
 	

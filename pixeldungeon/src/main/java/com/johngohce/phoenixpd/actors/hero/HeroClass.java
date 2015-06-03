@@ -19,20 +19,41 @@ package com.johngohce.phoenixpd.actors.hero;
 
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
-import com.johngohce.phoenixpd.items.TomeOfMastery;
+import com.johngohce.phoenixpd.Dungeon;
+import com.johngohce.phoenixpd.items.Generator;
 import com.johngohce.phoenixpd.items.armor.ClothArmor;
+import com.johngohce.phoenixpd.items.armor.MailArmor;
+import com.johngohce.phoenixpd.items.armor.glyphs.Affection;
+import com.johngohce.phoenixpd.items.armor.glyphs.Multiplicity;
 import com.johngohce.phoenixpd.items.bags.Keyring;
 import com.johngohce.phoenixpd.items.food.Food;
+import com.johngohce.phoenixpd.items.food.MysteryMeat;
+import com.johngohce.phoenixpd.items.potions.PotionOfHealing;
+import com.johngohce.phoenixpd.items.potions.PotionOfLiquidFlame;
 import com.johngohce.phoenixpd.items.potions.PotionOfStrength;
+import com.johngohce.phoenixpd.items.rings.RingOfHaggler;
+import com.johngohce.phoenixpd.items.rings.RingOfHaste;
 import com.johngohce.phoenixpd.items.rings.RingOfShadows;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfIdentify;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
+import com.johngohce.phoenixpd.items.wands.Wand;
+import com.johngohce.phoenixpd.items.wands.WandOfBlink;
+import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
+import com.johngohce.phoenixpd.items.wands.WandOfFirebolt;
+import com.johngohce.phoenixpd.items.wands.WandOfLightning;
 import com.johngohce.phoenixpd.items.wands.WandOfMagicMissile;
+import com.johngohce.phoenixpd.items.wands.WandOfSlowness;
+import com.johngohce.phoenixpd.items.weapon.Weapon;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Fire;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Leech;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
 import com.johngohce.phoenixpd.items.weapon.melee.Dagger;
 import com.johngohce.phoenixpd.items.weapon.melee.Knuckles;
 import com.johngohce.phoenixpd.items.weapon.melee.ShortSword;
-import com.johngohce.phoenixpd.items.weapon.missiles.Dart;
+import com.johngohce.phoenixpd.items.weapon.melee.Spear;
+import com.johngohce.phoenixpd.items.weapon.melee.WarHammer;
 import com.johngohce.phoenixpd.items.weapon.missiles.Boomerang;
+import com.johngohce.phoenixpd.items.weapon.missiles.Dart;
 import com.johngohce.phoenixpd.ui.QuickSlot;
 import com.johngohce.utils.Bundle;
 
@@ -84,28 +105,56 @@ public enum HeroClass {
 		hero.heroClass = this;
 		
 		initCommon( hero );
-		
+        switch (hero.monsterClass){
+            case RAT: initRat(hero);break;
+            case SCOUT: initScout(hero);break;
+            case CRAB: initCrab(hero);break;
+
+            case SKELETON: initSkeleton(hero);break;
+            case FLIES: initFlies(hero);break;
+            case THIEF: initThief(hero);break;
+            case SHAMAN: initShaman(hero);break;
+
+            case SPINNER: initSpinner(hero);break;
+            case BAT: initBat(hero);break;
+            case BRUTE: initBrute(hero);break;
+
+            case FIRE_ELEMENTAL: initFireElemental(hero);break;
+            case MONK: initMonk(hero);break;
+            case GOLEM: initGolem(hero);break;
+            case WARLOCK: initWarlock(hero);break;
+
+            case SUCCUBUS: initSuccubus(hero);break;
+            case SCORPIO: initScorpio(hero);break;
+            case EVIL_EYE: initEvilEye(hero);break;
+
+            case NONE:
+            default:
+                initRat(hero);break;
+        }
+        /*
 		switch (this) {
 		case WARRIOR:
 			initWarrior( hero );
 			break;
-			
+
 		case MAGE:
 			initMage( hero );
 			break;
-			
+
 		case ROGUE:
 			initRogue( hero );
 			break;
-			
+
 		case HUNTRESS:
 			initHuntress( hero );
 			break;
 		}
-		
+
 		if (Badges.isUnlocked( masteryBadge() )) {
 			new TomeOfMastery().collect();
 		}
+		*/
 		
 		hero.updateAwareness();
 	}
@@ -174,6 +223,138 @@ public enum HeroClass {
 		
 		QuickSlot.primaryValue = boomerang;
 	}
+
+    private static void initRat( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+    }
+    private static void initScout( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+        Dungeon.gold = 500;
+    }
+    private static void initCrab( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+        (hero.belongings.ring1 = new RingOfHaste()).upgrade().identify();
+        hero.belongings.ring1.activate(hero);
+
+        new MysteryMeat().collect();
+        new MysteryMeat().collect();
+        new MysteryMeat().collect();
+    }
+
+    private static void initSkeleton( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+        Weapon weapon = (Weapon) Generator.random(Generator.Category.WEAPON);
+        while(weapon.level<0) weapon.upgrade(false);
+        weapon.identify().collect();
+    }
+    private static void initThief( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+        (hero.belongings.ring1 = new RingOfHaggler()).upgrade().identify();
+        hero.belongings.ring1.activate(hero);
+        Dungeon.gold = 300;
+    }
+    private static void initFlies( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.armor.inscribe(new Multiplicity()).upgrade(false);
+        new PotionOfHealing().collect();
+        new PotionOfHealing().setKnown();
+    }
+    private static void initShaman( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+        Wand wand = new WandOfLightning();
+        wand.upgrade().identify().collect();
+        QuickSlot.primaryValue = wand;
+        new ScrollOfIdentify().setKnown();
+    }
+
+    private static void initBat( Hero hero ) {
+        (hero.belongings.weapon = new Dagger().enchant(new Leech())).upgrade().identify();
+        (hero.belongings.ring1 = new RingOfHaste()).upgrade().identify();
+        new PotionOfHealing().collect();
+        new PotionOfHealing().setKnown();
+    }
+    private static void initBrute( Hero hero ) {
+        (hero.belongings.weapon = new Spear()).upgrade().identify();
+        new PotionOfStrength().collect();
+        new PotionOfStrength().setKnown();
+    }
+    private static void initSpinner( Hero hero ) {
+        (hero.belongings.weapon = new Dagger().enchant(new Poison())).upgrade().identify();
+
+        Wand wand = new WandOfSlowness();
+        wand.upgrade().identify().collect();
+        QuickSlot.primaryValue = wand;
+
+        new MysteryMeat().collect();
+        new MysteryMeat().collect();
+        new MysteryMeat().collect();
+    }
+
+    private static void initFireElemental( Hero hero ) {
+        (hero.belongings.weapon = new Dagger().enchant(new Fire())).upgrade().identify();
+
+        Wand wand = new WandOfFirebolt();
+        wand.upgrade().identify().collect();
+        QuickSlot.primaryValue = wand;
+
+        new PotionOfLiquidFlame().collect();
+        new PotionOfLiquidFlame().collect();
+        new PotionOfLiquidFlame().collect();
+        new PotionOfLiquidFlame().setKnown();
+    }
+    private static void initWarlock( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+
+        Wand wand = new WandOfMagicMissile();
+        wand.upgrade(5).identify().collect();
+        QuickSlot.primaryValue = wand;
+
+        new ScrollOfIdentify().setKnown();
+    }
+    private static void initMonk( Hero hero ) {
+        (hero.belongings.weapon = new Knuckles()).identify().upgrade(3);
+        (hero.belongings.ring1 = new RingOfHaste()).upgrade().identify();
+        hero.belongings.ring1.activate(hero);
+
+    }
+    private static void initGolem( Hero hero ) {
+        (hero.belongings.weapon = new WarHammer()).identify().upgrade(1);
+
+        new PotionOfStrength().collect();
+        new PotionOfStrength().setKnown();
+    }
+
+    private static void initSuccubus( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+        (hero.belongings.armor = new MailArmor().inscribe(new Affection())).upgrade(3).identify();
+
+        Wand wand = new WandOfBlink();
+        wand.upgrade().identify().collect();
+        QuickSlot.primaryValue = wand;
+    }
+    private static void initEvilEye( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+
+        Wand wand = new WandOfDisintegration();
+        wand.upgrade(2).identify().collect();
+        QuickSlot.primaryValue = wand;
+
+    }
+    private static void initScorpio( Hero hero ) {
+        (hero.belongings.weapon = new Dagger()).identify();
+
+        Boomerang boomerang = new Boomerang();
+        boomerang.enchant(new Poison()).upgrade().identify().collect();
+        QuickSlot.primaryValue = boomerang;
+
+        new MysteryMeat().collect();
+        new MysteryMeat().collect();
+        new MysteryMeat().collect();
+
+        new PotionOfHealing().collect();
+        new PotionOfHealing().setKnown();
+    }
+
 	
 	public String title() {
 		return title;
