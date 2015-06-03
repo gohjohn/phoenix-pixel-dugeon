@@ -1159,17 +1159,14 @@ public class Hero extends Char {
 		Ankh ankh = (Ankh)belongings.getItem( Ankh.class );
         HeroMonsterClass newMonsterClass = HeroMonsterClass.getMonsterClass(cause);
 		if (ankh == null) {
-            if(newMonsterClass != null || monsterClass != null){
-                Dungeon.deleteGame( Dungeon.hero.heroClass, false );
-                if(newMonsterClass != null){
-                    GameScene.show( new WndRespawn( this, newMonsterClass , true , cause ) );
-                }else{
-                    GameScene.show( new WndRespawn( this, monsterClass , false , cause ) );
-                }
+            Dungeon.deleteGame( Dungeon.hero.heroClass, false );
+            if(newMonsterClass != null){
+                GameScene.show( new WndRespawn( newMonsterClass , true , cause ) );
+            }else if (monsterClass != null){
+                GameScene.show( new WndRespawn( monsterClass , false , cause ) );
             }else{
-                reallyDie( cause );
+                GameScene.show( new WndRespawn( HeroMonsterClass.RAT , false , cause ) );
             }
-
 		} else {
 
 			Dungeon.deleteGame( Dungeon.hero.heroClass, false );

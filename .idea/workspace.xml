@@ -48,22 +48,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mimic.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/Mimic.java">
+      <file leaf-file-name="WndRespawn.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/windows/WndRespawn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1519" max-vertical-offset="2280">
-              <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="1335">
+              <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WndRespawn.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/windows/WndRespawn.java">
+      <file leaf-file-name="Hero.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1335">
-              <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
-              <folding />
+            <state vertical-scroll-proportion="0.7343283" vertical-offset="16854" max-vertical-offset="21060">
+              <caret line="1168" column="13" selection-start-line="1168" selection-start-column="13" selection-end-line="1168" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#34192#34193#0" expanded="true" />
+                <element signature="e#34211#34212#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Item.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Item.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5434783" vertical-offset="3388" max-vertical-offset="7575">
-              <caret line="309" column="10" selection-start-line="309" selection-start-column="10" selection-end-line="309" selection-end-column="10" />
+            <state vertical-scroll-proportion="6.8461537" vertical-offset="3718" max-vertical-offset="7575">
+              <caret line="286" column="16" selection-start-line="286" selection-start-column="16" selection-end-line="286" selection-end-column="16" />
               <folding>
                 <element signature="e#7556#7557#0" expanded="true" />
                 <element signature="e#7591#7592#0" expanded="true" />
@@ -704,10 +708,10 @@
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/Belongings.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/HeroMonsterClass.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/HeroClass.java" />
-        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/Hero.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/scenes/InterlevelScene.java" />
-        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/windows/WndRespawn.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/Item.java" />
+        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/windows/WndRespawn.java" />
+        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/Hero.java" />
       </list>
     </option>
   </component>
@@ -1578,7 +1582,7 @@
         <state vertical-scroll-proportion="-2.6655405" vertical-offset="10164" max-vertical-offset="25830">
           <caret line="625" column="40" selection-start-line="625" selection-start-column="40" selection-end-line="625" selection-end-column="40" />
           <folding>
-            <marker date="1433333106000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433334578000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1615,55 +1619,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/Hero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2804054" vertical-offset="16972" max-vertical-offset="21075">
-          <caret line="1165" column="22" selection-start-line="1165" selection-start-column="22" selection-end-line="1165" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/windows/WndResurrect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1590106" vertical-offset="525" max-vertical-offset="1230">
           <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/scenes/InterlevelScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2797" max-vertical-offset="4290">
-          <caret line="285" column="23" selection-start-line="285" selection-start-column="23" selection-end-line="285" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/Mimic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1519" max-vertical-offset="2280">
-          <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/windows/WndRespawn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1335">
-          <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/Weapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6153846" vertical-offset="2591" max-vertical-offset="3585">
-          <caret line="197" column="7" selection-start-line="197" selection-start-column="6" selection-end-line="197" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1677,8 +1637,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5434783" vertical-offset="3388" max-vertical-offset="7575">
-          <caret line="309" column="10" selection-start-line="309" selection-start-column="10" selection-end-line="309" selection-end-column="10" />
+        <state vertical-scroll-proportion="6.8461537" vertical-offset="3718" max-vertical-offset="7575">
+          <caret line="286" column="16" selection-start-line="286" selection-start-column="16" selection-end-line="286" selection-end-column="16" />
           <folding>
             <element signature="e#7556#7557#0" expanded="true" />
             <element signature="e#7591#7592#0" expanded="true" />
@@ -1724,6 +1684,52 @@
             <element signature="e#12119#12120#0" expanded="true" />
             <element signature="e#12456#12457#0" expanded="true" />
             <element signature="e#12499#12500#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/Mimic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37643677" vertical-offset="1519" max-vertical-offset="2280">
+          <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/scenes/InterlevelScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2797" max-vertical-offset="4290">
+          <caret line="285" column="23" selection-start-line="285" selection-start-column="23" selection-end-line="285" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/Weapon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6153846" vertical-offset="2591" max-vertical-offset="3585">
+          <caret line="197" column="7" selection-start-line="197" selection-start-column="6" selection-end-line="197" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/windows/WndRespawn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="1335">
+          <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/Hero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7343283" vertical-offset="16854" max-vertical-offset="21060">
+          <caret line="1168" column="13" selection-start-line="1168" selection-start-column="13" selection-end-line="1168" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#34192#34193#0" expanded="true" />
+            <element signature="e#34211#34212#0" expanded="true" />
           </folding>
         </state>
       </provider>

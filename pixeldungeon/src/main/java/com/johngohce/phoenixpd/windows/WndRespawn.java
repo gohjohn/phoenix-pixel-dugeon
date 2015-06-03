@@ -19,6 +19,7 @@ package com.johngohce.phoenixpd.windows;
 
 import com.johngohce.noosa.BitmapTextMultiline;
 import com.johngohce.noosa.Game;
+import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.Rankings;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
@@ -41,7 +42,7 @@ public class WndRespawn extends Window {
 	public static HeroMonsterClass monsterClass;
     public static Object causeOfDeath;
 
-	public WndRespawn(final Hero hero, final HeroMonsterClass monsterClass, boolean isNewMonster, Object causeOfDeath) {
+	public WndRespawn(final HeroMonsterClass monsterClass, boolean isNewMonster, Object causeOfDeath) {
 		
 		super();
 		
@@ -72,7 +73,7 @@ public class WndRespawn extends Window {
 			protected void onClick() {
 				hide();
 
-                hero.monsterClass = monsterClass;
+                Dungeon.hero.monsterClass = monsterClass;
 				InterlevelScene.mode = InterlevelScene.Mode.RESPAWN;
 				Game.switchScene( InterlevelScene.class );
 			}
