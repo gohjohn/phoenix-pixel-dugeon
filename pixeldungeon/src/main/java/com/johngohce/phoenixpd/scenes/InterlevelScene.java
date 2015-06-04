@@ -26,6 +26,7 @@ import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.Statistics;
 import com.johngohce.phoenixpd.actors.Actor;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.items.Generator;
 import com.johngohce.phoenixpd.levels.Level;
 import com.johngohce.phoenixpd.windows.WndError;

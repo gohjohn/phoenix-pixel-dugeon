@@ -24,6 +24,7 @@ import com.johngohce.phoenixpd.actors.buffs.Amok;
 import com.johngohce.phoenixpd.actors.buffs.Light;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.hero.HeroClass;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.actors.mobs.npcs.Blacksmith;
 import com.johngohce.phoenixpd.actors.mobs.npcs.Ghost;
 import com.johngohce.phoenixpd.actors.mobs.npcs.Imp;
@@ -134,8 +135,11 @@ public class Dungeon {
 		
 		QuickSlot.primaryValue = null;
 		QuickSlot.secondaryValue = null;
-		
+
+        HeroMonsterClass monsterClass = null;
+        if(hero!=null) monsterClass = hero.monsterClass;
 		hero = new Hero();
+        if (hero!=null && monsterClass!=null) hero.monsterClass = monsterClass;
 		hero.live();
 		
 		Badges.reset();
