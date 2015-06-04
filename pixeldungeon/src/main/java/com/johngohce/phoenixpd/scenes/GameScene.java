@@ -34,6 +34,7 @@ import com.johngohce.phoenixpd.PixelDungeon;
 import com.johngohce.phoenixpd.Statistics;
 import com.johngohce.phoenixpd.actors.Actor;
 import com.johngohce.phoenixpd.actors.blobs.Blob;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.actors.mobs.Mob;
 import com.johngohce.phoenixpd.effects.BannerSprites;
 import com.johngohce.phoenixpd.effects.BlobEmitter;
@@ -52,7 +53,7 @@ import com.johngohce.phoenixpd.levels.features.Chasm;
 import com.johngohce.phoenixpd.plants.Plant;
 import com.johngohce.phoenixpd.sprites.CharSprite;
 import com.johngohce.phoenixpd.sprites.DiscardedItemSprite;
-import com.johngohce.phoenixpd.sprites.HeroSprite;
+import com.johngohce.phoenixpd.sprites.HeroMonsterSprite;
 import com.johngohce.phoenixpd.sprites.ItemSprite;
 import com.johngohce.phoenixpd.sprites.PlantSprite;
 import com.johngohce.phoenixpd.ui.AttackIndicator;
@@ -91,7 +92,7 @@ public class GameScene extends PixelScene {
 	private SkinnedBlock water;
 	private DungeonTilemap tiles;
 	private FogOfWar fog;
-	private HeroSprite hero;
+	private HeroMonsterSprite hero;
 	
 	private GameLog log;
 	
@@ -199,11 +200,15 @@ public class GameScene extends PixelScene {
 		add( statuses );
 		
 		add( emoicons );
-		
-		hero = new HeroSprite();
+
+        hero = new HeroMonsterSprite(HeroMonsterClass.getSprite(Dungeon.hero.monsterClass));
 		hero.place( Dungeon.hero.pos );
-		hero.updateArmor();
 		mobs.add( hero );
+
+//        hero = new HeroSprite();
+//		hero.place( Dungeon.hero.pos );
+//		hero.updateArmor();
+//		mobs.add( hero );
 
 		
 		add( new HealthIndicator() );

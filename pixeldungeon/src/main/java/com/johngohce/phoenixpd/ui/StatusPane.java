@@ -34,7 +34,7 @@ import com.johngohce.phoenixpd.effects.particles.BloodParticle;
 import com.johngohce.phoenixpd.items.keys.IronKey;
 import com.johngohce.phoenixpd.scenes.GameScene;
 import com.johngohce.phoenixpd.scenes.PixelScene;
-import com.johngohce.phoenixpd.sprites.HeroSprite;
+import com.johngohce.phoenixpd.sprites.HeroMonsterSprite;
 import com.johngohce.phoenixpd.windows.WndGame;
 import com.johngohce.phoenixpd.windows.WndHero;
 
@@ -84,7 +84,7 @@ public class StatusPane extends Component {
 		btnMenu = new MenuButton();
 		add( btnMenu );
 		
-		avatar = HeroSprite.avatar( Dungeon.hero.heroClass, lastTier );
+		avatar = HeroMonsterSprite.avatar(Dungeon.hero.heroClass, lastTier);
 		add( avatar );
 		
 		blood = new Emitter();
@@ -237,7 +237,7 @@ public class StatusPane extends Component {
 		int tier = Dungeon.hero.tier();
 		if (tier != lastTier) {
 			lastTier = tier;
-			avatar.copy( HeroSprite.avatar( Dungeon.hero.heroClass, tier ) );
+			avatar.copy( HeroMonsterSprite.avatar( Dungeon.hero.heroClass, tier ) );
 		}
 	}
 	

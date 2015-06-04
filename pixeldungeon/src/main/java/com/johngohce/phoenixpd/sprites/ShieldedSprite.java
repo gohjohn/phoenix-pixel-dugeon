@@ -27,7 +27,7 @@ public class ShieldedSprite extends MobSprite {
 		
 		texture( Assets.BRUTE );
 		
-		TextureFilm frames = new TextureFilm( texture, 12, 16 );
+		frames = new TextureFilm( texture, 12, 16 );
 		
 		idle = new Animation( 2, true );
 		idle.frames( frames, 21, 21, 21, 22, 21, 21, 22, 22 );

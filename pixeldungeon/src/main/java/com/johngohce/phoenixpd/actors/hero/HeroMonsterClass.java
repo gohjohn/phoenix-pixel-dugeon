@@ -96,6 +96,11 @@ public enum HeroMonsterClass {
         }
     }
 
+    public static MobSprite getSprite(HeroMonsterClass monsterClass){
+        if(monsterClass==null) return new RatSprite();
+        return monsterClass.image();
+    }
+
     public static HeroMonsterClass getMonsterClass(Object obj){
         if (obj instanceof Mob){
             if(obj instanceof Rat) return RAT;

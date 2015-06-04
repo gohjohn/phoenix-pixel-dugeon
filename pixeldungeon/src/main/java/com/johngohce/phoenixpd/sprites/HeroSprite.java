@@ -35,11 +35,11 @@ public class HeroSprite extends CharSprite {
 	private static final int FRAME_WIDTH	= 12;
 	private static final int FRAME_HEIGHT	= 15;
 	
-	private static final int RUN_FRAMERATE	= 20;
+	protected static final int RUN_FRAMERATE= 20;
 	
-	private static TextureFilm tiers;
+	protected static TextureFilm tiers;
 	
-	private Animation fly;
+	protected Animation fly;
 	
 	public HeroSprite() {
 		super();

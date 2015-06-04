@@ -27,7 +27,7 @@ public class MimicSprite extends MobSprite {
 		
 		texture( Assets.MIMIC );
 		
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
+		frames = new TextureFilm( texture, 16, 16 );
 		
 		idle = new Animation( 5, true );
 		idle.frames( frames, 0, 0, 0, 1, 1 );

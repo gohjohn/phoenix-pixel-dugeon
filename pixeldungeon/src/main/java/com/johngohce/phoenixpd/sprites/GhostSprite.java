@@ -17,14 +17,14 @@
  */
 package com.johngohce.phoenixpd.sprites;
 
-import javax.microedition.khronos.opengles.GL10;
-
 import android.opengl.GLES20;
 
 import com.johngohce.noosa.TextureFilm;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.effects.Speck;
 import com.johngohce.phoenixpd.effects.particles.ShaftParticle;
+
+import javax.microedition.khronos.opengles.GL10;
 
 public class GhostSprite extends MobSprite {
 	
@@ -33,7 +33,7 @@ public class GhostSprite extends MobSprite {
 		
 		texture( Assets.GHOST );
 		
-		TextureFilm frames = new TextureFilm( texture, 14, 15 );
+		frames = new TextureFilm( texture, 14, 15 );
 		
 		idle = new Animation( 5, true );
 		idle.frames( frames, 0, 1 );

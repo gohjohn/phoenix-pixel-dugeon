@@ -31,7 +31,7 @@ public class ShamanSprite extends MobSprite {
 		
 		texture( Assets.SHAMAN );
 		
-		TextureFilm frames = new TextureFilm( texture, 12, 15 );
+		frames = new TextureFilm( texture, 12, 15 );
 		
 		idle = new Animation( 2, true );
 		idle.frames( frames, 0, 0, 0, 1, 0, 0, 1, 1 );

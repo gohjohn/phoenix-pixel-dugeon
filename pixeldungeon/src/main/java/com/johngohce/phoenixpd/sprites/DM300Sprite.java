@@ -28,7 +28,7 @@ public class DM300Sprite extends MobSprite {
 		
 		texture( Assets.DM300 );
 		
-		TextureFilm frames = new TextureFilm( texture, 22, 20 );
+		frames = new TextureFilm( texture, 22, 20 );
 		
 		idle = new Animation( 10, true );
 		idle.frames( frames, 0, 1 );

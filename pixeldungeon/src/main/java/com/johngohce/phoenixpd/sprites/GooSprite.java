@@ -37,7 +37,7 @@ public class GooSprite extends MobSprite {
 		
 		texture( Assets.GOO );
 		
-		TextureFilm frames = new TextureFilm( texture, 20, 14 );
+		frames = new TextureFilm( texture, 20, 14 );
 		
 		idle = new Animation( 10, true );
 		idle.frames( frames, 0, 1 );

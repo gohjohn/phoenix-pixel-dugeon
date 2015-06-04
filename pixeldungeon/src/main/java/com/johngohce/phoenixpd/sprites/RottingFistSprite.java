@@ -30,7 +30,7 @@ public class RottingFistSprite extends MobSprite {
 		
 		texture( Assets.ROTTING );
 		
-		TextureFilm frames = new TextureFilm( texture, 24, 17 );
+		frames = new TextureFilm( texture, 24, 17 );
 		
 		idle = new Animation( 2, true );
 		idle.frames( frames, 0, 0, 1 );

@@ -17,6 +17,7 @@
  */
 package com.johngohce.phoenixpd.sprites;
 
+import com.johngohce.noosa.TextureFilm;
 import com.johngohce.noosa.tweeners.AlphaTweener;
 import com.johngohce.noosa.tweeners.ScaleTweener;
 import com.johngohce.phoenixpd.DungeonTilemap;
@@ -28,7 +29,9 @@ public class MobSprite extends CharSprite {
 
 	private static final float FADE_TIME	= 3f;
 	private static final float FALL_TIME	= 1f;
-	
+
+    public TextureFilm frames = null;
+
 	@Override
 	public void update() {
 		sleeping = ch != null && ((Mob)ch).state == ((Mob)ch).SLEEPEING;

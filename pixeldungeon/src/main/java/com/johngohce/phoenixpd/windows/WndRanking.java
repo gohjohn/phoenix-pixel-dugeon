@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.windows;
 
-import java.util.Locale;
-
 import com.johngohce.noosa.BitmapText;
 import com.johngohce.noosa.ColorBlock;
 import com.johngohce.noosa.Game;
@@ -33,7 +31,7 @@ import com.johngohce.phoenixpd.Statistics;
 import com.johngohce.phoenixpd.actors.hero.Belongings;
 import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.scenes.PixelScene;
-import com.johngohce.phoenixpd.sprites.HeroSprite;
+import com.johngohce.phoenixpd.sprites.HeroMonsterSprite;
 import com.johngohce.phoenixpd.ui.BadgesList;
 import com.johngohce.phoenixpd.ui.Icons;
 import com.johngohce.phoenixpd.ui.ItemSlot;
@@ -41,6 +39,8 @@ import com.johngohce.phoenixpd.ui.QuickSlot;
 import com.johngohce.phoenixpd.ui.RedButton;
 import com.johngohce.phoenixpd.ui.ScrollPane;
 import com.johngohce.phoenixpd.utils.Utils;
+
+import java.util.Locale;
 
 public class WndRanking extends WndTabbed {
 	
@@ -166,7 +166,7 @@ public class WndRanking extends WndTabbed {
 			String heroClass = Dungeon.hero.className();
 			
 			IconTitle title = new IconTitle();
-			title.icon( HeroSprite.avatar( Dungeon.hero.heroClass, Dungeon.hero.tier() ) );
+			title.icon(HeroMonsterSprite.avatar( Dungeon.hero.heroClass, Dungeon.hero.tier() ) );
 			title.label( Utils.format( TXT_TITLE, Dungeon.hero.lvl, heroClass ).toUpperCase( Locale.ENGLISH ) );
 			title.setRect( 0, 0, WIDTH, 0 );
 			add( title );

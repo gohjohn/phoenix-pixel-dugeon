@@ -28,7 +28,7 @@ public class PiranhaSprite extends MobSprite {
 		
 		texture( Assets.PIRANHA );
 		
-		TextureFilm frames = new TextureFilm( texture, 12, 16 );
+		frames = new TextureFilm( texture, 12, 16 );
 		
 		idle = new Animation( 8, true );
 		idle.frames( frames, 0, 1, 2, 1 );

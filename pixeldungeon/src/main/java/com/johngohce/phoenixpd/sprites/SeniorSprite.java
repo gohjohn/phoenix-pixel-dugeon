@@ -30,7 +30,7 @@ public class SeniorSprite extends MobSprite {
 		
 		texture( Assets.MONK );
 		
-		TextureFilm frames = new TextureFilm( texture, 15, 14 );
+		frames = new TextureFilm( texture, 15, 14 );
 		
 		idle = new Animation( 6, true );
 		idle.frames( frames, 18, 17, 18, 19 );

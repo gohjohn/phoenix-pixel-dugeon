@@ -22,13 +22,13 @@ import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.effects.particles.ElmoParticle;
 
 public class GolemSprite extends MobSprite {
-	
+    
 	public GolemSprite() {
 		super();
-		
+
 		texture( Assets.GOLEM );
 		
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
+		frames = new TextureFilm( texture, 16, 16 );
 		
 		idle = new Animation( 4, true );
 		idle.frames( frames, 0, 1 );
