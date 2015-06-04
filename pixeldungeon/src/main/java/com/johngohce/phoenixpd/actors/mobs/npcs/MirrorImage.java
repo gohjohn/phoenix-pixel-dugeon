@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.actors.mobs.npcs;
 
-import java.util.HashSet;
-
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.blobs.ToxicGas;
@@ -26,10 +24,11 @@ import com.johngohce.phoenixpd.actors.buffs.Burning;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.mobs.Mob;
 import com.johngohce.phoenixpd.levels.Level;
-import com.johngohce.phoenixpd.sprites.CharSprite;
 import com.johngohce.phoenixpd.sprites.MirrorSprite;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Random;
+
+import java.util.HashSet;
 
 public class MirrorImage extends NPC {
 	
@@ -48,7 +47,7 @@ public class MirrorImage extends NPC {
 	private static final String TIER	= "tier";
 	private static final String ATTACK	= "attack";
 	private static final String DAMAGE	= "damage";
-	
+
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
@@ -114,12 +113,12 @@ public class MirrorImage extends NPC {
 			"but it's paler and twitches a little.";
 	}
 	
-	@Override
-	public CharSprite sprite() {
-		CharSprite s = super.sprite();
-		((MirrorSprite)s).updateArmor( tier );
-		return s;
-	}
+//	@Override
+//	public CharSprite sprite() {
+//		CharSprite s = super.sprite();
+//		((MirrorSprite)s).updateArmor( tier );
+//		return s;
+//	}
 
 	@Override
 	public void interact() {

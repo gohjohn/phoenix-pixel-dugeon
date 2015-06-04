@@ -19,43 +19,74 @@ package com.johngohce.phoenixpd.sprites;
 
 import com.johngohce.noosa.TextureFilm;
 import com.johngohce.phoenixpd.Dungeon;
-import com.johngohce.phoenixpd.actors.Char;
-import com.johngohce.phoenixpd.actors.mobs.npcs.MirrorImage;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 
 public class MirrorSprite extends MobSprite {
-	
-	private static final int FRAME_WIDTH	= 12;
-	private static final int FRAME_HEIGHT	= 15;
-	
+
+    protected static final int RUN_FRAMERATE= 20;
+    private TextureFilm tiers;
+    MobSprite mobSprite;
 	public MirrorSprite() {
 		super();
-		
-		texture( Dungeon.hero.heroClass.spritesheet() );
-		updateArmor( 0 );
+
+        mobSprite = HeroMonsterClass.getSprite(Dungeon.hero.monsterClass);
+        texture(mobSprite.texture);
+
+
+        TextureFilm film = frames();
+
+        if(mobSprite.idle!=null){
+            idle = mobSprite.idle.clone();
+        }else{
+            idle = new Animation( 1, true );
+            idle.frames( film, 0, 0, 0, 1, 0, 0, 1, 1 );
+        }
+
+        if(mobSprite.run!= null){
+            run = new Animation( RUN_FRAMERATE, true );
+            run.frames = mobSprite.run.frames.clone();
+        }else{
+            run = new Animation( RUN_FRAMERATE, true );
+            run.frames = idle.frames.clone();
+        }
+
+        if(mobSprite.die!= null){
+            die = mobSprite.die.clone();
+        }else{
+            die = idle.clone();
+        }
+
+        if(mobSprite.attack!= null){
+            attack = mobSprite.attack.clone();
+        }else{
+            attack = idle.clone();
+        }
+
+        if(mobSprite.die!= null){
+            die = mobSprite.die.clone();
+        }else{
+            die = idle.clone();
+        }
+
+        if(mobSprite.zap!= null){
+            zap = mobSprite.zap.clone();
+        }else{
+            zap = attack.clone();
+        }
+
+        if(mobSprite.operate!= null){
+            operate = mobSprite.operate.clone();
+        }else{
+            operate = attack.clone();
+        }
+
 		idle();
 	}
-	
-	@Override
-	public void link( Char ch ) {
-		super.link( ch );
-		updateArmor( ((MirrorImage)ch).tier );
-	}
-	
-	public void updateArmor( int tier ) {
-		TextureFilm film = new TextureFilm( HeroMonsterSprite.tiers(), tier, FRAME_WIDTH, FRAME_HEIGHT );
-		
-		idle = new Animation( 1, true );
-		idle.frames( film, 0, 0, 0, 1, 0, 0, 1, 1 );
-		
-		run = new Animation( 20, true );
-		run.frames( film, 2, 3, 4, 5, 6, 7 );
-		
-		die = new Animation( 20, false );
-		die.frames( film, 0 );
-		
-		attack = new Animation( 15, false );
-		attack.frames( film, 13, 14, 15, 0 );
-		
-		idle();
-	}
+    TextureFilm frames() {
+        if (tiers == null) {
+            tiers = mobSprite.frames;
+        }
+
+        return tiers;
+    }
 }
