@@ -34,7 +34,7 @@ public class GhostSprite extends MobSprite {
 		texture( Assets.GHOST );
 		
 		frames = new TextureFilm( texture, 14, 15 );
-		
+
 		idle = new Animation( 5, true );
 		idle.frames( frames, 0, 1 );
 		

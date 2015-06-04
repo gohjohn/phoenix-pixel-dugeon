@@ -36,6 +36,7 @@ import com.johngohce.phoenixpd.items.rings.RingOfHaste;
 import com.johngohce.phoenixpd.items.rings.RingOfShadows;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfIdentify;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
+import com.johngohce.phoenixpd.items.scrolls.ScrollOfMirrorImage;
 import com.johngohce.phoenixpd.items.wands.Wand;
 import com.johngohce.phoenixpd.items.wands.WandOfBlink;
 import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
@@ -128,7 +129,6 @@ public enum HeroClass {
             case SCORPIO: initScorpio(hero);break;
             case EVIL_EYE: initEvilEye(hero);break;
 
-            case NONE:
             default:
                 initRat(hero);break;
         }
@@ -226,6 +226,7 @@ public enum HeroClass {
 
     private static void initRat( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
+        new ScrollOfMirrorImage().collect();
     }
     private static void initScout( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();

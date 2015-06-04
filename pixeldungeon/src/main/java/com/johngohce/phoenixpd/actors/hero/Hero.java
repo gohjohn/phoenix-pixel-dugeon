@@ -136,7 +136,7 @@ public class Hero extends Char {
 	
 	public HeroClass heroClass = HeroClass.ROGUE;
 	public HeroSubClass subClass = HeroSubClass.NONE;
-    public HeroMonsterClass monsterClass = HeroMonsterClass.NONE;
+    public HeroMonsterClass monsterClass = HeroMonsterClass.RAT;
 	
 	private int attackSkill = 10;
 	private int defenseSkill = 5;
@@ -235,7 +235,7 @@ public class Hero extends Char {
 	}
 	
 	public String className() {
-        if (monsterClass != null && monsterClass != HeroMonsterClass.NONE) return monsterClass.title();
+        if (monsterClass != null) return monsterClass.title();
 		return subClass == null || subClass == HeroSubClass.NONE ? heroClass.title() : subClass.title();
 	}
 	

@@ -1,8 +1,8 @@
 package com.johngohce.phoenixpd.sprites;
 
 import android.graphics.RectF;
+import android.util.Log;
 
-import com.johngohce.gltextures.SmartTexture;
 import com.johngohce.noosa.Image;
 import com.johngohce.noosa.TextureFilm;
 import com.johngohce.phoenixpd.Dungeon;
@@ -14,10 +14,12 @@ import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
  */
 public class HeroMonsterSprite extends HeroSprite {
 
+    private static MobSprite lastMobSprite = null;
     private MobSprite mobSprite;
     public HeroMonsterSprite(MobSprite mobSprite){
         if(mobSprite==null) mobSprite = new RatSprite();
         this.mobSprite = mobSprite;
+        lastMobSprite = mobSprite;
         link( Dungeon.hero );
         texture(mobSprite.texture);
         TextureFilm film = frames();
@@ -78,7 +80,6 @@ public class HeroMonsterSprite extends HeroSprite {
 
     TextureFilm frames() {
         if (tiers == null) {
-            SmartTexture texture = mobSprite.texture;
             tiers = mobSprite.frames;
         }
 
@@ -91,13 +92,45 @@ public class HeroMonsterSprite extends HeroSprite {
         }
 
         return tiers;
+
+        /*
+        if(lastMobSprite != null) tiers = lastMobSprite.frames;
+        else tiers = new RatSprite().frames;
+
+        return tiers;
+         */
     }
 
     public static Image avatar( HeroClass cl, int armorTier ) {
 
-        RectF patch = tiers().get( armorTier );
+//        RectF patch = tiers().get( armorTier );
+        RectF patch = tiers().get( 0 );
         Image avatar = new Image( HeroMonsterClass.RAT.image() );
+
+        if(Dungeon.hero.monsterClass!=null) avatar = new Image(Dungeon.hero.monsterClass.image());
         RectF frame = avatar.texture.uvRect( 1, 0, 16, 15 );
+
+        if(lastMobSprite != null){
+            frame = avatar.texture.uvRect( 0, 0,
+                    (int)(lastMobSprite.idle.frames[0].width()*lastMobSprite.texture.width),
+                    (int)(lastMobSprite.idle.frames[0].height()*lastMobSprite.texture.height) );
+            Log.i("Test", "W: "+(int)(lastMobSprite.idle.frames[0].width()*lastMobSprite.texture.width));
+            Log.i("Test", "H: "+(int)(lastMobSprite.idle.frames[0].height()*lastMobSprite.texture.height));
+            Log.i("Test", "width: "+lastMobSprite.idle.frames[0].width());
+            Log.i("Test", "height: "+lastMobSprite.idle.frames[0].height());
+            Log.i("Test", "left: "+lastMobSprite.idle.frames[0].left);
+            Log.i("Test", "right: "+lastMobSprite.idle.frames[0].right);
+            Log.i("Test", "top: "+lastMobSprite.idle.frames[0].top);
+            Log.i("Test", "bottom: "+lastMobSprite.idle.frames[0].bottom);
+            Log.i("Test", "frame: "+lastMobSprite.idle.frames[0]);
+            Log.i("Test", "patchleft: "+patch.left);
+            Log.i("Test", "patchtop: "+patch.top);
+            Log.i("Test", "patch: "+patch);
+
+
+        }
+
+
         frame.offset( patch.left, patch.top );
         avatar.frame( frame );
 

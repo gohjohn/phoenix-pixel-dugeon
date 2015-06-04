@@ -43,8 +43,6 @@ import com.johngohce.utils.Bundle;
  */
 public enum HeroMonsterClass {
 
-    NONE( null, null ),
-
     RAT("marsupial rat", new RatSprite()),
     SCOUT("gnoll scout", new GnollSprite()),
     CRAB("sewer crab", new CrabSprite()),
@@ -92,7 +90,7 @@ public enum HeroMonsterClass {
         try {
             return valueOf( value );
         } catch (Exception e) {
-            return NONE;
+            return null;
         }
     }
 
