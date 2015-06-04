@@ -70,4 +70,8 @@ public class LightningTrap {
 	public static final Electricity LIGHTNING = new Electricity();
 	public static class Electricity {	
 	}
+
+    public static final ShamanElectricity SHAMAN_LIGHTNING = new ShamanElectricity();
+    public static class ShamanElectricity {
+    }
 }

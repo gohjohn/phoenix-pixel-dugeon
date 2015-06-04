@@ -23,7 +23,6 @@ import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.items.Generator;
 import com.johngohce.phoenixpd.items.armor.ClothArmor;
 import com.johngohce.phoenixpd.items.armor.MailArmor;
-import com.johngohce.phoenixpd.items.armor.PlateArmor;
 import com.johngohce.phoenixpd.items.armor.glyphs.Affection;
 import com.johngohce.phoenixpd.items.armor.glyphs.Multiplicity;
 import com.johngohce.phoenixpd.items.bags.Keyring;
@@ -37,7 +36,6 @@ import com.johngohce.phoenixpd.items.rings.RingOfHaste;
 import com.johngohce.phoenixpd.items.rings.RingOfShadows;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfIdentify;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
-import com.johngohce.phoenixpd.items.scrolls.ScrollOfMirrorImage;
 import com.johngohce.phoenixpd.items.wands.Wand;
 import com.johngohce.phoenixpd.items.wands.WandOfBlink;
 import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
@@ -50,7 +48,6 @@ import com.johngohce.phoenixpd.items.weapon.enchantments.Fire;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Leech;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
 import com.johngohce.phoenixpd.items.weapon.melee.Dagger;
-import com.johngohce.phoenixpd.items.weapon.melee.Glaive;
 import com.johngohce.phoenixpd.items.weapon.melee.Knuckles;
 import com.johngohce.phoenixpd.items.weapon.melee.ShortSword;
 import com.johngohce.phoenixpd.items.weapon.melee.Spear;
@@ -165,8 +162,6 @@ public enum HeroClass {
 		(hero.belongings.armor = new ClothArmor()).identify();
 		new Food().identify().collect();
 		new Keyring().collect();
-
-        new ScrollOfMirrorImage().setKnown();//TODO remove this
 	}
 	
 	public Badges.Badge masteryBadge() {
@@ -231,14 +226,12 @@ public enum HeroClass {
     private static void initRat( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
         //TODO Remove imba gear
-        (hero.belongings.weapon = new Glaive().enchant()).identify().upgrade(10);
-        (hero.belongings.armor = new PlateArmor()).identify().upgrade(10);
-        new WandOfBlink().upgrade(10).identify().collect();
-        new WandOfFirebolt().upgrade(10).identify().collect();
-        (hero.belongings.ring1 = new RingOfShadows()).identify().upgrade(10);
-        (hero.belongings.ring2 = new RingOfHaste()).identify().upgrade(10);
-
-        new ScrollOfMirrorImage().collect();
+//        (hero.belongings.weapon = new Glaive().enchant()).identify().upgrade(10);
+//        (hero.belongings.armor = new PlateArmor()).identify().upgrade(10);
+//        new WandOfBlink().upgrade(10).identify().collect();
+//        new WandOfFirebolt().upgrade(10).identify().collect();
+//        (hero.belongings.ring1 = new RingOfShadows()).identify().upgrade(10);
+//        (hero.belongings.ring2 = new RingOfHaste()).identify().upgrade(10);
     }
     private static void initScout( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();

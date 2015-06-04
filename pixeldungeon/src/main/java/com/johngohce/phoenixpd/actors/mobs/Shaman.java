@@ -17,7 +17,7 @@
  */
 package com.johngohce.phoenixpd.actors.mobs;
 
-import java.util.HashSet;
+import android.util.Log;
 
 import com.johngohce.noosa.Camera;
 import com.johngohce.phoenixpd.Dungeon;
@@ -34,6 +34,8 @@ import com.johngohce.phoenixpd.utils.GLog;
 import com.johngohce.phoenixpd.utils.Utils;
 import com.johngohce.utils.Callback;
 import com.johngohce.utils.Random;
+
+import java.util.HashSet;
 
 public class Shaman extends Mob implements Callback {
 
@@ -96,8 +98,9 @@ public class Shaman extends Mob implements Callback {
 				if (Level.water[enemy.pos] && !enemy.flying) {
 					dmg *= 1.5f;
 				}
-				enemy.damage( dmg, LightningTrap.LIGHTNING );
-				
+//				enemy.damage( dmg, LightningTrap.LIGHTNING );
+				enemy.damage( dmg, LightningTrap.SHAMAN_LIGHTNING );
+
 				enemy.sprite.centerEmitter().burst( SparkParticle.FACTORY, 3 );
 				enemy.sprite.flash();
 				
@@ -109,6 +112,7 @@ public class Shaman extends Mob implements Callback {
 						Dungeon.fail( Utils.format( ResultDescriptions.MOB, 
 							Utils.indefinite( name ), Dungeon.depth ) );
 						GLog.n( TXT_LIGHTNING_KILLED, name );
+                        Log.i("Death", "Shaman bolt");
 					}
 				}
 			} else {
@@ -134,7 +138,8 @@ public class Shaman extends Mob implements Callback {
 	
 	private static final HashSet<Class<?>> RESISTANCES = new HashSet<Class<?>>();
 	static {
-		RESISTANCES.add( LightningTrap.Electricity.class );
+        RESISTANCES.add( LightningTrap.Electricity.class );
+        RESISTANCES.add( LightningTrap.ShamanElectricity.class );
 	}
 	
 	@Override

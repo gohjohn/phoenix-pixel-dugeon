@@ -1,7 +1,6 @@
 package com.johngohce.phoenixpd.sprites;
 
 import android.graphics.RectF;
-import android.util.Log;
 
 import com.johngohce.noosa.Image;
 import com.johngohce.noosa.TextureFilm;
@@ -114,18 +113,18 @@ public class HeroMonsterSprite extends HeroSprite {
             frame = avatar.texture.uvRect( 0, 0,
                     (int)(lastMobSprite.idle.frames[0].width()*lastMobSprite.texture.width),
                     (int)(lastMobSprite.idle.frames[0].height()*lastMobSprite.texture.height) );
-            Log.i("Test", "W: "+(int)(lastMobSprite.idle.frames[0].width()*lastMobSprite.texture.width));
-            Log.i("Test", "H: "+(int)(lastMobSprite.idle.frames[0].height()*lastMobSprite.texture.height));
-            Log.i("Test", "width: "+lastMobSprite.idle.frames[0].width());
-            Log.i("Test", "height: "+lastMobSprite.idle.frames[0].height());
-            Log.i("Test", "left: "+lastMobSprite.idle.frames[0].left);
-            Log.i("Test", "right: "+lastMobSprite.idle.frames[0].right);
-            Log.i("Test", "top: "+lastMobSprite.idle.frames[0].top);
-            Log.i("Test", "bottom: "+lastMobSprite.idle.frames[0].bottom);
-            Log.i("Test", "frame: "+lastMobSprite.idle.frames[0]);
-            Log.i("Test", "patchleft: "+patch.left);
-            Log.i("Test", "patchtop: "+patch.top);
-            Log.i("Test", "patch: "+patch);
+//            Log.i("Test", "W: "+(int)(lastMobSprite.idle.frames[0].width()*lastMobSprite.texture.width));
+//            Log.i("Test", "H: "+(int)(lastMobSprite.idle.frames[0].height()*lastMobSprite.texture.height));
+//            Log.i("Test", "width: "+lastMobSprite.idle.frames[0].width());
+//            Log.i("Test", "height: "+lastMobSprite.idle.frames[0].height());
+//            Log.i("Test", "left: "+lastMobSprite.idle.frames[0].left);
+//            Log.i("Test", "right: "+lastMobSprite.idle.frames[0].right);
+//            Log.i("Test", "top: "+lastMobSprite.idle.frames[0].top);
+//            Log.i("Test", "bottom: "+lastMobSprite.idle.frames[0].bottom);
+//            Log.i("Test", "frame: "+lastMobSprite.idle.frames[0]);
+//            Log.i("Test", "patchleft: "+patch.left);
+//            Log.i("Test", "patchtop: "+patch.top);
+//            Log.i("Test", "patch: "+patch);
 
 
         }

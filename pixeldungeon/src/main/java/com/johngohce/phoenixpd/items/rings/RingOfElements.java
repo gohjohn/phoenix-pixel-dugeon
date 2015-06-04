@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.items.rings;
 
-import java.util.HashSet;
-
 import com.johngohce.phoenixpd.actors.blobs.ToxicGas;
 import com.johngohce.phoenixpd.actors.buffs.Burning;
 import com.johngohce.phoenixpd.actors.buffs.Poison;
@@ -27,6 +25,8 @@ import com.johngohce.phoenixpd.actors.mobs.Warlock;
 import com.johngohce.phoenixpd.actors.mobs.Yog;
 import com.johngohce.phoenixpd.levels.traps.LightningTrap;
 import com.johngohce.utils.Random;
+
+import java.util.HashSet;
 
 public class RingOfElements extends Ring {
 
@@ -54,7 +54,8 @@ public class RingOfElements extends Ring {
 		FULL.add( Burning.class );
 		FULL.add( ToxicGas.class );
 		FULL.add( Poison.class );
-		FULL.add( LightningTrap.Electricity.class );
+        FULL.add( LightningTrap.Electricity.class );
+        FULL.add( LightningTrap.ShamanElectricity.class );
 		FULL.add( Warlock.class );
 		FULL.add( Eye.class );
 		FULL.add( Yog.BurningFist.class );

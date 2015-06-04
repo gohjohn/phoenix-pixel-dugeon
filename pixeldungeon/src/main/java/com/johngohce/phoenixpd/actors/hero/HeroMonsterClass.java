@@ -18,6 +18,7 @@ import com.johngohce.phoenixpd.actors.mobs.Succubus;
 import com.johngohce.phoenixpd.actors.mobs.Swarm;
 import com.johngohce.phoenixpd.actors.mobs.Thief;
 import com.johngohce.phoenixpd.actors.mobs.Warlock;
+import com.johngohce.phoenixpd.levels.traps.LightningTrap;
 import com.johngohce.phoenixpd.sprites.BatSprite;
 import com.johngohce.phoenixpd.sprites.BruteSprite;
 import com.johngohce.phoenixpd.sprites.CrabSprite;
@@ -99,7 +100,7 @@ public enum HeroMonsterClass {
         return monsterClass.image();
     }
 
-    public static HeroMonsterClass getMonsterClass(Object obj){
+    public static HeroMonsterClass getMonsterClassFromCause(Object obj){
         if (obj instanceof Mob){
             if(obj instanceof Rat) return RAT;
             if(obj instanceof Gnoll) return SCOUT;
@@ -123,6 +124,8 @@ public enum HeroMonsterClass {
             if(obj instanceof Succubus) return SUCCUBUS;
             if(obj instanceof Scorpio) return SCORPIO;
         }
+        if (obj instanceof LightningTrap.ShamanElectricity) return SHAMAN;
+
         return null;
     }
 }

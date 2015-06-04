@@ -17,6 +17,8 @@
  */
 package com.johngohce.phoenixpd.actors.hero;
 
+import android.util.Log;
+
 import com.johngohce.noosa.Camera;
 import com.johngohce.noosa.Game;
 import com.johngohce.noosa.audio.Sample;
@@ -1157,13 +1159,14 @@ public class Hero extends Char {
 		super.die( cause );
 		
 		Ankh ankh = (Ankh)belongings.getItem( Ankh.class );
-        HeroMonsterClass newMonsterClass = HeroMonsterClass.getMonsterClass(cause);
+        HeroMonsterClass newMonsterClass = HeroMonsterClass.getMonsterClassFromCause(cause);
 		if (ankh == null) {
             Dungeon.deleteGame( Dungeon.hero.heroClass, false );
             if(newMonsterClass != null){
                 GameScene.show( new WndRespawn( newMonsterClass , true , cause ) );
             }else if (monsterClass != null){
-                GameScene.show( new WndRespawn( monsterClass , false , cause ) );
+                Log.i("Unrecognized death",""+cause);
+                GameScene.show(new WndRespawn(monsterClass, false, cause));
             }else{
                 GameScene.show( new WndRespawn( HeroMonsterClass.RAT , false , cause ) );
             }
