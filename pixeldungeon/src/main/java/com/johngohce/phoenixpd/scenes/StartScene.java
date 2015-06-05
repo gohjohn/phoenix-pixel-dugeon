@@ -414,8 +414,6 @@ public class StartScene extends PixelScene {
             avatar.scale.set( SCALE );
 
             if(hero == null) name.text( "NEW GAME" );
-            name.measure();
-            name.hardlight( normal );
 
 			if (Badges.isUnlocked( cl.masteryBadge() )) {
 				normal = MASTERY_NORMAL;
@@ -425,7 +423,9 @@ public class StartScene extends PixelScene {
 				highlighted = BASIC_HIGHLIGHTED;
 			}
 
-			
+
+            name.measure();
+            name.hardlight( normal );
 			brightness = MIN_BRIGHTNESS;
 			updateBrightness();
 		}

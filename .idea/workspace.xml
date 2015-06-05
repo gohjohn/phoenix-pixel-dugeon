@@ -41,10 +41,10 @@
       <file leaf-file-name="StartScene.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/scenes/StartScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.90106004" vertical-offset="2475" max-vertical-offset="8280">
-              <caret line="182" column="22" selection-start-line="182" selection-start-column="22" selection-end-line="182" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.49116609" vertical-offset="6236" max-vertical-offset="8280">
+              <caret line="427" column="37" selection-start-line="427" selection-start-column="37" selection-end-line="427" selection-end-column="37" />
               <folding>
-                <element signature="e#0#14738#0" expanded="true" />
+                <element signature="e#0#14735#0" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="e#3378#3402#0" expanded="true" />
                 <element signature="e#7280#7443#0" expanded="true" />
@@ -1157,7 +1157,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976827" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976827" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.399287" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.399287" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1618,10 +1618,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/scenes/StartScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.90106004" vertical-offset="2475" max-vertical-offset="8280">
-          <caret line="182" column="22" selection-start-line="182" selection-start-column="22" selection-end-line="182" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.49116609" vertical-offset="6236" max-vertical-offset="8280">
+          <caret line="427" column="37" selection-start-line="427" selection-start-column="37" selection-end-line="427" selection-end-column="37" />
           <folding>
-            <element signature="e#0#14738#0" expanded="true" />
+            <element signature="e#0#14735#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#3378#3402#0" expanded="true" />
             <element signature="e#7280#7443#0" expanded="true" />
