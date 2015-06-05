@@ -17,7 +17,8 @@
  */
 package com.johngohce.phoenixpd.scenes;
 
-import java.util.HashMap;
+import android.graphics.RectF;
+import android.util.Log;
 
 import com.johngohce.noosa.BitmapText;
 import com.johngohce.noosa.BitmapTextMultiline;
@@ -33,10 +34,12 @@ import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.GamesInProgress;
 import com.johngohce.phoenixpd.PixelDungeon;
+import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.hero.HeroClass;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.effects.BannerSprites;
-import com.johngohce.phoenixpd.effects.Speck;
 import com.johngohce.phoenixpd.effects.BannerSprites.Type;
+import com.johngohce.phoenixpd.effects.Speck;
 import com.johngohce.phoenixpd.ui.Archs;
 import com.johngohce.phoenixpd.ui.ExitButton;
 import com.johngohce.phoenixpd.ui.Icons;
@@ -46,7 +49,10 @@ import com.johngohce.phoenixpd.windows.WndChallenges;
 import com.johngohce.phoenixpd.windows.WndClass;
 import com.johngohce.phoenixpd.windows.WndMessage;
 import com.johngohce.phoenixpd.windows.WndOptions;
+import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Callback;
+
+import java.util.HashMap;
 
 public class StartScene extends PixelScene {
 
@@ -83,7 +89,7 @@ public class StartScene extends PixelScene {
 	private GameButton btnLoad;
 	private GameButton btnNewGame;
 	
-	private boolean huntressUnlocked;
+	private boolean huntressUnlocked = true;
 	private Group unlock;
 	
 	public static HeroClass curClass;
@@ -201,8 +207,8 @@ public class StartScene extends PixelScene {
 		unlock = new Group();
 		add( unlock );
 		
-		if (!(huntressUnlocked = Badges.isUnlocked( Badges.Badge.BOSS_SLAIN_3 ))) {
-		
+//		if (!(huntressUnlocked = Badges.isUnlocked( Badges.Badge.BOSS_SLAIN_3 ))) {
+		if (false){
 			BitmapTextMultiline text = PixelScene.createMultiline( TXT_UNLOCK, 9 );
 			text.maxWidth = (int)width;
 			text.measure();
@@ -369,7 +375,7 @@ public class StartScene extends PixelScene {
 		
 		private static final int WIDTH	= 24;
 		private static final int HEIGHT	= 28;
-		private static final int SCALE	= 2;
+		private static final int SCALE	= 3;
 		
 		private HeroClass cl;
 		
@@ -386,10 +392,31 @@ public class StartScene extends PixelScene {
 			super();
 		
 			this.cl = cl;
-			
-			avatar.frame( cl.ordinal() * WIDTH, 0, WIDTH, HEIGHT );
-			avatar.scale.set( SCALE );
-			
+            Bundle bundle = null;
+            Hero hero = null;
+            if (GamesInProgress.check( cl ) != null) {
+                try{
+                    bundle = Dungeon.gameBundle(Dungeon.gameFile(cl));
+                }catch (Exception e){
+                    Log.i("Start Scene Exception",e.toString());
+                }
+            }
+            if(bundle != null) hero = (Hero)bundle.get( "hero" );
+
+            HeroMonsterClass monsterClass = null;
+            if(hero != null) monsterClass = hero.monsterClass;
+            if(monsterClass == null) monsterClass = HeroMonsterClass.RAT;
+            name.text(monsterClass.title().toUpperCase());
+            avatar = new Image(monsterClass.image().texture);
+            RectF rect = monsterClass.image().frame();
+            add (avatar);
+            avatar.frame( rect );
+            avatar.scale.set( SCALE );
+
+            if(hero == null) name.text( "NEW GAME" );
+            name.measure();
+            name.hardlight( normal );
+
 			if (Badges.isUnlocked( cl.masteryBadge() )) {
 				normal = MASTERY_NORMAL;
 				highlighted = MASTERY_HIGHLIGHTED;
@@ -397,10 +424,7 @@ public class StartScene extends PixelScene {
 				normal = BASIC_NORMAL;
 				highlighted = BASIC_HIGHLIGHTED;
 			}
-			
-			name.text( cl.name() );
-			name.measure();
-			name.hardlight( normal );
+
 			
 			brightness = MIN_BRIGHTNESS;
 			updateBrightness();
@@ -412,9 +436,9 @@ public class StartScene extends PixelScene {
 			super.createChildren();
 			
 			avatar = new Image( Assets.AVATARS );
-			add( avatar );
+//			add( avatar );
 			
-			name = PixelScene.createText( 9 );
+			name = PixelScene.createText( 7 );
 			add( name );
 			
 			emitter = new Emitter();
