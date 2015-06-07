@@ -23,6 +23,7 @@ import com.johngohce.phoenixpd.ResultDescriptions;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.blobs.Blob;
 import com.johngohce.phoenixpd.actors.blobs.Fire;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SkinResistance;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.mobs.Thief;
 import com.johngohce.phoenixpd.effects.particles.ElmoParticle;
@@ -140,7 +141,12 @@ public class Burning extends Buff implements Hero.Doom {
 
 	public static float duration( Char ch ) {
 		Resistance r = ch.buff( Resistance.class );
-		return r != null ? r.durationFactor() * DURATION : DURATION;
+        SkinResistance r2 = ch.buff( SkinResistance.class );
+        float durationFactor = 1.0f;
+        if(r != null) durationFactor *= r.durationFactor();
+        if(r2 != null) durationFactor *= r2.resistanceReductionDurationFactor();
+
+        return durationFactor * DURATION;
 	}
 
 	@Override

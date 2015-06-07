@@ -46,7 +46,7 @@ import com.johngohce.utils.Bundlable;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Random;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 
 public class Heap implements Bundlable {
@@ -361,13 +361,9 @@ public class Heap implements Bundlable {
 		pos = bundle.getInt( POS );
 		type = Type.valueOf( bundle.getString( TYPE ) );
 //		items = new LinkedList<Item>( (Collection<? extends Item>) bundle.getCollection( ITEMS ) );
-		ArrayList<Bundlable> temp = new ArrayList<>(bundle.getCollection(ITEMS));
-        items = new LinkedList<Item>();
-        for(Bundlable b:temp){
-            items.push((Item)b);
-        }
+        items = new LinkedList<>( (Collection<Item>) ((Collection<?>) bundle.getCollection( ITEMS )) );
 
-	}
+    }
 
 	@Override
 	public void storeInBundle( Bundle bundle ) {

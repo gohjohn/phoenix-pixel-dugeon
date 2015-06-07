@@ -17,6 +17,8 @@
  */
 package com.johngohce.phoenixpd.actors.hero;
 
+import android.util.Log;
+
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.items.Item;
@@ -69,6 +71,8 @@ public class Belongings implements Iterable<Item> {
 		bundle.put( ARMOR, armor );
 		bundle.put( RING1, ring1 );
 		bundle.put( RING2, ring2 );
+
+        Log.i("Armour store in bundle", armor.toString());
 	}
 	
 	public void restoreFromBundle( Bundle bundle ) {
@@ -82,6 +86,8 @@ public class Belongings implements Iterable<Item> {
 		}
 		
 		armor = (Armor)bundle.get( ARMOR );
+
+        Log.i("Armour restore in bundle", armor.toString());
 		
 		ring1 = (Ring)bundle.get( RING1 );
 		if (ring1 != null) {

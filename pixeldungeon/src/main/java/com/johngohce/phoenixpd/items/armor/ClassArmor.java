@@ -17,11 +17,11 @@
  */
 package com.johngohce.phoenixpd.items.armor;
 
-import java.util.ArrayList;
-
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.utils.GLog;
 import com.johngohce.utils.Bundle;
+
+import java.util.ArrayList;
 
 abstract public class ClassArmor extends Armor {
 	
@@ -124,7 +124,7 @@ abstract public class ClassArmor extends Armor {
 	
 	@Override
 	public int price() {
-		return 0;
+		return 0;//Unsellable
 	}
 	
 	@Override

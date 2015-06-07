@@ -104,7 +104,7 @@ public class HeroMonsterSprite extends HeroSprite {
 
 //        RectF patch = tiers().get( armorTier );
         RectF patch = tiers().get( 0 );
-        Image avatar = new Image( HeroMonsterClass.RAT.image() );
+        Image avatar = new Image( HeroMonsterClass.defaultClass().image() );
 
         if(Dungeon.hero.monsterClass!=null) avatar = new Image(Dungeon.hero.monsterClass.image());
         RectF frame = avatar.texture.uvRect( 1, 0, 16, 15 );

@@ -31,11 +31,11 @@ import com.johngohce.phoenixpd.items.scrolls.ScrollOfPsionicBlast;
 import com.johngohce.phoenixpd.levels.Level;
 import com.johngohce.phoenixpd.scenes.GameScene;
 import com.johngohce.phoenixpd.sprites.MimicSprite;
-import com.johngohce.utils.Bundlable;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Random;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
@@ -66,11 +66,7 @@ public class Mimic extends Mob {
 		super.restoreFromBundle( bundle );
 
 //		items = new ArrayList<Item>( (Collection<? extends Item>) bundle.getCollection( ITEMS ) );
-        ArrayList<Bundlable> temp = new ArrayList<>(bundle.getCollection(ITEMS));
-        items = new ArrayList<Item>();
-        for(Bundlable b:temp){
-            items.add((Item) b);
-        }
+		items = new ArrayList<>( (Collection<Item>) ((Collection<?>) bundle.getCollection( ITEMS )));
 
 		adjustStats( bundle.getInt( LEVEL ) );
 	}

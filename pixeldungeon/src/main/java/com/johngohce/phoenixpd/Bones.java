@@ -17,16 +17,16 @@
  */
 package com.johngohce.phoenixpd;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import com.johngohce.noosa.Game;
 import com.johngohce.phoenixpd.items.Gold;
 import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.rings.Ring;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Random;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class Bones {
 
@@ -55,6 +55,7 @@ public class Bones {
 			item = Dungeon.hero.belongings.ring2;
 			break;
 		}
+        if(item.isPermanentlyEquipped) item = null;
 		if (item == null) {
 			if (Dungeon.gold > 0) {
 				item = new Gold( Random.IntRange( 1, Dungeon.gold ) );

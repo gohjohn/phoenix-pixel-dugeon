@@ -17,15 +17,22 @@
  */
 package com.johngohce.phoenixpd.items.armor;
 
-import java.util.ArrayList;
-
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.items.EquipableItem;
 import com.johngohce.phoenixpd.items.Item;
-import com.johngohce.phoenixpd.items.armor.glyphs.*;
+import com.johngohce.phoenixpd.items.armor.glyphs.Affection;
+import com.johngohce.phoenixpd.items.armor.glyphs.AntiEntropy;
+import com.johngohce.phoenixpd.items.armor.glyphs.Bounce;
+import com.johngohce.phoenixpd.items.armor.glyphs.Displacement;
+import com.johngohce.phoenixpd.items.armor.glyphs.Entanglement;
+import com.johngohce.phoenixpd.items.armor.glyphs.Metabolism;
+import com.johngohce.phoenixpd.items.armor.glyphs.Multiplicity;
+import com.johngohce.phoenixpd.items.armor.glyphs.Potential;
+import com.johngohce.phoenixpd.items.armor.glyphs.Stench;
+import com.johngohce.phoenixpd.items.armor.glyphs.Viscosity;
 import com.johngohce.phoenixpd.sprites.HeroSprite;
 import com.johngohce.phoenixpd.sprites.ItemSprite;
 import com.johngohce.phoenixpd.utils.GLog;
@@ -33,6 +40,8 @@ import com.johngohce.phoenixpd.utils.Utils;
 import com.johngohce.utils.Bundlable;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Random;
+
+import java.util.ArrayList;
 
 public class Armor extends EquipableItem {
 	
@@ -60,13 +69,14 @@ public class Armor extends EquipableItem {
 		
 		this.tier = tier;
 		
-		STR = typicalSTR();
-		DR = typicalDR();
+		STR = this.typicalSTR();
+		DR = this.typicalDR();
 	}
 	
 	private static final String UNFAMILIRIARITY	= "unfamiliarity";
 	private static final String GLYPH			= "glyph";
-	
+
+
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
@@ -258,6 +268,10 @@ public class Armor extends EquipableItem {
 				info.append( "\n\nYou can feel a malevolent magic lurking within the " + name + "." );
 			}
 		}
+
+        if (!isEquipped( Dungeon.hero ) && Dungeon.hero.belongings.armor.isPermanentlyEquipped) {
+            info.append( "\n\nYour species can't wear armor." );
+        }
 		
 		return info.toString();
 	}

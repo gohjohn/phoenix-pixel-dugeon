@@ -51,7 +51,12 @@ import com.johngohce.phoenixpd.actors.buffs.Roots;
 import com.johngohce.phoenixpd.actors.buffs.SnipersMark;
 import com.johngohce.phoenixpd.actors.buffs.Vertigo;
 import com.johngohce.phoenixpd.actors.buffs.Weakness;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ExplosiveThorns;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MovementHaste;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MultiplicityBuff;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SkinResistance;
 import com.johngohce.phoenixpd.actors.mobs.Mob;
+import com.johngohce.phoenixpd.actors.mobs.npcs.MirrorImage;
 import com.johngohce.phoenixpd.actors.mobs.npcs.NPC;
 import com.johngohce.phoenixpd.effects.CheckedCell;
 import com.johngohce.phoenixpd.effects.Flare;
@@ -65,6 +70,7 @@ import com.johngohce.phoenixpd.items.Heap.Type;
 import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.KindOfWeapon;
 import com.johngohce.phoenixpd.items.armor.Armor;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.HeroMonsterArmor;
 import com.johngohce.phoenixpd.items.keys.GoldenKey;
 import com.johngohce.phoenixpd.items.keys.IronKey;
 import com.johngohce.phoenixpd.items.keys.Key;
@@ -85,6 +91,7 @@ import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfRecharging;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
 import com.johngohce.phoenixpd.items.wands.Wand;
+import com.johngohce.phoenixpd.items.wands.WandOfBlink;
 import com.johngohce.phoenixpd.items.weapon.melee.MeleeWeapon;
 import com.johngohce.phoenixpd.items.weapon.missiles.MissileWeapon;
 import com.johngohce.phoenixpd.levels.Level;
@@ -138,7 +145,7 @@ public class Hero extends Char {
 	
 	public HeroClass heroClass = HeroClass.ROGUE;
 	public HeroSubClass subClass = HeroSubClass.NONE;
-    public HeroMonsterClass monsterClass = HeroMonsterClass.RAT;
+    public HeroMonsterClass monsterClass = HeroMonsterClass.defaultClass();
 	
 	private int attackSkill = 10;
 	private int defenseSkill = 5;
@@ -219,6 +226,7 @@ public class Hero extends Char {
 		heroClass = HeroClass.restoreInBundle( bundle );
 		subClass = HeroSubClass.restoreInBundle( bundle );
         monsterClass = HeroMonsterClass.restoreInBundle( bundle );
+        Log.d("Restoring","monsterClass: "+monsterClass);
 
 		attackSkill = bundle.getInt( ATTACK );
 		defenseSkill = bundle.getInt( DEFENSE );
@@ -230,10 +238,14 @@ public class Hero extends Char {
 		exp = bundle.getInt( EXPERIENCE );
 		
 		belongings.restoreFromBundle( bundle );
+        if(belongings.armor instanceof HeroMonsterArmor){
+            ((HeroMonsterArmor) belongings.armor).updateBuffs();
+        }
 	}
 	
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
 		info.level = bundle.getInt( LEVEL );
+        HeroMonsterClass.preview( info, bundle );
 	}
 	
 	public String className() {
@@ -334,15 +346,21 @@ public class Hero extends Char {
 	
 	@Override
 	public float speed() {
-		
+
+
+        int hasteLevel = 0;
+        for (Buff buff : buffs( MovementHaste.class )) {
+            hasteLevel += ((MovementHaste)buff).level;
+        }
+        float speed = (float) (super.speed() * Math.pow( 1.1, -hasteLevel )) ;
+
 		int aEnc = belongings.armor != null ? belongings.armor.STR - STR() : 0;
 		if (aEnc > 0) {
 			
-			return (float)(super.speed() * Math.pow( 1.3, -aEnc ));
+			return (float)(speed * Math.pow( 1.3, -aEnc ));
 			
 		} else {
-			
-			float speed = super.speed();
+
 			return ((HeroSprite)sprite).sprint( subClass == HeroSubClass.FREERUNNER && !isStarving() ) ? 1.6f * speed : speed;
 			
 		}
@@ -857,9 +875,55 @@ public class Hero extends Char {
 			int dmg = Random.IntRange( 0, damage );
 			if (dmg > 0) {
 				enemy.damage( dmg, thorns );
+                if(!enemy.isAlive()){
+                    GLog.i( TXT_DEFEAT, new RingOfThorns().toString(), enemy.name );
+                }
 			}
 		}
-		
+
+        ExplosiveThorns eThorns = buff( ExplosiveThorns.class );
+        if (eThorns != null) {
+            for (int i=0; i < Level.NEIGHBOURS8.length; i++) {
+                Char ch = findChar( pos + Level.NEIGHBOURS8[i] );
+
+                if (ch != null && ch.isAlive()) {
+                    int dmg = Math.min(damage + eThorns.level, Random.IntRange( 0, (int)(damage *  Math.pow(1.1f,eThorns.level))));
+                    ch.damage( dmg, eThorns );
+                    if(!ch.isAlive()){
+                        GLog.i( TXT_DEFEAT, eThorns.toString(), ch.name );
+                    }
+                }
+            }
+        }
+
+        MultiplicityBuff multiplicity = buff( MultiplicityBuff.class );
+        if(multiplicity != null){
+            int level = Math.max( 0, multiplicity.level );
+            int images = Random.Int( level + 3 ) / 3;
+            if( images > 0 && Random.Int( level / 2 + 6 ) > 5 ){
+                Hero hero = Dungeon.hero;
+                ArrayList<Integer> respawnPoints = new ArrayList<>();
+                for (int i=0; i < Level.NEIGHBOURS8.length; i++) {
+                    int p = hero.pos + Level.NEIGHBOURS8[i];
+                    if (Actor.findChar( p ) == null && (Level.passable[p] || Level.avoid[p])) {
+                        respawnPoints.add( p );
+                    }
+                }
+                while (images > 0 && respawnPoints.size() > 0) {
+                    int index = Random.index( respawnPoints );
+
+                    MirrorImage mob = new MirrorImage();
+                    mob.duplicate( hero );
+                    GameScene.add( mob );
+                    WandOfBlink.appear( mob, respawnPoints.get( index ) );
+
+                    respawnPoints.remove( index );
+                    images--;
+                }
+            }
+        }
+
+
 		Earthroot.Armor armor = buff( Earthroot.Armor.class );
 		if (armor != null) {
 			damage = armor.absorb( damage );
@@ -1165,10 +1229,10 @@ public class Hero extends Char {
             if(newMonsterClass != null){
                 GameScene.show( new WndRespawn( newMonsterClass , true , cause ) );
             }else if (monsterClass != null){
-                Log.i("Unrecognized death",""+cause);
+                Log.d("Unrecognized death",""+cause);
                 GameScene.show(new WndRespawn(monsterClass, false, cause));
             }else{
-                GameScene.show( new WndRespawn( HeroMonsterClass.RAT , false , cause ) );
+                GameScene.show( new WndRespawn( HeroMonsterClass.defaultClass() , false , cause ) );
             }
 		} else {
 
@@ -1409,7 +1473,13 @@ public class Hero extends Char {
 	@Override
 	public HashSet<Class<?>> resistances() {
 		RingOfElements.Resistance r = buff( RingOfElements.Resistance.class );
-		return r == null ? super.resistances() : r.resistances();
+        SkinResistance r2 = buff ( SkinResistance.class );
+
+        HashSet<Class<?>> resistances = super.resistances();
+        if (r!=null) resistances.addAll(r.resistances());
+        if (r2!=null) resistances.addAll(r2.resistances());
+
+		return resistances;
 	}
 	
 	@Override

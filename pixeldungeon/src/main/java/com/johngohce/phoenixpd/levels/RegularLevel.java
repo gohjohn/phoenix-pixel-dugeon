@@ -28,13 +28,13 @@ import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
 import com.johngohce.phoenixpd.levels.Room.Type;
 import com.johngohce.phoenixpd.levels.painters.Painter;
-import com.johngohce.utils.Bundlable;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Graph;
 import com.johngohce.utils.Random;
 import com.johngohce.utils.Rect;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
@@ -683,12 +683,7 @@ public abstract class RegularLevel extends Level {
 		super.restoreFromBundle( bundle );
 
 //        rooms = new HashSet<Room>( (Collection<? extends Room>) bundle.getCollection( "rooms" ) );
-        ArrayList<Bundlable> temp = new ArrayList<>(bundle.getCollection( "rooms" ));
-        rooms = new HashSet<Room>();
-        for(Bundlable b:temp){
-            rooms.add((Room) b);
-        }
-
+        rooms = new HashSet<>( (Collection<Room>) ((Collection<?>) bundle.getCollection( "rooms" )) );
 		for (Room r : rooms) {
 			if (r.type == Type.WEAK_FLOOR) {
 				weakFloorCreated = true;

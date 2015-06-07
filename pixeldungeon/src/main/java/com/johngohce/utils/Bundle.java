@@ -17,6 +17,13 @@
 
 package com.johngohce.utils;
 
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -28,11 +35,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONTokener;
 
 public class Bundle {
 
@@ -110,6 +112,7 @@ public class Bundle {
 				return null;
 			}
 		} catch (Exception e) {
+            Log.d("Bundle.get", e.toString());
 			e = null;
 			return null;
 		}	

@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.actors.mobs;
 
-import java.util.HashSet;
-
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.blobs.Blob;
 import com.johngohce.phoenixpd.actors.blobs.Web;
@@ -30,6 +28,8 @@ import com.johngohce.phoenixpd.items.food.MysteryMeat;
 import com.johngohce.phoenixpd.scenes.GameScene;
 import com.johngohce.phoenixpd.sprites.SpinnerSprite;
 import com.johngohce.utils.Random;
+
+import java.util.HashSet;
 
 public class Spinner extends Mob {
 	
@@ -79,7 +79,7 @@ public class Spinner extends Mob {
 	@Override
 	public int attackProc( Char enemy, int damage ) {
 		if (Random.Int( 2 ) == 0) {
-			Buff.affect( enemy, Poison.class ).set( Random.Int( 7, 9 ) * Poison.durationFactor( enemy ) );
+			Buff.affect( enemy, Poison.class ).set( Random.Int( 7, 9 ) * Poison.duration( enemy ) );
 			state = FLEEING;
 		}
 		

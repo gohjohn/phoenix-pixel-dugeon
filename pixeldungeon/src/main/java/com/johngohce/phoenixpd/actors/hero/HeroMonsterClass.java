@@ -1,5 +1,8 @@
 package com.johngohce.phoenixpd.actors.hero;
 
+import android.util.Log;
+
+import com.johngohce.phoenixpd.GamesInProgress;
 import com.johngohce.phoenixpd.actors.mobs.Bat;
 import com.johngohce.phoenixpd.actors.mobs.Brute;
 import com.johngohce.phoenixpd.actors.mobs.Crab;
@@ -83,11 +86,14 @@ public enum HeroMonsterClass {
     private static final String MONSTER_CLASS	= "monsterClass";
 
     public void storeInBundle( Bundle bundle ) {
-        bundle.put( MONSTER_CLASS, toString() );
+        bundle.put( MONSTER_CLASS, title() );
+        Log.i("Storing monster class", title() );
     }
 
     public static HeroMonsterClass restoreInBundle( Bundle bundle ) {
         String value = bundle.getString( MONSTER_CLASS );
+
+        Log.i("Restoring monster class", value);
         try {
             return valueOf( value );
         } catch (Exception e) {
@@ -127,5 +133,14 @@ public enum HeroMonsterClass {
         if (obj instanceof LightningTrap.ShamanElectricity) return SHAMAN;
 
         return null;
+    }
+
+    public static HeroMonsterClass defaultClass() {
+//        return RAT;
+        return RAT;
+    }
+
+    public static void preview(GamesInProgress.Info info, Bundle bundle) {
+        info.monsterClass = valueOf(bundle.getString( MONSTER_CLASS ));
     }
 }

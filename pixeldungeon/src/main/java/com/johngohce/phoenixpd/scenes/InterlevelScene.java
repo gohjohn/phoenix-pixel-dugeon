@@ -17,6 +17,8 @@
  */
 package com.johngohce.phoenixpd.scenes;
 
+import android.util.Log;
+
 import com.johngohce.noosa.BitmapText;
 import com.johngohce.noosa.Camera;
 import com.johngohce.noosa.Game;
@@ -26,7 +28,6 @@ import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.Statistics;
 import com.johngohce.phoenixpd.actors.Actor;
-import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.items.Generator;
 import com.johngohce.phoenixpd.levels.Level;
 import com.johngohce.phoenixpd.windows.WndError;
@@ -153,7 +154,8 @@ public class InterlevelScene extends PixelScene {
 					error = ERR_FILE_NOT_FOUND;
 					
 				} catch (Exception e ) {
-					
+
+                    Log.d("InterlevelScene Exception", ""+e);
 					error = ERR_GENERIC;
 					
 				}
@@ -273,7 +275,7 @@ public class InterlevelScene extends PixelScene {
 		Actor.fixTime();
 		
 		Dungeon.loadGame( StartScene.curClass );
-		if (Dungeon.depth == -1) {
+        if (Dungeon.depth == -1) {
 			Dungeon.depth = Statistics.deepestFloor;
 			Dungeon.switchLevel( Dungeon.loadLevel( StartScene.curClass ), -1 );
 		} else {

@@ -442,7 +442,7 @@ public class Dungeon {
 			saveGame( gameFile( hero.heroClass ) );
 			saveLevel();
 			
-			GamesInProgress.set( hero.heroClass, depth, hero.lvl, challenges != 0 );
+			GamesInProgress.set( hero.heroClass, depth, hero.lvl, challenges != 0, hero.monsterClass );
 			
 		} else if (WndResurrect.instance != null) {
 			
@@ -459,7 +459,7 @@ public class Dungeon {
 	public static void loadGame( String fileName ) throws IOException {
 		loadGame( fileName, false );
 	}
-	
+
 	public static void loadGame( String fileName, boolean fullLoad ) throws IOException {
 		
 		Bundle bundle = gameBundle( fileName );

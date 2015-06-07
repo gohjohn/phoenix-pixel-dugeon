@@ -18,7 +18,6 @@
 package com.johngohce.phoenixpd.scenes;
 
 import android.graphics.RectF;
-import android.util.Log;
 
 import com.johngohce.noosa.BitmapText;
 import com.johngohce.noosa.BitmapTextMultiline;
@@ -34,7 +33,6 @@ import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.GamesInProgress;
 import com.johngohce.phoenixpd.PixelDungeon;
-import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.effects.BannerSprites;
@@ -49,7 +47,6 @@ import com.johngohce.phoenixpd.windows.WndChallenges;
 import com.johngohce.phoenixpd.windows.WndClass;
 import com.johngohce.phoenixpd.windows.WndMessage;
 import com.johngohce.phoenixpd.windows.WndOptions;
-import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Callback;
 
 import java.util.HashMap;
@@ -392,28 +389,21 @@ public class StartScene extends PixelScene {
 			super();
 		
 			this.cl = cl;
-            Bundle bundle = null;
-            Hero hero = null;
-            if (GamesInProgress.check( cl ) != null) {
-                try{
-                    bundle = Dungeon.gameBundle(Dungeon.gameFile(cl));
-                }catch (Exception e){
-                    Log.i("Start Scene Exception",e.toString());
-                }
-            }
-            if(bundle != null) hero = (Hero)bundle.get( "hero" );
-
             HeroMonsterClass monsterClass = null;
-            if(hero != null) monsterClass = hero.monsterClass;
-            if(monsterClass == null) monsterClass = HeroMonsterClass.RAT;
-            name.text(monsterClass.title().toUpperCase());
+            GamesInProgress.Info info = GamesInProgress.check( cl );
+            if (info != null) {
+                monsterClass = info.monsterClass;
+                if(monsterClass==null) monsterClass = HeroMonsterClass.defaultClass();
+                name.text(monsterClass.title().toUpperCase());
+            }else {
+                monsterClass = HeroMonsterClass.defaultClass();
+                name.text("NEW GAME");
+            }
             avatar = new Image(monsterClass.image().texture);
             RectF rect = monsterClass.image().frame();
             add (avatar);
             avatar.frame( rect );
             avatar.scale.set( SCALE );
-
-            if(hero == null) name.text( "NEW GAME" );
 
 			if (Badges.isUnlocked( cl.masteryBadge() )) {
 				normal = MASTERY_NORMAL;

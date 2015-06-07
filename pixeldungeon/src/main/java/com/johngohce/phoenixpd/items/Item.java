@@ -61,7 +61,8 @@ public class Item implements Bundlable {
 	protected static final float TIME_TO_THROW		= 1.0f;
 	protected static final float TIME_TO_PICK_UP	= 1.0f;
 	protected static final float TIME_TO_DROP		= 0.5f;
-	
+
+    public boolean isPermanentlyEquipped = false;
 	public static final String AC_DROP		= "DROP";
 	public static final String AC_THROW		= "THROW";
 	
@@ -92,8 +93,10 @@ public class Item implements Bundlable {
 	
 	public ArrayList<String> actions( Hero hero ) {
 		ArrayList<String> actions = new ArrayList<String>();
-		actions.add( AC_DROP );
-		actions.add( AC_THROW );
+        if(!isEquipped( Dungeon.hero ) || !isPermanentlyEquipped) {
+            actions.add(AC_DROP);
+            actions.add(AC_THROW);
+        }
 		return actions;
 	}
 	
@@ -454,6 +457,7 @@ public class Item implements Bundlable {
 	private static final String LEVEL			= "level";
 	private static final String LEVEL_KNOWN		= "levelKnown";
 	private static final String CURSED			= "cursed";
+    private static final String PERMANENT		= "permanent";
 	private static final String CURSED_KNOWN	= "cursedKnown";
 	private static final String DURABILITY		= "durability";
 	
@@ -463,6 +467,7 @@ public class Item implements Bundlable {
 		bundle.put( LEVEL, level );
 		bundle.put( LEVEL_KNOWN, levelKnown );
 		bundle.put( CURSED, cursed );
+        bundle.put( PERMANENT, isPermanentlyEquipped );
 		bundle.put( CURSED_KNOWN, cursedKnown );
 		if (isUpgradable()) {
 			bundle.put( DURABILITY, durability );
@@ -482,8 +487,9 @@ public class Item implements Bundlable {
 		} else if (level < 0) {
 			degrade( -level );
 		}
-		
-		cursed	= bundle.getBoolean( CURSED );
+
+        cursed	= bundle.getBoolean( CURSED );
+        isPermanentlyEquipped = bundle.getBoolean( PERMANENT );
 		
 		if (isUpgradable()) {
 			durability = bundle.getInt( DURABILITY );

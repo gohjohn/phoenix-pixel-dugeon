@@ -26,7 +26,8 @@ import com.johngohce.phoenixpd.utils.GLog;
 
 public abstract class EquipableItem extends Item {
 
-	private static final String TXT_UNEQUIP_CURSED	= "You can't remove cursed %s!";
+    private static final String TXT_UNEQUIP_CURSED	= "You can't remove cursed %s!";
+    private static final String TXT_UNEQUIP_PERMANENT	= "%s is stuck on you, you can't remove it!";
 	
 	public static final String AC_EQUIP		= "EQUIP";
 	public static final String AC_UNEQUIP	= "UNEQUIP";
@@ -78,6 +79,10 @@ public abstract class EquipableItem extends Item {
 			GLog.w( TXT_UNEQUIP_CURSED, name() );
 			return false;
 		}
+        if (isPermanentlyEquipped){
+            GLog.w( TXT_UNEQUIP_PERMANENT, name() );
+            return false;
+        }
 		
 		if (single) {
 			hero.spendAndNext( time2equip( hero ) );

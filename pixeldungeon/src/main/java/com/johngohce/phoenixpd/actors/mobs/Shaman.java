@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.actors.mobs;
 
-import android.util.Log;
-
 import com.johngohce.noosa.Camera;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.ResultDescriptions;
@@ -112,7 +110,6 @@ public class Shaman extends Mob implements Callback {
 						Dungeon.fail( Utils.format( ResultDescriptions.MOB, 
 							Utils.indefinite( name ), Dungeon.depth ) );
 						GLog.n( TXT_LIGHTNING_KILLED, name );
-                        Log.i("Death", "Shaman bolt");
 					}
 				}
 			} else {

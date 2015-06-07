@@ -17,6 +17,7 @@
  */
 package com.johngohce.phoenixpd.actors.buffs;
 
+//buff whose only logic is to wait and detach after a time.
 public class FlavourBuff extends Buff {
 	
 	@Override

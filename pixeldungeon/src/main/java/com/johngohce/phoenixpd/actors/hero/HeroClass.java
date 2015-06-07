@@ -20,11 +20,13 @@ package com.johngohce.phoenixpd.actors.hero;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
-import com.johngohce.phoenixpd.items.Generator;
-import com.johngohce.phoenixpd.items.armor.ClothArmor;
 import com.johngohce.phoenixpd.items.armor.MailArmor;
 import com.johngohce.phoenixpd.items.armor.glyphs.Affection;
-import com.johngohce.phoenixpd.items.armor.glyphs.Multiplicity;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.CrabShell;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.FlySkin;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.GnollSkin;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.RatSkin;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SkeletonBonesArmor;
 import com.johngohce.phoenixpd.items.bags.Keyring;
 import com.johngohce.phoenixpd.items.food.Food;
 import com.johngohce.phoenixpd.items.food.MysteryMeat;
@@ -43,7 +45,6 @@ import com.johngohce.phoenixpd.items.wands.WandOfFirebolt;
 import com.johngohce.phoenixpd.items.wands.WandOfLightning;
 import com.johngohce.phoenixpd.items.wands.WandOfMagicMissile;
 import com.johngohce.phoenixpd.items.wands.WandOfSlowness;
-import com.johngohce.phoenixpd.items.weapon.Weapon;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Fire;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Leech;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
@@ -105,6 +106,7 @@ public enum HeroClass {
 		hero.heroClass = this;
 		
 		initCommon( hero );
+        if(hero.monsterClass==null) hero.monsterClass=HeroMonsterClass.defaultClass();
         switch (hero.monsterClass){
             case RAT: initRat(hero);break;
             case SCOUT: initScout(hero);break;
@@ -159,7 +161,6 @@ public enum HeroClass {
 	}
 	
 	private static void initCommon( Hero hero ) {
-		(hero.belongings.armor = new ClothArmor()).identify();
 		new Food().identify().collect();
 		new Keyring().collect();
 	}
@@ -225,22 +226,16 @@ public enum HeroClass {
 
     private static void initRat( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
-        //TODO Remove imba gear
-//        (hero.belongings.weapon = new Glaive().enchant()).identify().upgrade(10);
-//        (hero.belongings.armor = new PlateArmor()).identify().upgrade(10);
-//        new WandOfBlink().upgrade(10).identify().collect();
-//        new WandOfFirebolt().upgrade(10).identify().collect();
-//        (hero.belongings.ring1 = new RingOfShadows()).identify().upgrade(10);
-//        (hero.belongings.ring2 = new RingOfHaste()).identify().upgrade(10);
+        hero.belongings.armor = new RatSkin();
     }
     private static void initScout( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.armor = new GnollSkin();
         Dungeon.gold = 500;
     }
     private static void initCrab( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
-        (hero.belongings.ring1 = new RingOfHaste()).upgrade().identify();
-        hero.belongings.ring1.activate(hero);
+        hero.belongings.armor = new CrabShell();
 
         new MysteryMeat().collect();
         new MysteryMeat().collect();
@@ -249,9 +244,7 @@ public enum HeroClass {
 
     private static void initSkeleton( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
-        Weapon weapon = (Weapon) Generator.random(Generator.Category.WEAPON);
-        while(weapon.level<0) weapon.upgrade(false);
-        weapon.identify().collect();
+        hero.belongings.armor = new SkeletonBonesArmor();
     }
     private static void initThief( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
@@ -261,8 +254,7 @@ public enum HeroClass {
     }
     private static void initFlies( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
-        hero.belongings.armor.inscribe(new Multiplicity()).upgrade(false);
-        new PotionOfHealing().collect();
+        hero.belongings.armor = new FlySkin();
         new PotionOfHealing().setKnown();
     }
     private static void initShaman( Hero hero ) {

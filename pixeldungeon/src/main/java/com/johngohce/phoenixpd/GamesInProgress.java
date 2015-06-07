@@ -17,10 +17,11 @@
  */
 package com.johngohce.phoenixpd;
 
-import java.util.HashMap;
-
 import com.johngohce.phoenixpd.actors.hero.HeroClass;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.utils.Bundle;
+
+import java.util.HashMap;
 
 public class GamesInProgress {
 
@@ -51,11 +52,12 @@ public class GamesInProgress {
 		}
 	}
 	
-	public static void set( HeroClass cl, int depth, int level, boolean challenges ) {
+	public static void set( HeroClass cl, int depth, int level, boolean challenges, HeroMonsterClass monsterClass ) {
 		Info info = new Info();
 		info.depth = depth;
 		info.level = level;
 		info.challenges = challenges;
+        info.monsterClass = monsterClass;
 		state.put( cl, info );
 	}
 	
@@ -71,5 +73,6 @@ public class GamesInProgress {
 		public int depth;
 		public int level;
 		public boolean challenges;
+        public HeroMonsterClass monsterClass;
 	}
 }
