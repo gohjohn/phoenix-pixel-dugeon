@@ -27,7 +27,9 @@ import com.johngohce.phoenixpd.items.armor.heromonsterarmor.CrabShell;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.ElementalBody;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.FlySkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.GnollSkin;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.MonkRobe;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.RatSkin;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.RockSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SkeletonBonesArmor;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SpiderSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.ThiefCloak;
@@ -38,14 +40,12 @@ import com.johngohce.phoenixpd.items.food.MysteryMeat;
 import com.johngohce.phoenixpd.items.potions.PotionOfHealing;
 import com.johngohce.phoenixpd.items.potions.PotionOfLiquidFlame;
 import com.johngohce.phoenixpd.items.potions.PotionOfStrength;
-import com.johngohce.phoenixpd.items.rings.RingOfHaste;
 import com.johngohce.phoenixpd.items.rings.RingOfShadows;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfIdentify;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
 import com.johngohce.phoenixpd.items.wands.Wand;
 import com.johngohce.phoenixpd.items.wands.WandOfBlink;
 import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
-import com.johngohce.phoenixpd.items.wands.WandOfFirebolt;
 import com.johngohce.phoenixpd.items.wands.WandOfLightning;
 import com.johngohce.phoenixpd.items.wands.WandOfMagicMissile;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Fire;
@@ -282,7 +282,7 @@ public enum HeroClass {
     private static void initBrute( Hero hero ) {
         (hero.belongings.weapon = new Spear()).upgrade().identify();
         hero.belongings.armor = new GnollSkin();
-        new PotionOfStrength().collect();
+
         new PotionOfStrength().setKnown();
     }
     private static void initSpinner( Hero hero ) {
@@ -298,10 +298,6 @@ public enum HeroClass {
         (hero.belongings.weapon = new Dagger().enchant(new Fire())).upgrade().identify();
         hero.belongings.armor = new ElementalBody();
 
-        Wand wand = new WandOfFirebolt();
-        wand.upgrade().identify().collect();
-        QuickSlot.primaryValue = wand;
-
         new PotionOfLiquidFlame().setKnown();
     }
     private static void initWarlock( Hero hero ) {
@@ -316,14 +312,14 @@ public enum HeroClass {
     }
     private static void initMonk( Hero hero ) {
         (hero.belongings.weapon = new Knuckles()).identify().upgrade(3);
-        (hero.belongings.ring1 = new RingOfHaste()).upgrade().identify();
-        hero.belongings.ring1.activate(hero);
+        hero.belongings.armor = new MonkRobe();
 
+        new Food().collect();
     }
     private static void initGolem( Hero hero ) {
         (hero.belongings.weapon = new WarHammer()).identify().upgrade(1);
+        hero.belongings.armor = new RockSkin();
 
-        new PotionOfStrength().collect();
         new PotionOfStrength().setKnown();
     }
 

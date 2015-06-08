@@ -21,8 +21,10 @@ import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.buffs.Terror;
 import com.johngohce.phoenixpd.actors.hero.Hero;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.items.Gold;
 import com.johngohce.phoenixpd.items.Item;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
 import com.johngohce.phoenixpd.items.rings.RingOfHaggler;
 import com.johngohce.phoenixpd.sprites.CharSprite;
 import com.johngohce.phoenixpd.sprites.ThiefSprite;
@@ -90,7 +92,19 @@ public class Thief extends Mob {
 	
 	@Override
 	public int attackSkill( Char target ) {
-		return 12;
+        if(enemy == Dungeon.hero){
+            Boolean succubusBonusFlag = false;
+            if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+                if(Dungeon.hero.belongings.armor instanceof SuccubusLeather){
+                    SuccubusLeather armor = (SuccubusLeather) Dungeon.hero.belongings.armor;
+                    if(armor.level >= armor.THIEF_SPECIAL_LEVEL){
+                        succubusBonusFlag = true;
+                    }
+                }
+            }
+            if (succubusBonusFlag) return 1;
+        }
+        return 12;
 	}
 	
 	@Override
@@ -100,6 +114,7 @@ public class Thief extends Mob {
 	
 	@Override
 	public int attackProc( Char enemy, int damage ) {
+
 		if (item == null && enemy instanceof Hero && steal( (Hero)enemy )) {
 			state = FLEEING;
 		}
@@ -109,6 +124,18 @@ public class Thief extends Mob {
 	
 	@Override
 	public int defenseProc(Char enemy, int damage) {
+        if(enemy == Dungeon.hero){
+            Boolean succubusBonusFlag = false;
+            if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+                if(Dungeon.hero.belongings.armor instanceof SuccubusLeather){
+                    SuccubusLeather armor = (SuccubusLeather) Dungeon.hero.belongings.armor;
+                    if(armor.level >= armor.THIEF_SPECIAL_LEVEL){
+                        succubusBonusFlag = true;
+                    }
+                }
+            }
+            if (succubusBonusFlag) HP = 1;
+        }
 		if (state == FLEEING) {
 			Dungeon.level.drop( new Gold(), pos ).sprite.drop();
 		}
@@ -142,7 +169,20 @@ public class Thief extends Mob {
 		if (item != null) {
 			desc += String.format( TXT_CARRIES, Utils.capitalize( this.name ), item.name() );
 		}
-		
+
+        if(enemy == Dungeon.hero){
+            Boolean succubusBonusFlag = false;
+            if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+                if(Dungeon.hero.belongings.armor instanceof SuccubusLeather){
+                    SuccubusLeather armor = (SuccubusLeather) Dungeon.hero.belongings.armor;
+                    if(armor.level >= armor.THIEF_SPECIAL_LEVEL){
+                        succubusBonusFlag = true;
+                    }
+                }
+            }
+            if (succubusBonusFlag) desc += "\n\nDrooling all over the place, he can't seem to fight you properly.";
+        }
+
 		return desc;
 	}
 	

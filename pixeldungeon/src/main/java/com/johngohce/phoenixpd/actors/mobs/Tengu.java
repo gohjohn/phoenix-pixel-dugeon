@@ -17,21 +17,22 @@
  */
 package com.johngohce.phoenixpd.actors.mobs;
 
-import java.util.HashSet;
-
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
-import com.johngohce.phoenixpd.Statistics;
 import com.johngohce.phoenixpd.Badges.Badge;
 import com.johngohce.phoenixpd.Dungeon;
+import com.johngohce.phoenixpd.Statistics;
 import com.johngohce.phoenixpd.actors.Actor;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.blobs.ToxicGas;
 import com.johngohce.phoenixpd.actors.buffs.Poison;
+import com.johngohce.phoenixpd.actors.hero.Hero;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.effects.CellEmitter;
 import com.johngohce.phoenixpd.effects.Speck;
 import com.johngohce.phoenixpd.items.TomeOfMastery;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
 import com.johngohce.phoenixpd.items.keys.SkeletonKey;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfPsionicBlast;
@@ -42,6 +43,8 @@ import com.johngohce.phoenixpd.mechanics.Ballistica;
 import com.johngohce.phoenixpd.scenes.GameScene;
 import com.johngohce.phoenixpd.sprites.TenguSprite;
 import com.johngohce.utils.Random;
+
+import java.util.HashSet;
 
 public class Tengu extends Mob {
 
@@ -169,14 +172,50 @@ public class Tengu extends Mob {
 	@Override
 	public void notice() {
 		super.notice();
-		yell( "Gotcha, " + Dungeon.hero.heroClass.title() + "!" );
+        Hero hero = Dungeon.hero;
+
+
+
+        Boolean succubusBonusFlag = false;
+        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+            if(Dungeon.hero.belongings.armor instanceof SuccubusLeather){
+                SuccubusLeather armor = (SuccubusLeather) Dungeon.hero.belongings.armor;
+                if(armor.level >= armor.TENGU_SPECIAL_LEVEL){
+                    succubusBonusFlag = true;
+                }
+            }
+        }
+
+        if(succubusBonusFlag){
+            HP = 1;
+            yell( "*drool*" );
+        }else if(hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+            HP = Math.min((int) (HT * 0.8f), HP);
+            yell( "Oh! A " + hero.heroClass.title() + "!" );
+        }else{
+            yell( "Gotcha, " + hero.heroClass.title() + "!" );
+        }
 	}
 	
 	@Override
 	public String description() {
-		return
+        Boolean succubusBonusFlag = false;
+        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+            if(Dungeon.hero.belongings.armor instanceof SuccubusLeather){
+                SuccubusLeather armor = (SuccubusLeather) Dungeon.hero.belongings.armor;
+                if(armor.level >= armor.DWARF_KING_SPECIAL_LEVEL){
+                    succubusBonusFlag = true;
+                }
+            }
+        }
+
+		String desc =
 			"Tengu are members of the ancient assassins clan, which is also called Tengu. " +
 			"These assassins are noted for extensive use of shuriken and traps.";
+
+        if(succubusBonusFlag) desc += "The moment he sees you, he falls to the ground grovelling.";
+
+        return desc;
 	}
 	
 	private static final HashSet<Class<?>> RESISTANCES = new HashSet<Class<?>>();

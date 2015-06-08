@@ -58,6 +58,7 @@ import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ExplosiveThorns;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.FireImmunity;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MovementHaste;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MovementSlowness;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MultiplicityBuff;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SpiderImmunity;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.Stealth;
@@ -360,6 +361,10 @@ public class Hero extends Char {
             hasteLevel += ((MovementHaste)buff).level;
         }
         float speed = (float) (super.speed() * Math.pow( 1.1, hasteLevel )) ;
+
+        for (MovementSlowness buff : buffs( MovementSlowness.class )) {
+            speed /= buff.slownessFactor();
+        }
 
 		int aEnc = belongings.armor != null ? belongings.armor.STR - STR() : 0;
 		if (aEnc > 0) {

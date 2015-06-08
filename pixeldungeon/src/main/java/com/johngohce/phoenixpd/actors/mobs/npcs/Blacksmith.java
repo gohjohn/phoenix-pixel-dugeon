@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.actors.mobs.npcs;
 
-import java.util.Collection;
-
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
@@ -27,8 +25,10 @@ import com.johngohce.phoenixpd.Journal;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.buffs.Buff;
 import com.johngohce.phoenixpd.actors.hero.Hero;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.items.EquipableItem;
 import com.johngohce.phoenixpd.items.Item;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
 import com.johngohce.phoenixpd.items.quest.DarkGold;
 import com.johngohce.phoenixpd.items.quest.Pickaxe;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
@@ -42,6 +42,8 @@ import com.johngohce.phoenixpd.windows.WndQuest;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Random;
 
+import java.util.Collection;
+
 public class Blacksmith extends NPC {
 
 	private static final String TXT_GOLD_1 =
@@ -54,6 +56,13 @@ public class Blacksmith extends NPC {
 		"What do you mean, how am I gonna pay? You greedy...\n" +
 		"Ok, ok, I don't have money to pay, but I can do some smithin' for you. Consider yourself lucky, " +
 		"I'm the only blacksmith around.";
+    private static final String TXT_SUCCUBUS_1 =
+        "Oh hey. Didn't see you there. *cough* \n" +
+        "Oh, what's my job? I erm smith tools and armor.\n" +
+        "Free? I erm.. No. I can't......";
+    private static final String TXT_SUCCUBUS_2 =
+        "Oh wow. There is something about you I can't resist.." +
+        "Okay, free smithing. All free! However much you want.";
 	private static final String TXT2 =
 		"Are you kiddin' me? Where is my pickaxe?!";
 	private static final String TXT3 =
@@ -82,32 +91,54 @@ public class Blacksmith extends NPC {
 	public void interact() {
 		
 		sprite.turnTo( pos, Dungeon.hero.pos );
+
+        Boolean succubusBonusFlag = false;
+        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+            if(Dungeon.hero.belongings.armor instanceof SuccubusLeather){
+                SuccubusLeather armor = (SuccubusLeather) Dungeon.hero.belongings.armor;
+                if(armor.level >= armor.BLACKSMITH_SPECIAL_LEVEL){
+                    succubusBonusFlag = true;
+                }
+            }
+        }
 		
 		if (!Quest.given) {
-			
-			GameScene.show( new WndQuest( this, 
-				Quest.alternative ? TXT_BLOOD_1 : TXT_GOLD_1 ) {
-				
-				@Override
-				public void onBackPressed() {
-					super.onBackPressed();
-					
-					Quest.given = true;
-					Quest.completed = false;
-					
-					Pickaxe pick = new Pickaxe();
-					if (pick.doPickUp( Dungeon.hero )) {
-						GLog.i( Hero.TXT_YOU_NOW_HAVE, pick.name() );
-					} else {
-						Dungeon.level.drop( pick, Dungeon.hero.pos ).sprite.drop();
-					}
-				};
-			} );
-			
+            if(succubusBonusFlag){
+                GameScene.show( new WndQuest( this, TXT_SUCCUBUS_1 ) {
+                    @Override
+                    public void onBackPressed() {
+                        super.onBackPressed();
+                        Quest.given = true;
+                        Quest.completed = false;
+                    };
+                } );
+            }else{
+                GameScene.show( new WndQuest( this,
+                        Quest.alternative ? TXT_BLOOD_1 : TXT_GOLD_1 ) {
+
+                    @Override
+                    public void onBackPressed() {
+                        super.onBackPressed();
+
+                        Quest.given = true;
+                        Quest.completed = false;
+
+                        Pickaxe pick = new Pickaxe();
+                        if (pick.doPickUp( Dungeon.hero )) {
+                            GLog.i( Hero.TXT_YOU_NOW_HAVE, pick.name() );
+                        } else {
+                            Dungeon.level.drop( pick, Dungeon.hero.pos ).sprite.drop();
+                        }
+                    };
+                } );
+            }
 			Journal.add( Journal.Feature.TROLL );
 			
 		} else if (!Quest.completed) {
-			if (Quest.alternative) {
+            if(succubusBonusFlag){
+                Quest.completed = true;
+                Quest.reforged = false;
+            }else if (Quest.alternative) {
 				
 				Pickaxe pick = Dungeon.hero.belongings.getItem( Pickaxe.class );
 				if (pick == null) {
@@ -146,7 +177,7 @@ public class Blacksmith extends NPC {
 				}
 				
 			}
-		} else if (!Quest.reforged) {
+		} else if (!Quest.reforged || succubusBonusFlag) {
 			
 			GameScene.show( new WndBlacksmith( this, Dungeon.hero ) );
 			
@@ -243,9 +274,13 @@ public class Blacksmith extends NPC {
 	
 	@Override
 	public String description() {
-		return 
-			"This troll blacksmith looks like all trolls look: he is tall and lean, and his skin resembles stone " +
-			"in both color and texture. The troll blacksmith is tinkering with unproportionally small tools.";
+        String desc = "This troll blacksmith looks like all trolls look: he is tall and lean, and his skin resembles stone " +
+                "in both color and texture. The troll blacksmith is tinkering with unproportionally small tools. ";
+        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+            desc += "\n\nYou catch him staring at you. With enough charm, maybe you can get something.";
+        }
+
+        return desc;
 	}
 
 	public static class Quest {

@@ -20,11 +20,14 @@ package com.johngohce.phoenixpd.windows;
 import com.johngohce.noosa.BitmapTextMultiline;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.hero.Hero;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.actors.mobs.npcs.Shopkeeper;
 import com.johngohce.phoenixpd.items.EquipableItem;
 import com.johngohce.phoenixpd.items.Gold;
 import com.johngohce.phoenixpd.items.Heap;
 import com.johngohce.phoenixpd.items.Item;
+import com.johngohce.phoenixpd.items.armor.Armor;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
 import com.johngohce.phoenixpd.items.rings.RingOfHaggler;
 import com.johngohce.phoenixpd.scenes.PixelScene;
 import com.johngohce.phoenixpd.sprites.ItemSprite;
@@ -227,6 +230,19 @@ public class WndTradeItem extends Window {
 		if (Dungeon.hero.buff( RingOfHaggler.Haggling.class ) != null && price >= 2) {
 			price /= 2;
 		}
+        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+            Armor armor = Dungeon.hero.belongings.armor;
+            if(armor instanceof SuccubusLeather){
+                if(((SuccubusLeather) armor).level>=((SuccubusLeather) armor).SHOPKEEPER_SPECIAL_LEVEL){
+                    price *= 0.2f;
+                }else{
+                    price *= 0.6f;
+                }
+            }else{
+                price *= 0.8f;
+            }
+        }
+        price = Math.max(price,1);
 		return price;
 	}
 	

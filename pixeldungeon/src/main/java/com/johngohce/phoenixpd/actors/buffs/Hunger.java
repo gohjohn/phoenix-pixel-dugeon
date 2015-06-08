@@ -20,6 +20,8 @@ package com.johngohce.phoenixpd.actors.buffs;
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.ResultDescriptions;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ReducedHunger;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.Stealth;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.items.rings.RingOfSatiety;
@@ -76,6 +78,9 @@ public class Hunger extends Buff implements Hero.Doom {
 				for (Buff buff : target.buffs( RingOfSatiety.Satiety.class )) {
 					bonus += ((RingOfSatiety.Satiety)buff).level;
 				}
+                for (ReducedHunger buff : target.buffs(ReducedHunger.class)) {
+                    bonus += STEP - Math.ceil(1.0f * STEP / buff.level);
+                }
 				
 				float newLevel = level + STEP - bonus;
 				boolean statusUpdated = false;
@@ -101,7 +106,7 @@ public class Hunger extends Buff implements Hero.Doom {
 			}
 			
 			float step = ((Hero)target).heroClass == HeroClass.ROGUE ? STEP * 1.2f : STEP;
-			spend( target.buff( Shadows.class ) == null ? step : step * 1.5f );
+			spend( (target.buff( Shadows.class ) == null && target.buff( Stealth.class ) == null) ? step : step * 1.5f );
 			
 		} else {
 			

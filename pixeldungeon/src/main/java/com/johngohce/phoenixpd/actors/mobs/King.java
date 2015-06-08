@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.actors.mobs;
 
-import java.util.HashSet;
-
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
@@ -30,9 +28,11 @@ import com.johngohce.phoenixpd.actors.blobs.ToxicGas;
 import com.johngohce.phoenixpd.actors.buffs.Buff;
 import com.johngohce.phoenixpd.actors.buffs.Paralysis;
 import com.johngohce.phoenixpd.actors.buffs.Vertigo;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.effects.Flare;
 import com.johngohce.phoenixpd.effects.Speck;
 import com.johngohce.phoenixpd.items.ArmorKit;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
 import com.johngohce.phoenixpd.items.keys.SkeletonKey;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfPsionicBlast;
 import com.johngohce.phoenixpd.items.wands.WandOfBlink;
@@ -46,6 +46,8 @@ import com.johngohce.phoenixpd.sprites.UndeadSprite;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.PathFinder;
 import com.johngohce.utils.Random;
+
+import java.util.HashSet;
 
 public class King extends Mob {
 	
@@ -137,7 +139,9 @@ public class King extends Mob {
 	@Override
 	public void die( Object cause ) {
 		GameScene.bossSlain();
-		Dungeon.level.drop( new ArmorKit(), pos ).sprite.drop();
+        if(Dungeon.hero.belongings.armor == null || !Dungeon.hero.belongings.armor.isPermanentlyEquipped){
+            Dungeon.level.drop( new ArmorKit(), pos ).sprite.drop();
+        }
 		Dungeon.level.drop( new SkeletonKey(), pos ).sprite.drop();
 		
 		super.die( cause );
@@ -198,16 +202,41 @@ public class King extends Mob {
 	@Override
 	public void notice() {
 		super.notice();
-		yell( "How dare you!" );
+
+        Boolean succubusBonusFlag = false;
+        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+            if(Dungeon.hero.belongings.armor instanceof SuccubusLeather){
+                SuccubusLeather armor = (SuccubusLeather) Dungeon.hero.belongings.armor;
+                if(armor.level >= armor.DWARF_KING_SPECIAL_LEVEL){
+                    succubusBonusFlag = true;
+                }
+            }
+        }
+        if(succubusBonusFlag) {
+            HP = 1;
+            yell( "*drool*" );
+        }else {
+            yell( "How dare you!" );
+        }
 	}
 	
 	@Override
 	public String description() {
-		return
-			"The last king of dwarves was known for his deep understanding of processes of life and death. " +
+        Boolean succubusBonusFlag = false;
+        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+            if(Dungeon.hero.belongings.armor instanceof SuccubusLeather){
+                SuccubusLeather armor = (SuccubusLeather) Dungeon.hero.belongings.armor;
+                if(armor.level >= armor.DWARF_KING_SPECIAL_LEVEL){
+                    succubusBonusFlag = true;
+                }
+            }
+        }
+        String desc = "The last king of dwarves was known for his deep understanding of processes of life and death. " +
 			"He has persuaded members of his court to participate in a ritual, that should have granted them " +
 			"eternal youthfulness. In the end he was the only one, who got it - and an army of undead " +
-			"as a bonus.";
+			"as a bonus. ";
+        if(succubusBonusFlag) desc += "\n\nThe moment he sees you, he falls to the ground grovelling.";
+        return desc;
 	}
 	
 	private static final HashSet<Class<?>> RESISTANCES = new HashSet<Class<?>>();

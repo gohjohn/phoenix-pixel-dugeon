@@ -37,6 +37,6 @@ public class WarlockCloak extends HeroMonsterArmor {
 
         return
                 "Focused on demonology and necromancy, these warlocks have long forgotten the art of defensive magic. " +
-                "This cloak is equivilent to elemental resistant cloth armor. You may remove it if you wish.";
+                "This cloak is equivalent to elemental resistant cloth armor. You may remove it if you wish.";
     }
 }

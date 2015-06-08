@@ -19,10 +19,12 @@ package com.johngohce.phoenixpd.actors.mobs.npcs;
 
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.buffs.Buff;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.effects.CellEmitter;
 import com.johngohce.phoenixpd.effects.particles.ElmoParticle;
 import com.johngohce.phoenixpd.items.Heap;
 import com.johngohce.phoenixpd.items.Item;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
 import com.johngohce.phoenixpd.scenes.GameScene;
 import com.johngohce.phoenixpd.sprites.ShopkeeperSprite;
 import com.johngohce.phoenixpd.windows.WndBag;
@@ -76,9 +78,23 @@ public class Shopkeeper extends NPC {
 	
 	@Override
 	public String description() {
-		return 
-			"This stout guy looks more appropriate for a trade district in some large city " +
-			"than for a dungeon. His prices explain why he prefers to do business here.";
+
+        String desc = "This stout guy looks more appropriate for a trade district in some large city " +
+                "than for a dungeon. His prices explain why he prefers to do business here. ";
+        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+            if (Dungeon.hero.belongings.armor instanceof SuccubusLeather){
+                SuccubusLeather armor = (SuccubusLeather) Dungeon.hero.belongings.armor;
+                if (armor.level >= armor.SHOPKEEPER_SPECIAL_LEVEL){
+                    desc += "\n\nHe is practically drooling at you. Looks like you'll get a big discount. ";
+                }else{
+                    desc += "\n\nYou catch him stealing glances at you. Looks like you'll be able to get slightly cheaper goods. ";
+                }
+            }else{
+                desc += "\n\nYou catch him stealing glances at you. Looks like you'll be able to get slightly cheaper goods. ";
+            }
+        }
+
+		return desc;
 	}
 	
 	public static WndBag sell() {
