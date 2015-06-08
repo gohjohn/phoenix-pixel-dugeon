@@ -49,7 +49,7 @@ public class WndStory extends Window {
         "This place looks familiar yet so distant.. The world feels so.. so.. different.. " +
 		"The walls. They tower above me like never before. They feel different from the ones in the real world. " +
 		"The real world? When is the last time I've seen the sun? It all seems like a distant dream. " +
-		"My head hurts. Ah, one thing I remember, the sensation of death... My head. My head hurts." );
+		"Ah, one thing I remember, the sensation of death... My head. My head hurts." );
 		
 		CHAPTERS.put( ID_PRISON,
         "Who am I? Why am I here? What year is this? How did I come here? Why does my head hurt so much when I try to remember? " +

@@ -19,7 +19,7 @@ package com.johngohce.phoenixpd.actors.buffs;
 
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.Char;
-import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SkinResistance;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ElementalResistance;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.food.FrozenCarpaccio;
@@ -76,7 +76,7 @@ public class Frost extends FlavourBuff {
 
     public static float duration( Char ch ) {
         Resistance r = ch.buff( Resistance.class );
-        SkinResistance r2 = ch.buff( SkinResistance.class );
+        ElementalResistance r2 = ch.buff( ElementalResistance.class );
         float durationFactor = 1f;
         if(r != null) durationFactor *= r.durationFactor();
         if(r2 != null) durationFactor *= r2.resistanceReductionDurationFactor();

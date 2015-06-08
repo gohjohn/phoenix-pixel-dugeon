@@ -31,6 +31,7 @@ import com.johngohce.phoenixpd.items.armor.heromonsterarmor.RatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SkeletonBonesArmor;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SpiderSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.ThiefCloak;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.WarlockCloak;
 import com.johngohce.phoenixpd.items.bags.Keyring;
 import com.johngohce.phoenixpd.items.food.Food;
 import com.johngohce.phoenixpd.items.food.MysteryMeat;
@@ -305,6 +306,7 @@ public enum HeroClass {
     }
     private static void initWarlock( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.armor = new WarlockCloak();
 
         Wand wand = new WandOfMagicMissile();
         wand.upgrade(5).identify().collect();

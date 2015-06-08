@@ -1,6 +1,7 @@
 package com.johngohce.phoenixpd.actors.buffs.monsterbuffs;
 
 import com.johngohce.phoenixpd.actors.buffs.Burning;
+import com.johngohce.phoenixpd.items.wands.WandOfFirebolt;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Fire;
 
 import java.util.HashSet;
@@ -19,5 +20,6 @@ public class FireImmunity extends HeroMonsterBuff{
     static {
         IMMUNITIES.add( Fire.class );
         IMMUNITIES.add( Burning.class );
+        IMMUNITIES.add( WandOfFirebolt.class );
     }
 }

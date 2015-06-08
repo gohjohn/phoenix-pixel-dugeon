@@ -1,7 +1,7 @@
 package com.johngohce.phoenixpd.items.armor.heromonsterarmor;
 
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ElementalResistance;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
-import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SkinResistance;
 import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class RatSkin extends HeroMonsterArmor {
     protected ArrayList<HeroMonsterBuff> updatedBuffs(){
         if(level>=SPECIAL_LEVEL){
             ArrayList<HeroMonsterBuff> newBuffs = new ArrayList<>();
-            newBuffs.add(new SkinResistance(level + 1 - SPECIAL_LEVEL));
+            newBuffs.add(new ElementalResistance(level + 1 - SPECIAL_LEVEL));
             return newBuffs;
         }
         return super.updatedBuffs();

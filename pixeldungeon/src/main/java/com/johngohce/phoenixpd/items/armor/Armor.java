@@ -138,7 +138,7 @@ public class Armor extends EquipableItem {
 		if (super.doUnequip( hero, collect, single )) {
 			
 			hero.belongings.armor = null;
-			((HeroSprite)hero.sprite).updateArmor();
+//			((HeroSprite)hero.sprite).updateArmor();
 			
 			return true;
 			
@@ -269,7 +269,7 @@ public class Armor extends EquipableItem {
 			}
 		}
 
-        if (!isEquipped( Dungeon.hero ) && Dungeon.hero.belongings.armor.isPermanentlyEquipped) {
+        if (!isEquipped( Dungeon.hero ) && (Dungeon.hero.belongings.armor!=null && Dungeon.hero.belongings.armor.isPermanentlyEquipped)) {
             info.append( "\n\nYour species can't wear armor." );
         }
 		

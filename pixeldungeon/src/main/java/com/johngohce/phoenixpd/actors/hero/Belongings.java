@@ -72,7 +72,7 @@ public class Belongings implements Iterable<Item> {
 		bundle.put( RING1, ring1 );
 		bundle.put( RING2, ring2 );
 
-        Log.i("Armour store in bundle", armor.toString());
+        Log.i("Armour store in bundle", ""+armor);
 	}
 	
 	public void restoreFromBundle( Bundle bundle ) {
@@ -87,7 +87,7 @@ public class Belongings implements Iterable<Item> {
 		
 		armor = (Armor)bundle.get( ARMOR );
 
-        Log.i("Armour restore in bundle", armor.toString());
+        Log.i("Armour restore in bundle", ""+armor);
 		
 		ring1 = (Ring)bundle.get( RING1 );
 		if (ring1 != null) {

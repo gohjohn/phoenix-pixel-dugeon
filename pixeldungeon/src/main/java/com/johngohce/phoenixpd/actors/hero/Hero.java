@@ -53,12 +53,12 @@ import com.johngohce.phoenixpd.actors.buffs.Roots;
 import com.johngohce.phoenixpd.actors.buffs.SnipersMark;
 import com.johngohce.phoenixpd.actors.buffs.Vertigo;
 import com.johngohce.phoenixpd.actors.buffs.Weakness;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ElementalResistance;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ExplosiveThorns;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.FireImmunity;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MovementHaste;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MultiplicityBuff;
-import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SkinResistance;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SpiderImmunity;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.Stealth;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.WebLaying;
@@ -1488,7 +1488,7 @@ public class Hero extends Char {
 	@Override
 	public HashSet<Class<?>> resistances() {
 		RingOfElements.Resistance r = buff( RingOfElements.Resistance.class );
-        SkinResistance r2 = buff ( SkinResistance.class );
+        ElementalResistance r2 = buff ( ElementalResistance.class );
 
         HashSet<Class<?>> resistances = super.resistances();
         if (r!=null) resistances.addAll(r.resistances());
