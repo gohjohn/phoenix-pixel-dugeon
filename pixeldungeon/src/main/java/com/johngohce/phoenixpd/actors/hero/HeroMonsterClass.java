@@ -86,7 +86,7 @@ public enum HeroMonsterClass {
 
     public void storeInBundle( Bundle bundle ) {
         bundle.put( MONSTER_CLASS, toString() );
-        Log.i("Storing monster class", title() );
+        Log.i("Storing monster class", toString() );
     }
 
     public static HeroMonsterClass restoreInBundle( Bundle bundle ) {

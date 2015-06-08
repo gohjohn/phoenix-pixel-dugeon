@@ -53,13 +53,14 @@ import com.johngohce.phoenixpd.actors.buffs.Roots;
 import com.johngohce.phoenixpd.actors.buffs.SnipersMark;
 import com.johngohce.phoenixpd.actors.buffs.Vertigo;
 import com.johngohce.phoenixpd.actors.buffs.Weakness;
-import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SpiderImmunity;
-import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.Stealth;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ExplosiveThorns;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.FireImmunity;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MovementHaste;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MultiplicityBuff;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SkinResistance;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SpiderImmunity;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.Stealth;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.WebLaying;
 import com.johngohce.phoenixpd.actors.mobs.Mob;
 import com.johngohce.phoenixpd.actors.mobs.npcs.MirrorImage;
@@ -1500,14 +1501,16 @@ public class Hero extends Char {
 	public HashSet<Class<?>> immunities() {
         HashSet<Class<?>> immunities = super.immunities();
 
-		GasesImmunity buff = buff( GasesImmunity.class );
-		if (buff != null){
+        if (buff( GasesImmunity.class ) != null){
             immunities.addAll( GasesImmunity.IMMUNITIES );
         }
 
-        SpiderImmunity buff2 = buff( SpiderImmunity.class );
-        if (buff2 != null){
+        if (buff( SpiderImmunity.class ) != null){
             immunities.addAll( SpiderImmunity.IMMUNITIES );
+        }
+
+        if (buff( FireImmunity.class ) != null){
+            immunities.addAll( FireImmunity.IMMUNITIES );
         }
 
         return immunities;

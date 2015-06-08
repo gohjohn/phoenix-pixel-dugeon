@@ -45,33 +45,35 @@ public class WndStory extends Window {
 	private static final SparseArray<String> CHAPTERS = new SparseArray<String>();
 	
 	static {
-		CHAPTERS.put( ID_SEWERS, 
-		"The Dungeon lies right beneath the City, its upper levels actually constitute the City's sewer system. " +
-		"Being nominally a part of the City, these levels are not that dangerous. No one will call it a safe place, " +
-		"but at least you won't need to deal with evil magic here." );
+		CHAPTERS.put( ID_SEWERS,
+        "This place looks familiar yet so distant.. The world feels so.. so.. different.. " +
+		"The walls. They tower above me like never before. They feel different from the ones in the real world. " +
+		"The real world? When is the last time I've seen the sun? It all seems like a distant dream. " +
+		"My head hurts. Ah, one thing I remember, the sensation of death... My head. My head hurts." );
 		
-		CHAPTERS.put( ID_PRISON, 
-		"Many years ago an underground prison was built here for the most dangerous criminals. At the time it seemed " +
-		"like a very clever idea, because this place indeed was very hard to escape. But soon dark miasma started to permeate " +
-		"from below, driving prisoners and guards insane. In the end the prison was abandoned, though some convicts " +
-		"were left locked up here." );
+		CHAPTERS.put( ID_PRISON,
+        "Who am I? Why am I here? What year is this? How did I come here? Why does my head hurt so much when I try to remember? " +
+        "The world is so familiar, I've been down these halls, oh so many times. But they twist differently every single time.. " +
+        "My foes seem the same, but they look different in height somehow... This miasma is corrupting my mind and senses. " +
+        "Telling me that maybe.. just maybe.. it is okay to die..." );
 		
 		CHAPTERS.put( ID_CAVES, 
-		"The caves, which stretch down under the abandoned prison, are sparcely populated. They lie too deep to be exploited " +
-		"by the City and they are too poor in minerals to interest the dwarves. In the past there was a trade outpost " +
-		"somewhere here on the route between these two states, but it has perished since the decline of Dwarven Metropolis. " +
-		"Only omnipresent gnolls and subterranean animals dwell here now." );
+		"Ah I remember. I had kids. They hugged me before I left. Oh but that seems like a dream... So so far away. " +
+        "Why did I leave? Why did I come here? They say loneliness crushes the heart, corrupting both mind and soul. " +
+        "But I believe my heart was corrupted from the start.. Pushing me deeper and deeper into this God forsaken place. " +
+        "Never one time have I gone back up to safety. It's always down down down. My heart telling me to never give up." );
 		
 		CHAPTERS.put( ID_METROPOLIS, 
-		"Dwarven Metropolis was once the greatest of dwarven city-states. In its heyday the mechanized army of dwarves " +
-		"has successfully repelled the invasion of the old god and his demon army. But it is said, that the returning warriors " +
-		"have brought seeds of corruption with them, and that victory was the beginning of the end for the underground kingdom." );
+		"What a strange rat. Just before I went down from DM-300's room, a rat whispered something to me." +
+        "It said it was waiting for me... to remind me of something. Something I once knew..." +
+        "That this world is not real. To take a leap of faith, yes, to come back... so I can be a human again. Come back..." );
 		
 		CHAPTERS.put( ID_HALLS,
-		"In the past these levels were the outskirts of Metropolis. After the costly victory in the war with the old god " +
-		"dwarves were too weakened to clear them of remaining demons. Gradually demons have tightened their grip on this place " +
-		"and now it's called Demon Halls.\n\n" +
-		"Very few adventurers have ever descended this far..." );
+		"I remember now. I made it down all the way to the bottom once. I was at the brink of death. " +
+        "My weapons and armor were broken and full of holes. I knew I would not make it out alive. " +
+        "But the amulet, it spoke. It promised eternal life. It promised power beyond my imagination. " +
+        "I wore it and everything went black... " +
+        "One thing I know. I must reach it again for my true freedom!" );
 	};
 	
 	private BitmapTextMultiline tf;

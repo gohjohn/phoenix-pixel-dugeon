@@ -24,6 +24,7 @@ import com.johngohce.phoenixpd.items.armor.MailArmor;
 import com.johngohce.phoenixpd.items.armor.glyphs.Affection;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.BatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.CrabShell;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.ElementalBody;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.FlySkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.GnollSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.RatSkin;
@@ -294,14 +295,12 @@ public enum HeroClass {
 
     private static void initFireElemental( Hero hero ) {
         (hero.belongings.weapon = new Dagger().enchant(new Fire())).upgrade().identify();
+        hero.belongings.armor = new ElementalBody();
 
         Wand wand = new WandOfFirebolt();
         wand.upgrade().identify().collect();
         QuickSlot.primaryValue = wand;
 
-        new PotionOfLiquidFlame().collect();
-        new PotionOfLiquidFlame().collect();
-        new PotionOfLiquidFlame().collect();
         new PotionOfLiquidFlame().setKnown();
     }
     private static void initWarlock( Hero hero ) {
