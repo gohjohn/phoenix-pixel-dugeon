@@ -22,18 +22,20 @@ import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.items.armor.MailArmor;
 import com.johngohce.phoenixpd.items.armor.glyphs.Affection;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.BatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.CrabShell;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.FlySkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.GnollSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.RatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SkeletonBonesArmor;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SpiderSkin;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.ThiefCloak;
 import com.johngohce.phoenixpd.items.bags.Keyring;
 import com.johngohce.phoenixpd.items.food.Food;
 import com.johngohce.phoenixpd.items.food.MysteryMeat;
 import com.johngohce.phoenixpd.items.potions.PotionOfHealing;
 import com.johngohce.phoenixpd.items.potions.PotionOfLiquidFlame;
 import com.johngohce.phoenixpd.items.potions.PotionOfStrength;
-import com.johngohce.phoenixpd.items.rings.RingOfHaggler;
 import com.johngohce.phoenixpd.items.rings.RingOfHaste;
 import com.johngohce.phoenixpd.items.rings.RingOfShadows;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfIdentify;
@@ -44,7 +46,6 @@ import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
 import com.johngohce.phoenixpd.items.wands.WandOfFirebolt;
 import com.johngohce.phoenixpd.items.wands.WandOfLightning;
 import com.johngohce.phoenixpd.items.wands.WandOfMagicMissile;
-import com.johngohce.phoenixpd.items.wands.WandOfSlowness;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Fire;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Leech;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
@@ -231,6 +232,7 @@ public enum HeroClass {
     private static void initScout( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
         hero.belongings.armor = new GnollSkin();
+
         Dungeon.gold = 500;
     }
     private static void initCrab( Hero hero ) {
@@ -248,40 +250,42 @@ public enum HeroClass {
     }
     private static void initThief( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
-        (hero.belongings.ring1 = new RingOfHaggler()).upgrade().identify();
-        hero.belongings.ring1.activate(hero);
+        hero.belongings.armor = new ThiefCloak();
+
         Dungeon.gold = 300;
     }
     private static void initFlies( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
         hero.belongings.armor = new FlySkin();
+
         new PotionOfHealing().setKnown();
     }
     private static void initShaman( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.armor = new GnollSkin();
+
         Wand wand = new WandOfLightning();
         wand.upgrade().identify().collect();
         QuickSlot.primaryValue = wand;
+
         new ScrollOfIdentify().setKnown();
     }
 
     private static void initBat( Hero hero ) {
         (hero.belongings.weapon = new Dagger().enchant(new Leech())).upgrade().identify();
-        (hero.belongings.ring1 = new RingOfHaste()).upgrade().identify();
-        new PotionOfHealing().collect();
+        hero.belongings.armor = new BatSkin();
+
         new PotionOfHealing().setKnown();
     }
     private static void initBrute( Hero hero ) {
         (hero.belongings.weapon = new Spear()).upgrade().identify();
+        hero.belongings.armor = new GnollSkin();
         new PotionOfStrength().collect();
         new PotionOfStrength().setKnown();
     }
     private static void initSpinner( Hero hero ) {
         (hero.belongings.weapon = new Dagger().enchant(new Poison())).upgrade().identify();
-
-        Wand wand = new WandOfSlowness();
-        wand.upgrade().identify().collect();
-        QuickSlot.primaryValue = wand;
+        hero.belongings.armor = new SpiderSkin();
 
         new MysteryMeat().collect();
         new MysteryMeat().collect();

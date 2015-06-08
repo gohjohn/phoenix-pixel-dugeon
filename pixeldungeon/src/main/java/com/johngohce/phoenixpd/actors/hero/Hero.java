@@ -30,6 +30,8 @@ import com.johngohce.phoenixpd.GamesInProgress;
 import com.johngohce.phoenixpd.ResultDescriptions;
 import com.johngohce.phoenixpd.actors.Actor;
 import com.johngohce.phoenixpd.actors.Char;
+import com.johngohce.phoenixpd.actors.blobs.Blob;
+import com.johngohce.phoenixpd.actors.blobs.Web;
 import com.johngohce.phoenixpd.actors.buffs.Barkskin;
 import com.johngohce.phoenixpd.actors.buffs.Bleeding;
 import com.johngohce.phoenixpd.actors.buffs.Blindness;
@@ -51,10 +53,14 @@ import com.johngohce.phoenixpd.actors.buffs.Roots;
 import com.johngohce.phoenixpd.actors.buffs.SnipersMark;
 import com.johngohce.phoenixpd.actors.buffs.Vertigo;
 import com.johngohce.phoenixpd.actors.buffs.Weakness;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SpiderImmunity;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.Stealth;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ExplosiveThorns;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MovementHaste;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MultiplicityBuff;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.SkinResistance;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.WebLaying;
 import com.johngohce.phoenixpd.actors.mobs.Mob;
 import com.johngohce.phoenixpd.actors.mobs.npcs.MirrorImage;
 import com.johngohce.phoenixpd.actors.mobs.npcs.NPC;
@@ -352,7 +358,7 @@ public class Hero extends Char {
         for (Buff buff : buffs( MovementHaste.class )) {
             hasteLevel += ((MovementHaste)buff).level;
         }
-        float speed = (float) (super.speed() * Math.pow( 1.1, -hasteLevel )) ;
+        float speed = (float) (super.speed() * Math.pow( 1.1, hasteLevel )) ;
 
 		int aEnc = belongings.armor != null ? belongings.armor.STR - STR() : 0;
 		if (aEnc > 0) {
@@ -887,7 +893,7 @@ public class Hero extends Char {
                 Char ch = findChar( pos + Level.NEIGHBOURS8[i] );
 
                 if (ch != null && ch.isAlive()) {
-                    int dmg = Math.min(damage + eThorns.level, Random.IntRange( 0, (int)(damage *  Math.pow(1.1f,eThorns.level))));
+                    int dmg = Math.min(damage + eThorns.level, Random.IntRange(0, (int) (damage * Math.pow(1.1f, eThorns.level))));
                     ch.damage( dmg, eThorns );
                     if(!ch.isAlive()){
                         GLog.i( TXT_DEFEAT, eThorns.toString(), ch.name );
@@ -1205,6 +1211,9 @@ public class Hero extends Char {
 		for (Buff buff : buffs( RingOfShadows.Shadows.class )) {
 			stealth += ((RingOfShadows.Shadows)buff).level;
 		}
+        for (HeroMonsterBuff buff : buffs(Stealth.class )){
+            stealth += buff.level;
+        }
 		return stealth;
 	}
 	
@@ -1302,6 +1311,11 @@ public class Hero extends Char {
 	
 	@Override
 	public void move( int step ) {
+        WebLaying buff = buff( WebLaying.class );
+        if( buff != null ){
+            GameScene.add( Blob.seed(pos, Random.Int(5, 7), Web.class) );
+        }
+
 		super.move( step );
 		
 		if (!flying) {
@@ -1484,8 +1498,19 @@ public class Hero extends Char {
 	
 	@Override
 	public HashSet<Class<?>> immunities() {
+        HashSet<Class<?>> immunities = super.immunities();
+
 		GasesImmunity buff = buff( GasesImmunity.class );
-		return buff == null ? super.immunities() : GasesImmunity.IMMUNITIES;
+		if (buff != null){
+            immunities.addAll( GasesImmunity.IMMUNITIES );
+        }
+
+        SpiderImmunity buff2 = buff( SpiderImmunity.class );
+        if (buff2 != null){
+            immunities.addAll( SpiderImmunity.IMMUNITIES );
+        }
+
+        return immunities;
 	}
 	
 	@Override
