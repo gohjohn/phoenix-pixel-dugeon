@@ -17,6 +17,8 @@
  */
 package com.johngohce.phoenixpd;
 
+import android.util.Log;
+
 import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.utils.Bundle;
@@ -43,7 +45,10 @@ public class GamesInProgress {
 				Dungeon.preview( info, bundle );
 
 			} catch (Exception e) {
-				info = null;
+
+                Log.d("GamesInProgress exception",e.toString());
+                e.printStackTrace();
+                info = null;
 			}
 			
 			state.put( cl, info );

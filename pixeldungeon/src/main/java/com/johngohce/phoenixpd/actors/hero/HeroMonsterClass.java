@@ -69,7 +69,6 @@ public enum HeroMonsterClass {
     EVIL_EYE("evil eye", new EyeSprite()),
     SCORPIO("scorpio", new ScorpioSprite());
 
-
     private String title;
     private MobSprite image;
 
@@ -86,7 +85,7 @@ public enum HeroMonsterClass {
     private static final String MONSTER_CLASS	= "monsterClass";
 
     public void storeInBundle( Bundle bundle ) {
-        bundle.put( MONSTER_CLASS, title() );
+        bundle.put( MONSTER_CLASS, toString() );
         Log.i("Storing monster class", title() );
     }
 

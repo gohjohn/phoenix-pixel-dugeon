@@ -17,8 +17,6 @@
 
 package com.johngohce.utils;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -102,17 +100,19 @@ public class Bundle {
 			if (aliases.containsKey( clName )) {
 				clName = aliases.get( clName );
 			}
-			
+
 			Class<?> cl = Class.forName( clName );
+
 			if (cl != null) {
 				Bundlable object = (Bundlable)cl.newInstance();
+
 				object.restoreFromBundle( this );
 				return object;
 			} else {
 				return null;
 			}
 		} catch (Exception e) {
-            Log.d("Bundle.get", e.toString());
+            e.printStackTrace();
 			e = null;
 			return null;
 		}	
