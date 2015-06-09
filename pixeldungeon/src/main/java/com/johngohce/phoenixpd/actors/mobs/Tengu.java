@@ -213,7 +213,7 @@ public class Tengu extends Mob {
 			"Tengu are members of the ancient assassins clan, which is also called Tengu. " +
 			"These assassins are noted for extensive use of shuriken and traps.";
 
-        if(succubusBonusFlag) desc += "The moment he sees you, he falls to the ground grovelling.";
+        if(succubusBonusFlag) desc += "\n\nThe moment he sees you, he falls to the ground grovelling.";
 
         return desc;
 	}

@@ -17,13 +17,12 @@
  */
 package com.johngohce.phoenixpd.actors.mobs;
 
-import java.util.HashSet;
-
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.buffs.Amok;
 import com.johngohce.phoenixpd.actors.buffs.Terror;
 import com.johngohce.phoenixpd.actors.hero.Hero;
+import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.actors.mobs.npcs.Imp;
 import com.johngohce.phoenixpd.items.KindOfWeapon;
 import com.johngohce.phoenixpd.items.food.Food;
@@ -31,6 +30,8 @@ import com.johngohce.phoenixpd.items.weapon.melee.Knuckles;
 import com.johngohce.phoenixpd.sprites.MonkSprite;
 import com.johngohce.phoenixpd.utils.GLog;
 import com.johngohce.utils.Random;
+
+import java.util.HashSet;
 
 public class Monk extends Mob {
 
@@ -102,9 +103,12 @@ public class Monk extends Mob {
 	
 	@Override
 	public String description() {
-		return
-			"These monks are fanatics, who devoted themselves to protecting their city's secrets from all aliens. " +
-			"They don't use any armor or weapons, relying solely on the art of hand-to-hand combat.";
+        String desc = "These monks are fanatics, who devoted themselves to protecting their city's secrets from all aliens. " +
+			"They don't use any armor or weapons, relying solely on the art of hand-to-hand combat. ";
+        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+            desc += "\n\nThey don't seem to be affected by your charms. Oh well.";
+        }
+        return desc;
 	}
 	
 	private static final HashSet<Class<?>> IMMUNITIES = new HashSet<Class<?>>();

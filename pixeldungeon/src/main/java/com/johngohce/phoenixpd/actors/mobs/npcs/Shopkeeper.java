@@ -84,7 +84,8 @@ public class Shopkeeper extends NPC {
         if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
             if (Dungeon.hero.belongings.armor instanceof SuccubusLeather){
                 SuccubusLeather armor = (SuccubusLeather) Dungeon.hero.belongings.armor;
-                if (armor.level >= armor.SHOPKEEPER_SPECIAL_LEVEL){
+
+                if (armor.level >= armor.shopkeeperSpecialLevel(Dungeon.depth/5)){
                     desc += "\n\nHe is practically drooling at you. Looks like you'll get a big discount. ";
                 }else{
                     desc += "\n\nYou catch him stealing glances at you. Looks like you'll be able to get slightly cheaper goods. ";

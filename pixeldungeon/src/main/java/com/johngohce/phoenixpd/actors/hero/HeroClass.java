@@ -20,8 +20,6 @@ package com.johngohce.phoenixpd.actors.hero;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
-import com.johngohce.phoenixpd.items.armor.MailArmor;
-import com.johngohce.phoenixpd.items.armor.glyphs.Affection;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.BatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.CrabShell;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.ElementalBody;
@@ -32,6 +30,7 @@ import com.johngohce.phoenixpd.items.armor.heromonsterarmor.RatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.RockSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SkeletonBonesArmor;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SpiderSkin;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.ThiefCloak;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.WarlockCloak;
 import com.johngohce.phoenixpd.items.bags.Keyring;
@@ -325,7 +324,7 @@ public enum HeroClass {
 
     private static void initSuccubus( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
-        (hero.belongings.armor = new MailArmor().inscribe(new Affection())).upgrade(3).identify();
+        (hero.belongings.armor = new SuccubusLeather()).upgrade(15);
 
         Wand wand = new WandOfBlink();
         wand.upgrade().identify().collect();

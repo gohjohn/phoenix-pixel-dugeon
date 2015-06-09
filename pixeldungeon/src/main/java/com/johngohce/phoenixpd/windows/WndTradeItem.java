@@ -29,6 +29,7 @@ import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.armor.Armor;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
 import com.johngohce.phoenixpd.items.rings.RingOfHaggler;
+import com.johngohce.phoenixpd.levels.LastShopLevel;
 import com.johngohce.phoenixpd.scenes.PixelScene;
 import com.johngohce.phoenixpd.sprites.ItemSprite;
 import com.johngohce.phoenixpd.ui.ItemSlot;
@@ -226,14 +227,16 @@ public class WndTradeItem extends Window {
 	
 	private int price( Item item ) {
 
+        //TODO
+
 		int price = item.price() * 5 * (Dungeon.depth / 5 + 1);
 		if (Dungeon.hero.buff( RingOfHaggler.Haggling.class ) != null && price >= 2) {
 			price /= 2;
 		}
-        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS){
+        if(Dungeon.hero.monsterClass == HeroMonsterClass.SUCCUBUS && !(Dungeon.level instanceof LastShopLevel)){
             Armor armor = Dungeon.hero.belongings.armor;
             if(armor instanceof SuccubusLeather){
-                if(((SuccubusLeather) armor).level>=((SuccubusLeather) armor).SHOPKEEPER_SPECIAL_LEVEL){
+                if(((SuccubusLeather) armor).level>=((SuccubusLeather) armor).shopkeeperSpecialLevel(Dungeon.depth/5)){
                     price *= 0.2f;
                 }else{
                     price *= 0.6f;
