@@ -10,6 +10,10 @@ import java.util.HashSet;
  */
 public class SpiderImmunity extends HeroMonsterBuff{
 
+    public SpiderImmunity(){
+        super();
+    }
+
     @Override
     public String toString() {
         return "Spider Immunity";

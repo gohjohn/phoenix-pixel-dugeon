@@ -15,7 +15,6 @@ import java.util.HashSet;
  * Created by johngoh on 6/6/15.
  */
 public class ElementalResistance extends HeroMonsterBuff {
-    //TODO Might be too OP. Nerf this?
 
     public ElementalResistance(int level){
         super(level);

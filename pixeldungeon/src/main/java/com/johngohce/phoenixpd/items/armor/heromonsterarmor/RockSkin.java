@@ -36,9 +36,9 @@ public class RockSkin extends HeroMonsterArmor {
     public String desc() {
 
         return
-                "You are extremely slow. Moving slower than anything in this dungeon." +
-                        "Fortunately, your armor is thicker than most." +
-                        "You also get less hungry" +
+                "You are extremely slow. Moving slower than anything in this dungeon. " +
+                        "Fortunately, your armor is thicker than most. " +
+                        "You also get less hungry. " +
                         "Upgrading this will increase your speed.";
     }
 }

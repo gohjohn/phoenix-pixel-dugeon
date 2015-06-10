@@ -9,10 +9,10 @@ import com.johngohce.phoenixpd.actors.buffs.Buff;
  * Created by johngoh on 6/6/15.
  */
 public class HeroMonsterBuff extends Buff {
-    public int level = 0;
+    public int level = 1;
 
     public HeroMonsterBuff(){
-        level = 0;
+        level = 1;
     }
 
     public HeroMonsterBuff( int level ){

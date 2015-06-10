@@ -38,7 +38,7 @@ public class Buff extends Actor {
 	}
 	
 	public void detach() {
-		target.remove( this );
+        if(target!=null) target.remove( this );
 	}
 	
 	@Override

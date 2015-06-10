@@ -23,11 +23,13 @@ import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.BatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.CrabShell;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.ElementalBody;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.EyeLid;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.FlySkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.GnollSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.MonkRobe;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.RatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.RockSkin;
+import com.johngohce.phoenixpd.items.armor.heromonsterarmor.ScorpioShell;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SkeletonBonesArmor;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SpiderSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
@@ -42,6 +44,7 @@ import com.johngohce.phoenixpd.items.potions.PotionOfStrength;
 import com.johngohce.phoenixpd.items.rings.RingOfShadows;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfIdentify;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
+import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
 import com.johngohce.phoenixpd.items.wands.Wand;
 import com.johngohce.phoenixpd.items.wands.WandOfBlink;
 import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
@@ -52,9 +55,9 @@ import com.johngohce.phoenixpd.items.weapon.enchantments.Leech;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
 import com.johngohce.phoenixpd.items.weapon.melee.Dagger;
 import com.johngohce.phoenixpd.items.weapon.melee.Knuckles;
+import com.johngohce.phoenixpd.items.weapon.melee.Mace;
 import com.johngohce.phoenixpd.items.weapon.melee.ShortSword;
 import com.johngohce.phoenixpd.items.weapon.melee.Spear;
-import com.johngohce.phoenixpd.items.weapon.melee.WarHammer;
 import com.johngohce.phoenixpd.items.weapon.missiles.Boomerang;
 import com.johngohce.phoenixpd.items.weapon.missiles.Dart;
 import com.johngohce.phoenixpd.ui.QuickSlot;
@@ -160,11 +163,18 @@ public enum HeroClass {
 		*/
 		
 		hero.updateAwareness();
+        hero.updateArmorBuffs();
 	}
 	
 	private static void initCommon( Hero hero ) {
 		new Food().identify().collect();
 		new Keyring().collect();
+
+        for (int i = 0; i < 10; i++) {
+            new Food().collect();
+            new ScrollOfUpgrade().collect();
+        }
+        new ScrollOfUpgrade().setKnown();
 	}
 	
 	public Badges.Badge masteryBadge() {
@@ -316,7 +326,7 @@ public enum HeroClass {
         new Food().collect();
     }
     private static void initGolem( Hero hero ) {
-        (hero.belongings.weapon = new WarHammer()).identify().upgrade(1);
+        (hero.belongings.weapon = new Mace()).identify().upgrade(2);
         hero.belongings.armor = new RockSkin();
 
         new PotionOfStrength().setKnown();
@@ -332,6 +342,7 @@ public enum HeroClass {
     }
     private static void initEvilEye( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.armor = new EyeLid();
 
         Wand wand = new WandOfDisintegration();
         wand.upgrade(2).identify().collect();
@@ -340,6 +351,7 @@ public enum HeroClass {
     }
     private static void initScorpio( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.armor = new ScorpioShell();
 
         Boomerang boomerang = new Boomerang();
         boomerang.enchant(new Poison()).upgrade().identify().collect();
@@ -348,8 +360,6 @@ public enum HeroClass {
         new MysteryMeat().collect();
         new MysteryMeat().collect();
         new MysteryMeat().collect();
-
-        new PotionOfHealing().collect();
         new PotionOfHealing().setKnown();
     }
 

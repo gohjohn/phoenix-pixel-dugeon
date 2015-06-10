@@ -22,6 +22,7 @@ import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.buffs.Barkskin;
 import com.johngohce.phoenixpd.actors.buffs.Buff;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.TearBuff;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.hero.HeroSubClass;
 import com.johngohce.phoenixpd.effects.CellEmitter;
@@ -49,13 +50,19 @@ public class HighGrass {
 					herbalismLevel = herbalism.level;
 				}
 			}
+            int tearBuffLevel = 0;
+
+            TearBuff tearBuff = ch.buff( TearBuff.class );
+            if (tearBuff != null) {
+                tearBuffLevel = tearBuff.level;
+            }
 			// Seed
 			if (herbalismLevel >= 0 && Random.Int( 18 ) <= Random.Int( herbalismLevel + 1 )) {
 				level.drop( Generator.random( Generator.Category.SEED ), pos ).sprite.drop();
 			}
 			
 			// Dew
-			if (herbalismLevel >= 0 && Random.Int( 6 ) <= Random.Int( herbalismLevel + 1 )) {
+			if (herbalismLevel + tearBuffLevel >= 0 && Random.Int( 6 ) <= Random.Int( herbalismLevel + tearBuffLevel/2 + 1 )) {
 				level.drop( new Dewdrop(), pos ).sprite.drop();
 			}
 		}

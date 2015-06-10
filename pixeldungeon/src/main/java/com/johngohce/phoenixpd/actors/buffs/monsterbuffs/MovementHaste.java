@@ -5,6 +5,10 @@ package com.johngohce.phoenixpd.actors.buffs.monsterbuffs;
  */
 public class MovementHaste extends HeroMonsterBuff {
 
+    public MovementHaste(){
+        super();
+    }
+
     public MovementHaste( int level ){
         super(level);
     }

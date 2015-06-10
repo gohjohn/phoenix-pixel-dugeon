@@ -246,9 +246,7 @@ public class Hero extends Char {
 		exp = bundle.getInt( EXPERIENCE );
 		
 		belongings.restoreFromBundle( bundle );
-        if(belongings.armor instanceof HeroMonsterArmor){
-            ((HeroMonsterArmor) belongings.armor).updateBuffs();
-        }
+        updateArmorBuffs();
 	}
 	
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
@@ -354,7 +352,6 @@ public class Hero extends Char {
 	
 	@Override
 	public float speed() {
-
 
         int hasteLevel = 0;
         for (Buff buff : buffs( MovementHaste.class )) {
@@ -1151,6 +1148,12 @@ public class Hero extends Char {
 			(1 + Math.min( lvl,  9 )) * 0.5 
 		));
 	}
+
+    public void updateArmorBuffs(){
+        if( belongings != null && belongings.armor != null && belongings.armor instanceof HeroMonsterArmor){
+            ((HeroMonsterArmor) belongings.armor).updateBuffs();
+        }
+    }
 	
 	public boolean isStarving() {
 		return ((Hunger)buff( Hunger.class )).isStarving();

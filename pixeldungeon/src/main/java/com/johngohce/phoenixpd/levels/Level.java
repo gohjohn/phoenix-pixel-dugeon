@@ -17,12 +17,6 @@
  */
 package com.johngohce.phoenixpd.levels;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-
 import com.johngohce.noosa.Scene;
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
@@ -39,6 +33,7 @@ import com.johngohce.phoenixpd.actors.buffs.Blindness;
 import com.johngohce.phoenixpd.actors.buffs.Buff;
 import com.johngohce.phoenixpd.actors.buffs.MindVision;
 import com.johngohce.phoenixpd.actors.buffs.Shadows;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.TrapMasterBuff;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.actors.mobs.Bestiary;
@@ -62,7 +57,14 @@ import com.johngohce.phoenixpd.levels.features.Chasm;
 import com.johngohce.phoenixpd.levels.features.Door;
 import com.johngohce.phoenixpd.levels.features.HighGrass;
 import com.johngohce.phoenixpd.levels.painters.Painter;
-import com.johngohce.phoenixpd.levels.traps.*;
+import com.johngohce.phoenixpd.levels.traps.AlarmTrap;
+import com.johngohce.phoenixpd.levels.traps.FireTrap;
+import com.johngohce.phoenixpd.levels.traps.GrippingTrap;
+import com.johngohce.phoenixpd.levels.traps.LightningTrap;
+import com.johngohce.phoenixpd.levels.traps.ParalyticTrap;
+import com.johngohce.phoenixpd.levels.traps.PoisonTrap;
+import com.johngohce.phoenixpd.levels.traps.SummoningTrap;
+import com.johngohce.phoenixpd.levels.traps.ToxicTrap;
 import com.johngohce.phoenixpd.mechanics.ShadowCaster;
 import com.johngohce.phoenixpd.plants.Plant;
 import com.johngohce.phoenixpd.scenes.GameScene;
@@ -71,6 +73,12 @@ import com.johngohce.utils.Bundlable;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Random;
 import com.johngohce.utils.SparseArray;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public abstract class Level implements Bundlable {
 	
@@ -90,10 +98,12 @@ public abstract class Level implements Bundlable {
 	public static final int[] NEIGHBOURS9 = {0, +1, -1, +WIDTH, -WIDTH, +1+WIDTH, +1-WIDTH, -1+WIDTH, -1-WIDTH};
 	
 	protected static final float TIME_TO_RESPAWN	= 50;
-	
-	private static final String TXT_HIDDEN_PLATE_CLICKS = "A hidden pressure plate clicks!";
-	
-	public static boolean resizingNeeded;
+
+    private static final String TXT_HIDDEN_PLATE_CLICKS = "A hidden pressure plate clicks!";
+    private static final String TXT_TRAP_DISARM = "You managed to disarm the trap before it activated";
+
+
+    public static boolean resizingNeeded;
 	public static int loadedMapSize;
 	
 	public int[] map;
@@ -602,6 +612,12 @@ public abstract class Level implements Bundlable {
 		}
 		
 		boolean trap = false;
+
+        boolean trapDisarm = false;
+        if(ch == Dungeon.hero){
+            TrapMasterBuff buff = ch.buff( TrapMasterBuff.class );
+            if(buff != null && Random.Int(buff.level) >= Random.Int(Dungeon.depth/5 + 1)) trapDisarm = true;
+        }
 		
 		switch (map[cell]) {
 		
@@ -609,56 +625,56 @@ public abstract class Level implements Bundlable {
 			GLog.i( TXT_HIDDEN_PLATE_CLICKS );
 		case Terrain.TOXIC_TRAP:
 			trap = true;
-			ToxicTrap.trigger( cell, ch );
+			if(!trapDisarm) ToxicTrap.trigger( cell, ch );
 			break;
 			
 		case Terrain.SECRET_FIRE_TRAP:
 			GLog.i( TXT_HIDDEN_PLATE_CLICKS );
 		case Terrain.FIRE_TRAP:
 			trap = true;
-			FireTrap.trigger( cell, ch );
+            if(!trapDisarm) FireTrap.trigger( cell, ch );
 			break;
 			
 		case Terrain.SECRET_PARALYTIC_TRAP:
 			GLog.i( TXT_HIDDEN_PLATE_CLICKS );
 		case Terrain.PARALYTIC_TRAP:
 			trap = true;
-			ParalyticTrap.trigger( cell,  ch );
+            if(!trapDisarm) ParalyticTrap.trigger( cell,  ch );
 			break;
 			
 		case Terrain.SECRET_POISON_TRAP:
 			GLog.i( TXT_HIDDEN_PLATE_CLICKS );
 		case Terrain.POISON_TRAP:
 			trap = true;
-			PoisonTrap.trigger( cell, ch );
+            if(!trapDisarm) PoisonTrap.trigger( cell, ch );
 			break;
 			
 		case Terrain.SECRET_ALARM_TRAP:
 			GLog.i( TXT_HIDDEN_PLATE_CLICKS );
 		case Terrain.ALARM_TRAP:
 			trap = true;
-			AlarmTrap.trigger( cell, ch );
+            if(!trapDisarm) AlarmTrap.trigger( cell, ch );
 			break;
 			
 		case Terrain.SECRET_LIGHTNING_TRAP:
 			GLog.i( TXT_HIDDEN_PLATE_CLICKS );
 		case Terrain.LIGHTNING_TRAP:
 			trap = true;
-			LightningTrap.trigger( cell, ch );
+            if(!trapDisarm) LightningTrap.trigger( cell, ch );
 			break;
 			
 		case Terrain.SECRET_GRIPPING_TRAP:
 			GLog.i( TXT_HIDDEN_PLATE_CLICKS );
 		case Terrain.GRIPPING_TRAP:
 			trap = true;
-			GrippingTrap.trigger( cell, ch );
+            if(!trapDisarm) GrippingTrap.trigger( cell, ch );
 			break;
 			
 		case Terrain.SECRET_SUMMONING_TRAP:
 			GLog.i( TXT_HIDDEN_PLATE_CLICKS );
 		case Terrain.SUMMONING_TRAP:
 			trap = true;
-			SummoningTrap.trigger( cell, ch );
+            if(!trapDisarm) SummoningTrap.trigger( cell, ch );
 			break;
 			
 		case Terrain.HIGH_GRASS:
@@ -685,7 +701,10 @@ public abstract class Level implements Bundlable {
 			if (ch == Dungeon.hero) {
 				Dungeon.hero.interrupt();
 			}
-			set( cell, Terrain.INACTIVE_TRAP );
+            if(trapDisarm){
+                GLog.i(TXT_TRAP_DISARM);
+            }
+            set( cell, Terrain.INACTIVE_TRAP );
 			GameScene.updateMap( cell );
 		}
 		

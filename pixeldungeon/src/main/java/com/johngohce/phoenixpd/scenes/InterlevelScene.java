@@ -28,6 +28,8 @@ import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.Statistics;
 import com.johngohce.phoenixpd.actors.Actor;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.TearBuff;
+import com.johngohce.phoenixpd.items.Dewdrop;
 import com.johngohce.phoenixpd.items.Generator;
 import com.johngohce.phoenixpd.levels.Level;
 import com.johngohce.phoenixpd.windows.WndError;
@@ -229,6 +231,11 @@ public class InterlevelScene extends PixelScene {
 		Level level;
 		if (Dungeon.depth >= Statistics.deepestFloor) {
 			level = Dungeon.newLevel();
+
+            if (Dungeon.hero.buff( TearBuff.class ) != null){
+                level.drop( new Dewdrop(), level.entrance );
+                level.drop( new Dewdrop(), level.exit );
+            }
 		} else {
 			Dungeon.depth++;
 			level = Dungeon.loadLevel( Dungeon.hero.heroClass );

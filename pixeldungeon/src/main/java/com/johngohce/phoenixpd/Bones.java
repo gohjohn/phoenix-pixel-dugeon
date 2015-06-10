@@ -55,7 +55,7 @@ public class Bones {
 			item = Dungeon.hero.belongings.ring2;
 			break;
 		}
-        if(item.isPermanentlyEquipped) item = null;
+        if(item != null && item.isPermanentlyEquipped) item = null;
 		if (item == null) {
 			if (Dungeon.gold > 0) {
 				item = new Gold( Random.IntRange( 1, Dungeon.gold ) );

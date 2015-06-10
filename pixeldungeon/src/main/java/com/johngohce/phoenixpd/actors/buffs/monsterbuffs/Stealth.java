@@ -5,6 +5,10 @@ package com.johngohce.phoenixpd.actors.buffs.monsterbuffs;
  */
 public class Stealth extends HeroMonsterBuff {
 
+    public Stealth(){
+        super();
+    }
+
     public Stealth(int level){
         super(level);
     }

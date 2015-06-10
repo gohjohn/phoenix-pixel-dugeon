@@ -5,6 +5,8 @@ package com.johngohce.phoenixpd.actors.buffs.monsterbuffs;
  */
 public class WebLaying extends HeroMonsterBuff {
 
+    public WebLaying(){ super(); }
+
     public WebLaying(int level){
         super(level);
     }

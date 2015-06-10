@@ -5,6 +5,10 @@ package com.johngohce.phoenixpd.actors.buffs.monsterbuffs;
  */
 public class MultiplicityBuff extends HeroMonsterBuff {
 
+    public MultiplicityBuff(){
+        super();
+    }
+
     public MultiplicityBuff( int level ){
         super(level);
     }

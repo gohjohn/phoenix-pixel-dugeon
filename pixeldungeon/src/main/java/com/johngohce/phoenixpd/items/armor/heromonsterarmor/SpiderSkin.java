@@ -35,7 +35,7 @@ public class SpiderSkin extends HeroMonsterArmor{
     public String desc() {
         if(level >= SPECIAL_LEVEL){
             return "I am immune to poison and webs and more importantly... " +
-                    "I can poop webs after a successful poison. Ain't that cool? " +
+                    "I can poop webs after a successful poison(Not done yet. Need to work on weapon). Ain't that cool? " +
                     "No? NO?!? Erm... ok :(";
         }
 

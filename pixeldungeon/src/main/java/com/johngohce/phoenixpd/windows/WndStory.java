@@ -46,33 +46,33 @@ public class WndStory extends Window {
 	
 	static {
 		CHAPTERS.put( ID_SEWERS,
-        "This place looks familiar yet so distant.. The world feels so.. so.. different.. " +
-		"The walls. They tower above me like never before. They feel different from the ones in the real world. " +
-		"The real world? When is the last time I've seen the sun? It all seems like a distant dream. " +
-		"Ah, one thing I remember, the sensation of death... My head. My head hurts." );
+        "This place looks familiar yet so distant.. The world feels so.. so.. different..\n" +
+		"The walls. They tower above me like never before. They feel different from the ones in the real world.\n" +
+		"The real world? When is the last time I've seen the sun? It all seems like a distant dream.\n" +
+		"Ah, one thing I remember, the sensation of death...\nMy head. My head hurts." );
 		
 		CHAPTERS.put( ID_PRISON,
-        "Who am I? Why am I here? What year is this? How did I come here? Why does my head hurt so much when I try to remember? " +
-        "The world is so familiar, I've been down these halls, oh so many times. But they twist differently every single time.. " +
+        "Who am I? Why am I here? What year is this? How did I come here? Why does my head hurt so much when I try to remember?\n" +
+        "The world is so familiar, I've been down these halls, oh so many times. But they twist differently every single time..\n" +
         "My foes seem the same, but they look different in height somehow... This miasma is corrupting my mind and senses. " +
         "Telling me that maybe.. just maybe.. it is okay to die..." );
 		
 		CHAPTERS.put( ID_CAVES, 
 		"Ah I remember. I had kids. They hugged me before I left. Oh but that seems like a dream... So so far away. " +
-        "Why did I leave? Why did I come here? They say loneliness crushes the heart, corrupting both mind and soul. " +
-        "But I believe my heart was corrupted from the start.. Pushing me deeper and deeper into this God forsaken place. " +
+        "Why did I leave? Why did I come here?\nThey say loneliness crushes the heart, corrupting both mind and soul. " +
+        "But I believe my heart was corrupted from the start.. Pushing me deeper and deeper into this God-forsaken place.\n" +
         "Never one time have I gone back up to safety. It's always down down down. My heart telling me to never give up." );
 		
 		CHAPTERS.put( ID_METROPOLIS, 
-		"What a strange rat. Just before I went down from DM-300's room, a rat whispered something to me." +
-        "It said it was waiting for me... to remind me of something. Something I once knew..." +
+		"What a strange rat. Just before I went down, a rat whispered something to me..\n" +
+        "It said it was waiting for me... to remind me of something. Something I once knew...\n" +
         "That this world is not real. To take a leap of faith, yes, to come back... so I can be a human again. Come back..." );
 		
 		CHAPTERS.put( ID_HALLS,
 		"I remember now. I made it down all the way to the bottom once. I was at the brink of death. " +
-        "My weapons and armor were broken and full of holes. I knew I would not make it out alive. " +
+        "My weapons and armor were broken and full of holes. I knew I would not make it out alive..\n" +
         "But the amulet, it spoke. It promised eternal life. It promised power beyond my imagination. " +
-        "I wore it and everything went black... " +
+        "I wore it and... and... everything went black...\n" +
         "One thing I know. I must reach it again for my true freedom!" );
 	};
 	

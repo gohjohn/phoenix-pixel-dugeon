@@ -5,6 +5,8 @@ package com.johngohce.phoenixpd.actors.buffs.monsterbuffs;
  */
 public class ReducedHunger extends HeroMonsterBuff {
 
+    public ReducedHunger(){ super(); }
+
     public ReducedHunger( int level ){
         super(level);
     }

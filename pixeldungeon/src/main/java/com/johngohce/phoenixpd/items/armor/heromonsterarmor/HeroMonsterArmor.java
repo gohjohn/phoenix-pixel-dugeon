@@ -39,12 +39,14 @@ public abstract class HeroMonsterArmor extends Armor {
 
     public void updateBuffs(){
         if(buffs == null) buffs = new ArrayList<>();
-        for(HeroMonsterBuff buff : buffs){
-            buff.detach();
-        }
-        ArrayList<HeroMonsterBuff> newBuffs = buffs = updatedBuffs();
-        for(HeroMonsterBuff buff : newBuffs){
-            if(Dungeon.hero != null) buff.attachTo(Dungeon.hero);
+        if(Dungeon.hero != null) {
+            for (HeroMonsterBuff buff : buffs) {
+                buff.detach();
+            }
+            ArrayList<HeroMonsterBuff> newBuffs = buffs = updatedBuffs();
+            for (HeroMonsterBuff buff : newBuffs) {
+                buff.attachTo(Dungeon.hero);
+            }
         }
     }
 

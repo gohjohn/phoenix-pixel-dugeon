@@ -5,6 +5,10 @@ package com.johngohce.phoenixpd.actors.buffs.monsterbuffs;
  */
 public class MovementSlowness extends HeroMonsterBuff {
 
+    public MovementSlowness(){
+        super();
+    }
+
     public MovementSlowness(int level){
         super(level);
     }

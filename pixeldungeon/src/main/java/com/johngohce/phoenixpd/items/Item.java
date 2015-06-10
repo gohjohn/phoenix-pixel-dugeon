@@ -324,7 +324,8 @@ public class Item implements Bundlable {
 	}
 	
 	public int durability() {
-		return durability;
+//		return durability;
+        return maxDurability();
 	}
 	
 	public int maxDurability( int lvl ) {
