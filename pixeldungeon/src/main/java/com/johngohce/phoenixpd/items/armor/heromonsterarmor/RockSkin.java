@@ -19,7 +19,7 @@ public class RockSkin extends HeroMonsterArmor {
     }
 
     public RockSkin() {
-        super(6);
+        super(5);
     }
 
     @Override

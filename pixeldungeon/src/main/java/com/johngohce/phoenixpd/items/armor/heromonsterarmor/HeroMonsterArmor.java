@@ -27,14 +27,10 @@ public abstract class HeroMonsterArmor extends Armor {
 
     @Override
     public Item upgrade(){
-        // No more losing enchantments
-
-        level++; //super.super did this, but we are overriding super, so we need to do it.
-        DR += tier;
-        STR--; //Should strength requirements change?
+        Item item = super.safeUpgrade();
 
         updateBuffs();
-        return this;
+        return item;
     }
 
     public void updateBuffs(){

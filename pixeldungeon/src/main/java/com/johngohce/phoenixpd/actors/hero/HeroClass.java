@@ -58,6 +58,7 @@ import com.johngohce.phoenixpd.items.weapon.melee.Knuckles;
 import com.johngohce.phoenixpd.items.weapon.melee.Mace;
 import com.johngohce.phoenixpd.items.weapon.melee.ShortSword;
 import com.johngohce.phoenixpd.items.weapon.melee.Spear;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.Claw;
 import com.johngohce.phoenixpd.items.weapon.missiles.Boomerang;
 import com.johngohce.phoenixpd.items.weapon.missiles.Dart;
 import com.johngohce.phoenixpd.ui.QuickSlot;
@@ -111,33 +112,8 @@ public enum HeroClass {
 		hero.heroClass = this;
 		
 		initCommon( hero );
-        if(hero.monsterClass==null) hero.monsterClass=HeroMonsterClass.defaultClass();
-        switch (hero.monsterClass){
-            case RAT: initRat(hero);break;
-            case SCOUT: initScout(hero);break;
-            case CRAB: initCrab(hero);break;
+        initMonsterClass(hero);
 
-            case SKELETON: initSkeleton(hero);break;
-            case FLIES: initFlies(hero);break;
-            case THIEF: initThief(hero);break;
-            case SHAMAN: initShaman(hero);break;
-
-            case SPINNER: initSpinner(hero);break;
-            case BAT: initBat(hero);break;
-            case BRUTE: initBrute(hero);break;
-
-            case FIRE_ELEMENTAL: initFireElemental(hero);break;
-            case MONK: initMonk(hero);break;
-            case GOLEM: initGolem(hero);break;
-            case WARLOCK: initWarlock(hero);break;
-
-            case SUCCUBUS: initSuccubus(hero);break;
-            case SCORPIO: initScorpio(hero);break;
-            case EVIL_EYE: initEvilEye(hero);break;
-
-            default:
-                initRat(hero);break;
-        }
         /*
 		switch (this) {
 		case WARRIOR:
@@ -165,6 +141,37 @@ public enum HeroClass {
 		hero.updateAwareness();
         hero.updateArmorBuffs();
 	}
+    private static void initMonsterClass( Hero hero ){
+        if(hero.monsterClass==null) hero.monsterClass=HeroMonsterClass.defaultClass();
+        switch (hero.monsterClass){
+            case RAT: initRat(hero);break;
+            case SCOUT: initScout(hero);break;
+            case CRAB: initCrab(hero);break;
+
+            case SKELETON: initSkeleton(hero);break;
+            case FLIES: initFlies(hero);break;
+            case THIEF: initThief(hero);break;
+            case SHAMAN: initShaman(hero);break;
+
+            case SPINNER: initSpinner(hero);break;
+            case BAT: initBat(hero);break;
+            case BRUTE: initBrute(hero);break;
+
+            case FIRE_ELEMENTAL: initFireElemental(hero);break;
+            case MONK: initMonk(hero);break;
+            case GOLEM: initGolem(hero);break;
+            case WARLOCK: initWarlock(hero);break;
+
+            case SUCCUBUS: initSuccubus(hero);break;
+            case SCORPIO: initScorpio(hero);break;
+            case EVIL_EYE: initEvilEye(hero);break;
+
+            default:
+                hero.monsterClass=HeroMonsterClass.defaultClass();
+                initMonsterClass(hero);
+                break;
+        }
+    }
 	
 	private static void initCommon( Hero hero ) {
 		new Food().identify().collect();
@@ -237,11 +244,11 @@ public enum HeroClass {
 	}
 
     private static void initRat( Hero hero ) {
-        (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.weapon = new Claw();
         hero.belongings.armor = new RatSkin();
     }
     private static void initScout( Hero hero ) {
-        (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.weapon = new Claw();
         hero.belongings.armor = new GnollSkin();
 
         Dungeon.gold = 500;

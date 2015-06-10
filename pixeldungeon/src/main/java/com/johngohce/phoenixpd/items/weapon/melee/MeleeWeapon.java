@@ -50,7 +50,7 @@ public class MeleeWeapon extends Weapon {
 	}
 	
 	@Override
-	final public Item upgrade() {
+	public Item upgrade() {
 		return upgrade( false );
 	}
 	
@@ -154,6 +154,9 @@ public class MeleeWeapon extends Weapon {
 				info.append( "You can feel a malevolent magic lurking within " + name +"." );
 			}
 		}
+        if (!isEquipped( Dungeon.hero ) && (Dungeon.hero.belongings.weapon!=null && Dungeon.hero.belongings.weapon.isPermanentlyEquipped)) {
+            info.append( "\n\nYour species can't equip weapons." );
+        }
 		
 		return info.toString();
 	}
