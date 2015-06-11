@@ -37,6 +37,6 @@ public class Claw extends MonsterMeleeWeapon {
         }
         return "It's your claws. Slightly more accurate because part of your arms. " +
                 "It's almost as good as a typical dagger..\n" +
-                "You hear that upgrading your claws may cause bleeding.";
+                "You hear that upgrading your claws may cause your enemies to bleed.";
     }
 }

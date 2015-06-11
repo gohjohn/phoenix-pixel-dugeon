@@ -136,7 +136,7 @@ public enum HeroMonsterClass {
 
     public static HeroMonsterClass defaultClass() {
 //        return RAT;
-        return RAT;
+        return CRAB;
     }
 
     public static void preview(GamesInProgress.Info info, Bundle bundle) {

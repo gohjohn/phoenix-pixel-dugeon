@@ -59,6 +59,7 @@ import com.johngohce.phoenixpd.items.weapon.melee.Mace;
 import com.johngohce.phoenixpd.items.weapon.melee.ShortSword;
 import com.johngohce.phoenixpd.items.weapon.melee.Spear;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.Claw;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.CrabClaw;
 import com.johngohce.phoenixpd.items.weapon.missiles.Boomerang;
 import com.johngohce.phoenixpd.items.weapon.missiles.Dart;
 import com.johngohce.phoenixpd.ui.QuickSlot;
@@ -254,7 +255,7 @@ public enum HeroClass {
         Dungeon.gold = 500;
     }
     private static void initCrab( Hero hero ) {
-        (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.weapon = new CrabClaw();
         hero.belongings.armor = new CrabShell();
 
         new MysteryMeat().collect();

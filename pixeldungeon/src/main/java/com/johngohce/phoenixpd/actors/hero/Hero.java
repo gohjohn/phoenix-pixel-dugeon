@@ -53,6 +53,7 @@ import com.johngohce.phoenixpd.actors.buffs.Roots;
 import com.johngohce.phoenixpd.actors.buffs.SnipersMark;
 import com.johngohce.phoenixpd.actors.buffs.Vertigo;
 import com.johngohce.phoenixpd.actors.buffs.Weakness;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.AttackHaste;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ElementalResistance;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ExplosiveThorns;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.FireImmunity;
@@ -376,13 +377,20 @@ public class Hero extends Char {
 	}
 	
 	public float attackDelay() {
+
+        int hasteLevel = 0;
+        for (Buff buff : buffs( AttackHaste.class )) {
+            hasteLevel += ((AttackHaste)buff).level;
+        }
+        float speed = (float) (super.speed() * Math.pow( 1.1, hasteLevel )) ;
+
 		KindOfWeapon wep = rangedWeapon != null ? rangedWeapon : belongings.weapon;
 		if (wep != null) {
 			
-			return wep.speedFactor( this );
+			return wep.speedFactor( this ) * speed;
 						
 		} else {
-			return 1f;
+			return speed;
 		}
 	}
 	
