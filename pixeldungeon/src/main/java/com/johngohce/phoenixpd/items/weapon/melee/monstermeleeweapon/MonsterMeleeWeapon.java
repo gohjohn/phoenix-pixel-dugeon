@@ -17,7 +17,6 @@ abstract class MonsterMeleeWeapon extends MeleeWeapon {
     public MonsterMeleeWeapon( int tier, float acu, float dly ) {
         super(tier, acu, dly);
 
-        isPermanentlyEquipped = true;
         levelKnown = true;
         cursed = false;
         cursedKnown = true;

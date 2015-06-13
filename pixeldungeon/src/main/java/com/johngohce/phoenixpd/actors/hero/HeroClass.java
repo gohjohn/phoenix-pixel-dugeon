@@ -20,6 +20,7 @@ package com.johngohce.phoenixpd.actors.hero;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
+import com.johngohce.phoenixpd.items.LloydsBeacon;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.BatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.CrabShell;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.ElementalBody;
@@ -45,6 +46,7 @@ import com.johngohce.phoenixpd.items.rings.RingOfShadows;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfIdentify;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
+import com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls.ScrollOfPoisonEnchantment;
 import com.johngohce.phoenixpd.items.wands.Wand;
 import com.johngohce.phoenixpd.items.wands.WandOfBlink;
 import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
@@ -60,6 +62,7 @@ import com.johngohce.phoenixpd.items.weapon.melee.ShortSword;
 import com.johngohce.phoenixpd.items.weapon.melee.Spear;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.Claw;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.CrabClaw;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.ThiefDagger;
 import com.johngohce.phoenixpd.items.weapon.missiles.Boomerang;
 import com.johngohce.phoenixpd.items.weapon.missiles.Dart;
 import com.johngohce.phoenixpd.ui.QuickSlot;
@@ -268,10 +271,25 @@ public enum HeroClass {
         hero.belongings.armor = new SkeletonBonesArmor();
     }
     private static void initThief( Hero hero ) {
-        (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.weapon = new ThiefDagger();
         hero.belongings.armor = new ThiefCloak();
 
-        Dungeon.gold = 300;
+        Dungeon.gold = 42;
+        new ScrollOfPoisonEnchantment().collect();
+        new ScrollOfPoisonEnchantment().collect();
+        new ScrollOfPoisonEnchantment().collect();
+        new ScrollOfPoisonEnchantment().collect();
+        new ScrollOfPoisonEnchantment().collect();
+        new LloydsBeacon().collect();
+        new LloydsBeacon().collect();
+        new LloydsBeacon().collect();
+        new ScrollOfIdentify().collect();
+        new ScrollOfIdentify().collect();
+        new ScrollOfIdentify().collect();
+        new ScrollOfIdentify().collect();
+        new ScrollOfIdentify().collect();
+        new ScrollOfIdentify().collect();
+        new ScrollOfIdentify().collect();
     }
     private static void initFlies( Hero hero ) {
         (hero.belongings.weapon = new Dagger()).identify();

@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.items;
 
-import java.util.ArrayList;
-
 import com.johngohce.noosa.Game;
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
@@ -33,6 +31,8 @@ import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import com.johngohce.phoenixpd.utils.GLog;
 import com.johngohce.phoenixpd.utils.Utils;
 import com.johngohce.utils.Bundle;
+
+import java.util.ArrayList;
 
 public class LloydsBeacon extends Item {
 

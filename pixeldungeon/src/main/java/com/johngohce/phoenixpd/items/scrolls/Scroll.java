@@ -17,9 +17,6 @@
  */
 package com.johngohce.phoenixpd.items.scrolls;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.actors.buffs.Blindness;
 import com.johngohce.phoenixpd.actors.hero.Hero;
@@ -29,13 +26,16 @@ import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import com.johngohce.phoenixpd.utils.GLog;
 import com.johngohce.utils.Bundle;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 public abstract class Scroll extends Item {
 
 	private static final String TXT_BLINDED	= "You can't read a scroll while blinded";
 	
 	public static final String AC_READ	= "READ";
 	
-	protected static final float TIME_TO_READ	= 1f;
+	public static final float TIME_TO_READ	= 1f;
 	
 	private static final Class<?>[] scrolls = {
 		ScrollOfIdentify.class, 

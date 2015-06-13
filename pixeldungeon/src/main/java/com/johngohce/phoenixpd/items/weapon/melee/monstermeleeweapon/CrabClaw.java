@@ -14,6 +14,7 @@ public class CrabClaw extends MonsterMeleeWeapon {
     {
         name = "Crab Claw";
         image = ItemSpriteSheet.WEAPON;
+        isPermanentlyEquipped = true;
     }
 
     public CrabClaw() {

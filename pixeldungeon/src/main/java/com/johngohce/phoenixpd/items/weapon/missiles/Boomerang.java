@@ -42,7 +42,12 @@ public class Boomerang extends MissileWeapon {
 	public boolean isUpgradable() {
 		return true;
 	}
-	
+
+    @Override
+    public boolean isIdentified() {
+        return levelKnown && cursedKnown;
+    }
+
 	@Override
 	public Item upgrade() {
 		return upgrade( false );

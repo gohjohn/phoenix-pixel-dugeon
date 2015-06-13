@@ -386,9 +386,7 @@ public class Hero extends Char {
 
 		KindOfWeapon wep = rangedWeapon != null ? rangedWeapon : belongings.weapon;
 		if (wep != null) {
-			
 			return wep.speedFactor( this ) * speed;
-						
 		} else {
 			return speed;
 		}
