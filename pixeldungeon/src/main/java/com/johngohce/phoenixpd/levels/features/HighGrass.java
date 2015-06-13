@@ -41,7 +41,8 @@ public class HighGrass {
 		
 		Level.set( pos, Terrain.GRASS );
 		GameScene.updateMap( pos );
-		
+		if(ch == null) return;
+
 		if (!Dungeon.isChallenged( Challenges.NO_HERBALISM )) {
 			int herbalismLevel = 0;
 			if (ch != null) {
