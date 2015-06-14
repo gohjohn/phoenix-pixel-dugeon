@@ -40,72 +40,72 @@ public class PixelDungeon extends Game {
 		
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade.class,
-			"com.watabou.pixeldungeon.items.scrolls.ScrollOfEnhancement" );
+			"com.johngohce.phoenixpd.items.scrolls.ScrollOfEnhancement" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.actors.blobs.WaterOfHealth.class,
-			"com.watabou.pixeldungeon.actors.blobs.Light" );
+			"com.johngohce.phoenixpd.actors.blobs.Light" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.rings.RingOfMending.class,
-			"com.watabou.pixeldungeon.items.rings.RingOfRejuvenation" );
+			"com.johngohce.phoenixpd.items.rings.RingOfRejuvenation" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.wands.WandOfTelekinesis.class,
-			"com.watabou.pixeldungeon.items.wands.WandOfTelekenesis" );
+			"com.johngohce.phoenixpd.items.wands.WandOfTelekenesis" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.actors.blobs.Foliage.class,
-			"com.watabou.pixeldungeon.actors.blobs.Blooming" );
+			"com.johngohce.phoenixpd.actors.blobs.Blooming" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.actors.buffs.Shadows.class,
-			"com.watabou.pixeldungeon.actors.buffs.Rejuvenation" );
+			"com.johngohce.phoenixpd.actors.buffs.Rejuvenation" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.scrolls.ScrollOfPsionicBlast.class,
-			"com.watabou.pixeldungeon.items.scrolls.ScrollOfNuclearBlast" );
+			"com.johngohce.phoenixpd.items.scrolls.ScrollOfNuclearBlast" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.actors.hero.Hero.class,
-			"com.watabou.pixeldungeon.actors.Hero" );
+			"com.johngohce.phoenixpd.actors.Hero" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.actors.mobs.npcs.Shopkeeper.class,
-			"com.watabou.pixeldungeon.actors.mobs.Shopkeeper" );
+			"com.johngohce.phoenixpd.actors.mobs.Shopkeeper" );
 		// 1.6.1
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.quest.DriedRose.class,
-			"com.watabou.pixeldungeon.items.DriedRose" );
+			"com.johngohce.phoenixpd.items.DriedRose" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.actors.mobs.npcs.MirrorImage.class,
-			"com.watabou.pixeldungeon.items.scrolls.ScrollOfMirrorImage.MirrorImage" );
+			"com.johngohce.phoenixpd.items.scrolls.ScrollOfMirrorImage.MirrorImage" );
 		// 1.6.4
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.rings.RingOfElements.class,
-			"com.watabou.pixeldungeon.items.rings.RingOfCleansing" );
+			"com.johngohce.phoenixpd.items.rings.RingOfCleansing" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.rings.RingOfElements.class,
-			"com.watabou.pixeldungeon.items.rings.RingOfResistance" );
+			"com.johngohce.phoenixpd.items.rings.RingOfResistance" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.weapon.missiles.Boomerang.class,
-			"com.watabou.pixeldungeon.items.weapon.missiles.RangersBoomerang" );
+			"com.johngohce.phoenixpd.items.weapon.missiles.RangersBoomerang" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.rings.RingOfPower.class,
-			"com.watabou.pixeldungeon.items.rings.RingOfEnergy" );
+			"com.johngohce.phoenixpd.items.rings.RingOfEnergy" );
 		// 1.7.2
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.plants.Dreamweed.class,
-			"com.watabou.pixeldungeon.plants.Blindweed" );
+			"com.johngohce.phoenixpd.plants.Blindweed" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.plants.Dreamweed.Seed.class,
-			"com.watabou.pixeldungeon.plants.Blindweed$Seed" );
+			"com.johngohce.phoenixpd.plants.Blindweed$Seed" );
 		// 1.7.4
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.weapon.enchantments.Shock.class,
-			"com.watabou.pixeldungeon.items.weapon.enchantments.Piercing" );
+			"com.johngohce.phoenixpd.items.weapon.enchantments.Piercing" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.weapon.enchantments.Shock.class,
-			"com.watabou.pixeldungeon.items.weapon.enchantments.Swing" );
+			"com.johngohce.phoenixpd.items.weapon.enchantments.Swing" );
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.scrolls.ScrollOfEnchantment.class,
-			"com.watabou.pixeldungeon.items.scrolls.ScrollOfWeaponUpgrade" );
+			"com.johngohce.phoenixpd.items.scrolls.ScrollOfWeaponUpgrade" );
 		// 1.7.5
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.scrolls.ScrollOfEnchantment.class,
-			"com.watabou.pixeldungeon.items.Stylus" );
+			"com.johngohce.phoenixpd.items.Stylus" );
 	}
 	
 	@Override

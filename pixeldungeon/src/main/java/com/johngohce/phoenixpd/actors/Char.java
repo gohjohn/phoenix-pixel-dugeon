@@ -64,7 +64,7 @@ public abstract class Char extends Actor {
 
 	protected static final String TXT_HIT		= "%s hit %s";
 	protected static final String TXT_KILL		= "%s killed you...";
-	protected static final String TXT_DEFEAT	= "%s defeated %s";
+	public static final String TXT_DEFEAT	= "%s defeated %s";
 	
 	private static final String TXT_YOU_MISSED	= "%s %s your attack";
 	private static final String TXT_SMB_MISSED	= "%s %s %s's attack";

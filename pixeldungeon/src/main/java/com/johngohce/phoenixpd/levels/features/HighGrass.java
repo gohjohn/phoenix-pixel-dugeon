@@ -41,21 +41,19 @@ public class HighGrass {
 		
 		Level.set( pos, Terrain.GRASS );
 		GameScene.updateMap( pos );
-		if(ch == null) return;
 
 		if (!Dungeon.isChallenged( Challenges.NO_HERBALISM )) {
 			int herbalismLevel = 0;
+            int tearBuffLevel = 0;
 			if (ch != null) {
 				Herbalism herbalism = ch.buff( Herbalism.class );
 				if (herbalism != null) {
 					herbalismLevel = herbalism.level;
 				}
-			}
-            int tearBuffLevel = 0;
-
-            TearBuff tearBuff = ch.buff( TearBuff.class );
-            if (tearBuff != null) {
-                tearBuffLevel = tearBuff.level;
+                TearBuff tearBuff = ch.buff(TearBuff.class);
+                if (tearBuff != null) {
+                    tearBuffLevel = tearBuff.level;
+                }
             }
 			// Seed
 			if (herbalismLevel >= 0 && Random.Int( 18 ) <= Random.Int( herbalismLevel + 1 )) {

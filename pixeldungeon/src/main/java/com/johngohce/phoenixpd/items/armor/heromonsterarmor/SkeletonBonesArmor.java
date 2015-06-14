@@ -31,7 +31,7 @@ public class SkeletonBonesArmor extends HeroMonsterArmor{
     @Override
     public String desc() {
         return
-                "I AM ALIVE AGAIN! Oh wait... Does it even make sense to revive as the undead? " +
+                "I AM ALIVE AGAIN! Oh wait... Does it even make sense to revive as the undead?\n" +
                         "The necromancer told me that those who hit me get a taste of their own medicine. " +
                         "I wonder what he meant...";
     }
