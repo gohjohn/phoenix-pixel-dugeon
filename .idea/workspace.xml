@@ -33,108 +33,7 @@
     <favorites_list name="pixel-dungeon" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Badges.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/Badges.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="8619" max-vertical-offset="13320">
-              <caret line="658" column="17" selection-start-line="631" selection-start-column="16" selection-end-line="658" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mob.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/Mob.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3619" max-vertical-offset="7965">
-              <caret line="297" column="90" selection-start-line="297" selection-start-column="90" selection-end-line="297" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dewdrop.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/Dewdrop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="244" max-vertical-offset="840">
-              <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="49" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClassArmor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/armor/ClassArmor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1302" max-vertical-offset="1650">
-              <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArmorKit.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/ArmorKit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1425">
-              <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="King.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/King.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1204" max-vertical-offset="4410">
-              <caret line="140" column="49" selection-start-line="140" selection-start-column="49" selection-end-line="142" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Weapon.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/Weapon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1294" max-vertical-offset="3375">
-              <caret line="130" column="33" selection-start-line="130" selection-start-column="33" selection-end-line="132" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MissileWeapon.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/missiles/MissileWeapon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="1740">
-              <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="50" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Level.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/levels/Level.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="10999" max-vertical-offset="14025">
-              <caret line="846" column="13" selection-start-line="831" selection-start-column="14" selection-end-line="846" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartScene.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/scenes/StartScene.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41954023" vertical-offset="3079" max-vertical-offset="7365">
-              <caret line="266" column="23" selection-start-line="266" selection-start-column="23" selection-end-line="266" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -731,8 +630,8 @@
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/Dewdrop.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/King.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/Weapon.java" />
-        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/missiles/MissileWeapon.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/levels/Level.java" />
+        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/missiles/MissileWeapon.java" />
       </list>
     </option>
   </component>
@@ -1095,14 +994,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="677" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976827" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32976827" sideWeight="0.70468277" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32976827" sideWeight="0.70468277" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37611407" sideWeight="0.7907855" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -1510,82 +1409,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/Badges.java">
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/scenes/StartScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8619" max-vertical-offset="13320">
-          <caret line="658" column="17" selection-start-line="631" selection-start-column="16" selection-end-line="658" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/Mob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3619" max-vertical-offset="7965">
-          <caret line="297" column="90" selection-start-line="297" selection-start-column="90" selection-end-line="297" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/Dewdrop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="244" max-vertical-offset="840">
-          <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="49" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/armor/ClassArmor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1302" max-vertical-offset="1650">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/ArmorKit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1425">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/King.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1204" max-vertical-offset="4410">
-          <caret line="140" column="49" selection-start-line="140" selection-start-column="49" selection-end-line="142" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/Weapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1294" max-vertical-offset="3375">
-          <caret line="130" column="33" selection-start-line="130" selection-start-column="33" selection-end-line="132" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/missiles/MissileWeapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="1740">
-          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="50" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.41954023" vertical-offset="3079" max-vertical-offset="7365">
+          <caret line="266" column="23" selection-start-line="266" selection-start-column="23" selection-end-line="266" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/levels/Level.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="10999" max-vertical-offset="14025">
+        <state vertical-scroll-proportion="0.8936782" vertical-offset="10999" max-vertical-offset="14025">
           <caret line="846" column="13" selection-start-line="831" selection-start-column="14" selection-end-line="846" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/scenes/StartScene.java">
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/missiles/MissileWeapon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41954023" vertical-offset="3079" max-vertical-offset="7365">
-          <caret line="266" column="23" selection-start-line="266" selection-start-column="23" selection-end-line="266" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.46264368" vertical-offset="214" max-vertical-offset="1740">
+          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/Weapon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="1294" max-vertical-offset="3375">
+          <caret line="130" column="33" selection-start-line="130" selection-start-column="33" selection-end-line="132" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/King.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2902299" vertical-offset="1204" max-vertical-offset="4410">
+          <caret line="140" column="49" selection-start-line="140" selection-start-column="49" selection-end-line="142" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/ArmorKit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04310345" vertical-offset="60" max-vertical-offset="1425">
+          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/armor/ClassArmor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.9655173" vertical-offset="1302" max-vertical-offset="1650">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/Dewdrop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="244" max-vertical-offset="840">
+          <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="49" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/Mob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5488506" vertical-offset="3619" max-vertical-offset="7965">
+          <caret line="297" column="90" selection-start-line="297" selection-start-column="90" selection-end-line="297" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/Badges.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.361194" vertical-offset="8619" max-vertical-offset="13320">
+          <caret line="658" column="17" selection-start-line="631" selection-start-column="16" selection-end-line="658" selection-end-column="17" />
           <folding />
         </state>
       </provider>
