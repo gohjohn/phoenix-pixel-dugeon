@@ -21,7 +21,6 @@ import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.hero.Hero;
-import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.effects.Speck;
 import com.johngohce.phoenixpd.sprites.CharSprite;
 import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
@@ -45,10 +44,10 @@ public class Dewdrop extends Item {
 		if (hero.HP < hero.HT || vial == null || vial.isFull()) {
 			
 			int value = 1 + (Dungeon.depth - 1) / 5;
-			if (hero.heroClass == HeroClass.HUNTRESS) {
-				value++;
-			}
-			
+//			if (hero.heroClass == HeroClass.HUNTRESS) {
+//				value++;
+//			}
+//
 			int effect = Math.min( hero.HT - hero.HP, value * quantity );
 			if (effect > 0) {
 				hero.HP += effect;

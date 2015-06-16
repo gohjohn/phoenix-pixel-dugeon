@@ -20,11 +20,18 @@ package com.johngohce.phoenixpd.items.weapon;
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.hero.Hero;
-import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.KindOfWeapon;
-import com.johngohce.phoenixpd.items.weapon.enchantments.*;
-import com.johngohce.phoenixpd.items.weapon.missiles.MissileWeapon;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Death;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Fire;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Horror;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Instability;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Leech;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Luck;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Paralysis;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Shock;
+import com.johngohce.phoenixpd.items.weapon.enchantments.Slow;
 import com.johngohce.phoenixpd.sprites.ItemSprite;
 import com.johngohce.phoenixpd.utils.GLog;
 import com.johngohce.phoenixpd.utils.Utils;
@@ -100,17 +107,17 @@ public class Weapon extends KindOfWeapon {
 		
 		int encumbrance = STR - hero.STR();
 		
-		if (this instanceof MissileWeapon) {
-			switch (hero.heroClass) {
-			case WARRIOR:
-				encumbrance += 3;
-				break;
-			case HUNTRESS:
-				encumbrance -= 2;
-				break;
-			default:
-			}
-		}
+//		if (this instanceof MissileWeapon) {
+//			switch (hero.heroClass) {
+//			case WARRIOR:
+//				encumbrance += 3;
+//				break;
+//			case HUNTRESS:
+//				encumbrance -= 2;
+//				break;
+//			default:
+//			}
+//		}
 		
 		return 
 			(encumbrance > 0 ? (float)(ACU / Math.pow( 1.5, encumbrance )) : ACU) *
@@ -121,9 +128,9 @@ public class Weapon extends KindOfWeapon {
 	public float speedFactor( Hero hero ) {
 
 		int encumrance = STR - hero.STR();
-		if (this instanceof MissileWeapon && hero.heroClass == HeroClass.HUNTRESS) {
-			encumrance -= 2;
-		}
+//		if (this instanceof MissileWeapon && hero.heroClass == HeroClass.HUNTRESS) {
+//			encumrance -= 2;
+//		}
 		
 		return 
 			(encumrance > 0 ? (float)(DLY * Math.pow( 1.2, encumrance )) : DLY) * 
@@ -135,13 +142,13 @@ public class Weapon extends KindOfWeapon {
 		
 		int damage = super.damageRoll( hero );
 		
-		if ((hero.rangedWeapon != null) == (hero.heroClass == HeroClass.HUNTRESS)) {
-			int exStr = hero.STR() - STR;
-			if (exStr > 0) {
-				damage += Random.IntRange( 0, exStr );
-			}
-		}
-		
+//		if ((hero.rangedWeapon != null) == (hero.heroClass == HeroClass.HUNTRESS)) {
+//			int exStr = hero.STR() - STR;
+//			if (exStr > 0) {
+//				damage += Random.IntRange( 0, exStr );
+//			}
+//		}
+//
 		return damage;
 	}
 	

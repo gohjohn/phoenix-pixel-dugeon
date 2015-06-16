@@ -17,20 +17,18 @@
  */
 package com.johngohce.phoenixpd.items.food;
 
-import java.util.ArrayList;
-
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Statistics;
 import com.johngohce.phoenixpd.actors.buffs.Hunger;
 import com.johngohce.phoenixpd.actors.hero.Hero;
-import com.johngohce.phoenixpd.effects.Speck;
 import com.johngohce.phoenixpd.effects.SpellSprite;
 import com.johngohce.phoenixpd.items.Item;
-import com.johngohce.phoenixpd.items.scrolls.ScrollOfRecharging;
 import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import com.johngohce.phoenixpd.utils.GLog;
+
+import java.util.ArrayList;
 
 public class Food extends Item {
 
@@ -63,21 +61,21 @@ public class Food extends Item {
 			((Hunger)hero.buff( Hunger.class )).satisfy( energy );
 			GLog.i( message );
 			
-			switch (hero.heroClass) {
-			case WARRIOR:
-				if (hero.HP < hero.HT) {
-					hero.HP = Math.min( hero.HP + 5, hero.HT );
-					hero.sprite.emitter().burst( Speck.factory( Speck.HEALING ), 1 );
-				}
-				break;
-			case MAGE:
-				hero.belongings.charge( false );
-				ScrollOfRecharging.chargeAnimation(hero);
-				break;
-			case ROGUE:
-			case HUNTRESS:
-				break;
-			}
+//			switch (hero.heroClass) {
+//			case WARRIOR:
+//				if (hero.HP < hero.HT) {
+//					hero.HP = Math.min( hero.HP + 5, hero.HT );
+//					hero.sprite.emitter().burst( Speck.factory( Speck.HEALING ), 1 );
+//				}
+//				break;
+//			case MAGE:
+//				hero.belongings.charge( false );
+//				ScrollOfRecharging.chargeAnimation(hero);
+//				break;
+//			case ROGUE:
+//			case HUNTRESS:
+//				break;
+//			}
 			
 			hero.sprite.operate( hero.pos );
 			hero.busy();

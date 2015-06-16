@@ -31,7 +31,6 @@ import com.johngohce.phoenixpd.actors.buffs.Vertigo;
 import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.effects.Flare;
 import com.johngohce.phoenixpd.effects.Speck;
-import com.johngohce.phoenixpd.items.ArmorKit;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
 import com.johngohce.phoenixpd.items.keys.SkeletonKey;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfPsionicBlast;
@@ -139,9 +138,9 @@ public class King extends Mob {
 	@Override
 	public void die( Object cause ) {
 		GameScene.bossSlain();
-        if(Dungeon.hero.belongings.armor == null || !Dungeon.hero.belongings.armor.isPermanentlyEquipped){
-            Dungeon.level.drop( new ArmorKit(), pos ).sprite.drop();
-        }
+//        if(Dungeon.hero.belongings.armor == null || !Dungeon.hero.belongings.armor.isPermanentlyEquipped){
+//            Dungeon.level.drop( new ArmorKit(), pos ).sprite.drop();
+//        }
 		Dungeon.level.drop( new SkeletonKey(), pos ).sprite.drop();
 		
 		super.die( cause );

@@ -17,17 +17,16 @@
  */
 package com.johngohce.phoenixpd.items.weapon.missiles;
 
-import java.util.ArrayList;
-
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.Actor;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.hero.Hero;
-import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.weapon.Weapon;
 import com.johngohce.phoenixpd.scenes.GameScene;
 import com.johngohce.phoenixpd.windows.WndOptions;
+
+import java.util.ArrayList;
 
 public class MissileWeapon extends Weapon {
 
@@ -46,10 +45,10 @@ public class MissileWeapon extends Weapon {
 	@Override
 	public ArrayList<String> actions( Hero hero ) {
 		ArrayList<String> actions = super.actions( hero );
-		if (hero.heroClass != HeroClass.HUNTRESS && hero.heroClass != HeroClass.ROGUE) {
-			actions.remove( AC_EQUIP );
-			actions.remove( AC_UNEQUIP );
-		}
+//		if (hero.heroClass != HeroClass.HUNTRESS && hero.heroClass != HeroClass.ROGUE) {
+//			actions.remove( AC_EQUIP );
+//			actions.remove( AC_UNEQUIP );
+//		}
 		return actions;
 	}
 

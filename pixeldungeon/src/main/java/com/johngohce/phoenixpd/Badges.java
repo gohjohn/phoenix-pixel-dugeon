@@ -593,20 +593,22 @@ public class Badges {
 			displayBadge( badge );
 			
 			if (badge == Badge.BOSS_SLAIN_1) {
-				switch (Dungeon.hero.heroClass) {
-				case WARRIOR:
-					badge = Badge.BOSS_SLAIN_1_WARRIOR;
-					break;
-				case MAGE:
-					badge = Badge.BOSS_SLAIN_1_MAGE;
-					break;
-				case ROGUE:
-					badge = Badge.BOSS_SLAIN_1_ROGUE;
-					break;
-				case HUNTRESS:
-					badge = Badge.BOSS_SLAIN_1_HUNTRESS;
-					break;
-				}
+//				switch (Dungeon.hero.heroClass) {
+//				case WARRIOR:
+//					badge = Badge.BOSS_SLAIN_1_WARRIOR;
+//					break;
+//				case MAGE:
+//					badge = Badge.BOSS_SLAIN_1_MAGE;
+//					break;
+//				case ROGUE:
+//					badge = Badge.BOSS_SLAIN_1_ROGUE;
+//					break;
+//				case HUNTRESS:
+//					badge = Badge.BOSS_SLAIN_1_HUNTRESS;
+//					break;
+//				}
+                badge = Badge.BOSS_SLAIN_1_WARRIOR;
+
 				local.add( badge );
 				if (!global.contains( badge )) {
 					global.add( badge );
@@ -627,34 +629,34 @@ public class Badges {
 				}
 			} else
 			if (badge == Badge.BOSS_SLAIN_3) {
-				switch (Dungeon.hero.subClass) {
-				case GLADIATOR:
-					badge = Badge.BOSS_SLAIN_3_GLADIATOR;
-					break;
-				case BERSERKER:
-					badge = Badge.BOSS_SLAIN_3_BERSERKER;
-					break;
-				case WARLOCK:
-					badge = Badge.BOSS_SLAIN_3_WARLOCK;
-					break;
-				case BATTLEMAGE:
-					badge = Badge.BOSS_SLAIN_3_BATTLEMAGE;
-					break;
-				case FREERUNNER:
-					badge = Badge.BOSS_SLAIN_3_FREERUNNER;
-					break;
-				case ASSASSIN:
-					badge = Badge.BOSS_SLAIN_3_ASSASSIN;
-					break;
-				case SNIPER:
-					badge = Badge.BOSS_SLAIN_3_SNIPER;
-					break;
-				case WARDEN:
-					badge = Badge.BOSS_SLAIN_3_WARDEN;
-					break;
-				default:
-					return;
-				}
+//				switch (Dungeon.hero.subClass) {
+//				case GLADIATOR:
+//					badge = Badge.BOSS_SLAIN_3_GLADIATOR;
+//					break;
+//				case BERSERKER:
+//					badge = Badge.BOSS_SLAIN_3_BERSERKER;
+//					break;
+//				case WARLOCK:
+//					badge = Badge.BOSS_SLAIN_3_WARLOCK;
+//					break;
+//				case BATTLEMAGE:
+//					badge = Badge.BOSS_SLAIN_3_BATTLEMAGE;
+//					break;
+//				case FREERUNNER:
+//					badge = Badge.BOSS_SLAIN_3_FREERUNNER;
+//					break;
+//				case ASSASSIN:
+//					badge = Badge.BOSS_SLAIN_3_ASSASSIN;
+//					break;
+//				case SNIPER:
+//					badge = Badge.BOSS_SLAIN_3_SNIPER;
+//					break;
+//				case WARDEN:
+//					badge = Badge.BOSS_SLAIN_3_WARDEN;
+//					break;
+//				default:
+//					return;
+//				}
 				local.add( badge );
 				if (!global.contains( badge )) {
 					global.add( badge );
@@ -684,20 +686,21 @@ public class Badges {
 	public static void validateMastery() {
 		
 		Badge badge = null;
-		switch (Dungeon.hero.heroClass) {
-		case WARRIOR:
-			badge = Badge.MASTERY_WARRIOR;
-			break;
-		case MAGE:
-			badge = Badge.MASTERY_MAGE;
-			break;
-		case ROGUE:
-			badge = Badge.MASTERY_ROGUE;
-			break;
-		case HUNTRESS:
-			badge = Badge.MASTERY_HUNTRESS;
-			break;
-		}
+        badge = Badge.MASTERY_WARRIOR;
+//		switch (Dungeon.hero.heroClass) {
+//		case WARRIOR:
+//			badge = Badge.MASTERY_WARRIOR;
+//			break;
+//		case MAGE:
+//			badge = Badge.MASTERY_MAGE;
+//			break;
+//		case ROGUE:
+//			badge = Badge.MASTERY_ROGUE;
+//			break;
+//		case HUNTRESS:
+//			badge = Badge.MASTERY_HUNTRESS;
+//			break;
+//		}
 		
 		if (!global.contains( badge )) {
 			global.add( badge );
@@ -764,20 +767,21 @@ public class Badges {
 		Badge badge = Badge.VICTORY;
 		displayBadge( badge );
 
-		switch (Dungeon.hero.heroClass) {
-		case WARRIOR:
-			badge = Badge.VICTORY_WARRIOR;
-			break;
-		case MAGE:
-			badge = Badge.VICTORY_MAGE;
-			break;
-		case ROGUE:
-			badge = Badge.VICTORY_ROGUE;
-			break;
-		case HUNTRESS:
-			badge = Badge.VICTORY_HUNTRESS;
-			break;
-		}
+        badge = Badge.VICTORY_WARRIOR;
+//		switch (Dungeon.hero.heroClass) {
+//		case WARRIOR:
+//			badge = Badge.VICTORY_WARRIOR;
+//			break;
+//		case MAGE:
+//			badge = Badge.VICTORY_MAGE;
+//			break;
+//		case ROGUE:
+//			badge = Badge.VICTORY_ROGUE;
+//			break;
+//		case HUNTRESS:
+//			badge = Badge.VICTORY_HUNTRESS;
+//			break;
+//		}
 		local.add( badge );
 		if (!global.contains( badge )) {
 			global.add( badge );

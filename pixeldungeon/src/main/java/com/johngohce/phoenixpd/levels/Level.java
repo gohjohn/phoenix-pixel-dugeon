@@ -34,8 +34,6 @@ import com.johngohce.phoenixpd.actors.buffs.Buff;
 import com.johngohce.phoenixpd.actors.buffs.MindVision;
 import com.johngohce.phoenixpd.actors.buffs.Shadows;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.TrapMasterBuff;
-import com.johngohce.phoenixpd.actors.hero.Hero;
-import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.actors.mobs.Bestiary;
 import com.johngohce.phoenixpd.actors.mobs.Mob;
 import com.johngohce.phoenixpd.effects.particles.FlowParticle;
@@ -830,22 +828,23 @@ public abstract class Level implements Bundlable {
 					fieldOfView[p + WIDTH] = true;
 					fieldOfView[p - WIDTH] = true;
 				}
-			} else if (c == Dungeon.hero && ((Hero)c).heroClass == HeroClass.HUNTRESS) {
-				for (Mob mob : mobs) {
-					int p = mob.pos;
-					if (distance( c.pos, p) == 2) {
-						fieldOfView[p] = true;
-						fieldOfView[p + 1] = true;
-						fieldOfView[p - 1] = true;
-						fieldOfView[p + WIDTH + 1] = true;
-						fieldOfView[p + WIDTH - 1] = true;
-						fieldOfView[p - WIDTH + 1] = true;
-						fieldOfView[p - WIDTH - 1] = true;
-						fieldOfView[p + WIDTH] = true;
-						fieldOfView[p - WIDTH] = true;
-					}
-				}
 			}
+//            else if (c == Dungeon.hero && ((Hero)c).heroClass == HeroClass.HUNTRESS) {
+//				for (Mob mob : mobs) {
+//					int p = mob.pos;
+//					if (distance( c.pos, p) == 2) {
+//						fieldOfView[p] = true;
+//						fieldOfView[p + 1] = true;
+//						fieldOfView[p - 1] = true;
+//						fieldOfView[p + WIDTH + 1] = true;
+//						fieldOfView[p + WIDTH - 1] = true;
+//						fieldOfView[p - WIDTH + 1] = true;
+//						fieldOfView[p - WIDTH - 1] = true;
+//						fieldOfView[p + WIDTH] = true;
+//						fieldOfView[p - WIDTH] = true;
+//					}
+//				}
+//			}
 			if (c.buff( Awareness.class ) != null) {
 				for (Heap heap : heaps.values()) {
 					int p = heap.pos;

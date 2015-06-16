@@ -20,7 +20,6 @@ package com.johngohce.phoenixpd.actors.mobs;
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
-import com.johngohce.phoenixpd.Badges.Badge;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.Statistics;
 import com.johngohce.phoenixpd.actors.Actor;
@@ -78,21 +77,21 @@ public class Tengu extends Mob {
 	@Override
 	public void die( Object cause ) {
 		
-		Badges.Badge badgeToCheck = null;
-		switch (Dungeon.hero.heroClass) {
-		case WARRIOR:
-			badgeToCheck = Badge.MASTERY_WARRIOR;
-			break;
-		case MAGE:
-			badgeToCheck = Badge.MASTERY_MAGE;
-			break;
-		case ROGUE:
-			badgeToCheck = Badge.MASTERY_ROGUE;
-			break;
-		case HUNTRESS:
-			badgeToCheck = Badge.MASTERY_HUNTRESS;
-			break;
-		}
+//		Badges.Badge badgeToCheck = null;
+//		switch (Dungeon.hero.heroClass) {
+//		case WARRIOR:
+//			badgeToCheck = Badge.MASTERY_WARRIOR;
+//			break;
+//		case MAGE:
+//			badgeToCheck = Badge.MASTERY_MAGE;
+//			break;
+//		case ROGUE:
+//			badgeToCheck = Badge.MASTERY_ROGUE;
+//			break;
+//		case HUNTRESS:
+//			badgeToCheck = Badge.MASTERY_HUNTRESS;
+//			break;
+//		}
 //		if (!Badges.isUnlocked( badgeToCheck )) {
 //			Dungeon.level.drop( new TomeOfMastery(), pos ).sprite.drop();
 //		}
