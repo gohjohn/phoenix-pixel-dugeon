@@ -48,8 +48,8 @@ import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
 import com.johngohce.phoenixpd.items.wands.Wand;
 import com.johngohce.phoenixpd.items.wands.WandOfBlink;
 import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
-import com.johngohce.phoenixpd.items.wands.WandOfLightning;
 import com.johngohce.phoenixpd.items.wands.WandOfMagicMissile;
+import com.johngohce.phoenixpd.items.wands.monsterwands.ShamanStaff;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Fire;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Leech;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
@@ -143,7 +143,7 @@ public enum HeroClass {
 		*/
 		
 		hero.updateAwareness();
-        hero.updateArmorBuffs();
+        hero.updateAllBuffs();
 	}
     private static void initMonsterClass( Hero hero ){
         if(hero.monsterClass==null) hero.monsterClass=HeroMonsterClass.defaultClass();
@@ -283,12 +283,10 @@ public enum HeroClass {
         new PotionOfHealing().setKnown();
     }
     private static void initShaman( Hero hero ) {
-        (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.weapon = new ShamanStaff();
         hero.belongings.armor = new GnollSkin();
-
-        Wand wand = new WandOfLightning();
-        wand.upgrade().identify().collect();
-        QuickSlot.primaryValue = wand;
+        
+        QuickSlot.primaryValue = hero.belongings.weapon;
 
         new ScrollOfIdentify().setKnown();
     }

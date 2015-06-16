@@ -72,7 +72,7 @@ public class Food extends Item {
 				break;
 			case MAGE:
 				hero.belongings.charge( false );
-				ScrollOfRecharging.charge( hero );
+				ScrollOfRecharging.chargeAnimation(hero);
 				break;
 			case ROGUE:
 			case HUNTRESS:

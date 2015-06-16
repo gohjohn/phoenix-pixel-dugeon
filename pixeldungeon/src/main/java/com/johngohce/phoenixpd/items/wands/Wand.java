@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.items.wands;
 
-import java.util.ArrayList;
-
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
@@ -45,6 +43,8 @@ import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Callback;
 import com.johngohce.utils.Random;
 
+import java.util.ArrayList;
+
 public abstract class Wand extends KindOfWeapon {
 
 	private static final int USAGES_TO_KNOW	= 40;
@@ -67,7 +67,7 @@ public abstract class Wand extends KindOfWeapon {
 	
 	protected Charger charger;
 	
-	private boolean curChargeKnown = false;
+	protected boolean curChargeKnown = false;
 	
 	private int usagesToKnow = USAGES_TO_KNOW;
 	
@@ -105,7 +105,7 @@ public abstract class Wand extends KindOfWeapon {
 	
 	private static ItemStatusHandler<Wand> handler;
 	
-	private String wood;
+	protected String wood;
 	
 	{
 		defaultAction = AC_ZAP;
@@ -144,10 +144,10 @@ public abstract class Wand extends KindOfWeapon {
 		if (curCharges > 0 || !curChargeKnown) {
 			actions.add( AC_ZAP );
 		}
-		if (hero.heroClass != HeroClass.MAGE) {
-			actions.remove( AC_EQUIP );
-			actions.remove( AC_UNEQUIP );
-		}
+//		if (hero.heroClass != HeroClass.MAGE) {
+//			actions.remove( AC_EQUIP );
+//			actions.remove( AC_UNEQUIP );
+//		}
 		return actions;
 	}
 	
@@ -465,7 +465,7 @@ public abstract class Wand extends KindOfWeapon {
 		}
 	};
 	
-	protected class Charger extends Buff {
+	public class Charger extends Buff {
 		
 		private static final float TIME_TO_CHARGE = 40f;
 		
@@ -491,9 +491,10 @@ public abstract class Wand extends KindOfWeapon {
 		}
 		
 		protected void delay() {
-			float time2charge = ((Hero)target).heroClass == HeroClass.MAGE ? 
-				TIME_TO_CHARGE / (float)Math.sqrt( 1 + level ) : 
-				TIME_TO_CHARGE;
+			float time2charge = TIME_TO_CHARGE;
+//                    ((Hero)target).heroClass == HeroClass.MAGE ?
+//				TIME_TO_CHARGE / (float)Math.sqrt( 1 + level ) :
+//				TIME_TO_CHARGE;
 			spend( time2charge );
 		}
 	}

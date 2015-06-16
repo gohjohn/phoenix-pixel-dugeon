@@ -3,6 +3,7 @@ package com.johngohce.phoenixpd.items.armor.heromonsterarmor;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
 import com.johngohce.phoenixpd.items.Item;
+import com.johngohce.phoenixpd.items.MonsterItem;
 import com.johngohce.phoenixpd.items.armor.Armor;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by johngoh on 6/6/15.
  */
-public abstract class HeroMonsterArmor extends Armor {
+public abstract class HeroMonsterArmor extends Armor implements MonsterItem {
 
     protected ArrayList<HeroMonsterBuff> buffs;
 

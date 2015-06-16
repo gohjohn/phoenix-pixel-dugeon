@@ -3,6 +3,7 @@ package com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
 import com.johngohce.phoenixpd.items.Item;
+import com.johngohce.phoenixpd.items.MonsterItem;
 import com.johngohce.phoenixpd.items.weapon.melee.MeleeWeapon;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by johngoh on 6/10/15.
  */
-abstract class MonsterMeleeWeapon extends MeleeWeapon {
+public abstract class MonsterMeleeWeapon extends MeleeWeapon implements MonsterItem {
 
     protected ArrayList<HeroMonsterBuff> buffs;
 

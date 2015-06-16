@@ -31,7 +31,6 @@ import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 import com.johngohce.phoenixpd.effects.CellEmitter;
 import com.johngohce.phoenixpd.effects.Speck;
-import com.johngohce.phoenixpd.items.TomeOfMastery;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.SuccubusLeather;
 import com.johngohce.phoenixpd.items.keys.SkeletonKey;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
@@ -94,9 +93,9 @@ public class Tengu extends Mob {
 			badgeToCheck = Badge.MASTERY_HUNTRESS;
 			break;
 		}
-		if (!Badges.isUnlocked( badgeToCheck )) {
-			Dungeon.level.drop( new TomeOfMastery(), pos ).sprite.drop();
-		}
+//		if (!Badges.isUnlocked( badgeToCheck )) {
+//			Dungeon.level.drop( new TomeOfMastery(), pos ).sprite.drop();
+//		}
 		
 		GameScene.bossSlain();
 		Dungeon.level.drop( new SkeletonKey(), pos ).sprite.drop();

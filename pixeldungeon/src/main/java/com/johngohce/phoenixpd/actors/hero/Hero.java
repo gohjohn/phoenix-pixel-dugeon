@@ -58,6 +58,7 @@ import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ElementalResistance;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ExplosiveThorns;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.FireImmunity;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.LightningImmunity;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MovementHaste;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MovementSlowness;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MultiplicityBuff;
@@ -78,8 +79,8 @@ import com.johngohce.phoenixpd.items.Heap;
 import com.johngohce.phoenixpd.items.Heap.Type;
 import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.KindOfWeapon;
+import com.johngohce.phoenixpd.items.MonsterItem;
 import com.johngohce.phoenixpd.items.armor.Armor;
-import com.johngohce.phoenixpd.items.armor.heromonsterarmor.HeroMonsterArmor;
 import com.johngohce.phoenixpd.items.keys.GoldenKey;
 import com.johngohce.phoenixpd.items.keys.IronKey;
 import com.johngohce.phoenixpd.items.keys.Key;
@@ -247,7 +248,7 @@ public class Hero extends Char {
 		exp = bundle.getInt( EXPERIENCE );
 		
 		belongings.restoreFromBundle( bundle );
-        updateArmorBuffs();
+        updateAllBuffs();
 	}
 	
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
@@ -866,7 +867,7 @@ public class Hero extends Char {
 						wand.curCharges++;
 						wand.updateQuickslot();
 						
-						ScrollOfRecharging.charge( this );
+						ScrollOfRecharging.chargeAnimation(this);
 					}
 					damage += wand.curCharges;
 				}
@@ -1155,9 +1156,19 @@ public class Hero extends Char {
 		));
 	}
 
-    public void updateArmorBuffs(){
-        if( belongings != null && belongings.armor != null && belongings.armor instanceof HeroMonsterArmor){
-            ((HeroMonsterArmor) belongings.armor).updateBuffs();
+    public void updateAllBuffs(){
+        if( belongings == null ) return;
+        if(belongings.armor != null && belongings.armor instanceof MonsterItem){
+            ((MonsterItem) belongings.armor).updateBuffs();
+        }
+        if(belongings.weapon != null && belongings.weapon instanceof MonsterItem){
+            ((MonsterItem) belongings.weapon).updateBuffs();
+        }
+        if(belongings.ring1 != null && belongings.ring1 instanceof MonsterItem){
+            ((MonsterItem) belongings.ring1).updateBuffs();
+        }
+        if(belongings.ring2 != null && belongings.ring2 instanceof MonsterItem){
+            ((MonsterItem) belongings.ring2).updateBuffs();
         }
     }
 	
@@ -1525,6 +1536,10 @@ public class Hero extends Char {
 
         if (buff( FireImmunity.class ) != null){
             immunities.addAll( FireImmunity.IMMUNITIES );
+        }
+
+        if (buff( LightningImmunity.class ) != null){
+            immunities.addAll( LightningImmunity.IMMUNITIES );
         }
 
         return immunities;

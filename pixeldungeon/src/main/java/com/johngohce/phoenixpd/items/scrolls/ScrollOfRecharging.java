@@ -35,7 +35,7 @@ public class ScrollOfRecharging extends Scroll {
 	protected void doRead() {
 		
 		int count = curUser.belongings.charge( true );		
-		charge( curUser );
+		chargeAnimation(curUser);
 		
 		Sample.INSTANCE.play( Assets.SND_READ );
 		Invisibility.dispel();
@@ -58,7 +58,7 @@ public class ScrollOfRecharging extends Scroll {
 			"recharge all of the reader's wands to full power.";
 	}
 	
-	public static void charge( Hero hero ) {
+	public static void chargeAnimation(Hero hero) {
 		hero.sprite.centerEmitter().burst( EnergyParticle.FACTORY, 15 );
 	}
 	
