@@ -51,17 +51,18 @@ import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
 import com.johngohce.phoenixpd.items.wands.WandOfMagicMissile;
 import com.johngohce.phoenixpd.items.wands.monsterwands.ShamanStaff;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Fire;
-import com.johngohce.phoenixpd.items.weapon.enchantments.Leech;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
 import com.johngohce.phoenixpd.items.weapon.melee.Dagger;
 import com.johngohce.phoenixpd.items.weapon.melee.Knuckles;
 import com.johngohce.phoenixpd.items.weapon.melee.Mace;
 import com.johngohce.phoenixpd.items.weapon.melee.ShortSword;
 import com.johngohce.phoenixpd.items.weapon.melee.Spear;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.BatFangs;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.BoneFist;
-import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.Claw;
-import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.CrabClaw;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.Claws;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.CrabClaws;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.FlyStinger;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.SpiderFangs;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.ThiefDagger;
 import com.johngohce.phoenixpd.items.weapon.missiles.Boomerang;
 import com.johngohce.phoenixpd.items.weapon.missiles.Dart;
@@ -248,17 +249,17 @@ public enum HeroClass {
 	}
 
     private static void initRat( Hero hero ) {
-        hero.belongings.weapon = new Claw();
+        hero.belongings.weapon = new Claws();
         hero.belongings.armor = new RatSkin();
     }
     private static void initScout( Hero hero ) {
-        hero.belongings.weapon = new Claw();
+        hero.belongings.weapon = new Claws();
         hero.belongings.armor = new GnollSkin();
 
         Dungeon.gold = 500;
     }
     private static void initCrab( Hero hero ) {
-        hero.belongings.weapon = new CrabClaw();
+        hero.belongings.weapon = new CrabClaws();
         hero.belongings.armor = new CrabShell();
 
         new MysteryMeat().collect();
@@ -292,7 +293,7 @@ public enum HeroClass {
     }
 
     private static void initBat( Hero hero ) {
-        (hero.belongings.weapon = new Dagger().enchant(new Leech())).upgrade().identify();
+        hero.belongings.weapon = new BatFangs();
         hero.belongings.armor = new BatSkin();
 
         new PotionOfHealing().setKnown();
@@ -304,7 +305,7 @@ public enum HeroClass {
         new PotionOfStrength().setKnown();
     }
     private static void initSpinner( Hero hero ) {
-        (hero.belongings.weapon = new Dagger().enchant(new Poison())).upgrade().identify();
+        hero.belongings.weapon = new SpiderFangs();
         hero.belongings.armor = new SpiderSkin();
 
         new MysteryMeat().collect();

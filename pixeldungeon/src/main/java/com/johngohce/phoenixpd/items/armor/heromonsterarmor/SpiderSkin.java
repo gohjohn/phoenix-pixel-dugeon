@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class SpiderSkin extends HeroMonsterArmor{
     // TODO Poops web after successful poison attack and level>special_level.(Requires Spider Weapon to proceed)
 
-    public final int SPECIAL_LEVEL = 3;
+    public static final int SPECIAL_LEVEL = 3;
     {
         name = "Spider Skin";
         image = ItemSpriteSheet.ARMOR;
@@ -35,7 +35,7 @@ public class SpiderSkin extends HeroMonsterArmor{
     public String desc() {
         if(level >= SPECIAL_LEVEL){
             return "I am immune to poison and webs and more importantly... " +
-                    "I can poop webs after a successful poison(Not done yet. Need to work on weapon). Ain't that cool? " +
+                    "I can poop webs after a successful poison. Ain't that cool?\n" +
                     "No? NO?!? Erm... ok :(";
         }
 

@@ -40,8 +40,8 @@ public class Poison extends Weapon.Enchantment {
 		if (Random.Int( level + 3 ) >= 2) {
 			
 			Buff.affect( defender, com.johngohce.phoenixpd.actors.buffs.Poison.class ).
-				set( com.johngohce.phoenixpd.actors.buffs.Poison.duration( defender ) * (level + 1) );
-			
+                    set( com.johngohce.phoenixpd.actors.buffs.Poison.duration( defender ) * (level + 1) );
+
 			return true;
 		} else {
 			return false;

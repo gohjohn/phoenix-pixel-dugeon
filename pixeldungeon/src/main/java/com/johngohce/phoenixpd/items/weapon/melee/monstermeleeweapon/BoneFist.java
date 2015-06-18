@@ -27,11 +27,17 @@ public class BoneFist extends MonsterMeleeWeapon {
             for (int i = 0; i < Level.NEIGHBOURS8.length; i++) {
                 Char ch = attacker.findChar(attacker.pos + Level.NEIGHBOURS8[i]);
                 if (ch != null && ch.isAlive() && ch != defender) {
-                    int dmg = Random.IntRange(Random.IntRange(0, 1), damage * level / 10);
+                    int dmg = Math.max(1, Random.Int(damage * level / 10));
                     ch.damage(dmg, attacker);
                     if (!ch.isAlive()) {
                         GLog.i(attacker.TXT_DEFEAT, name, ch.name);
                     }
+                }
+            }
+            if(Random.Int(4+level)>level){
+                attacker.damage(Random.IntRange(1,3),this);
+                if (!attacker.isAlive()) {
+                    GLog.i(name+"'s explosive attack killed you");
                 }
             }
         }

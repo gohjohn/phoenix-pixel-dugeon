@@ -21,7 +21,7 @@ public class BatSkin extends HeroMonsterArmor{
     public static final String AC_LAND		= "LAND";
 
     {
-        name = "Fly Skin";
+        name = "Bat Skin";
         image = ItemSpriteSheet.ARMOR;
         isPermanentlyEquipped = true;
     }

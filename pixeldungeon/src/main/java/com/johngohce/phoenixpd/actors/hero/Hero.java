@@ -1515,7 +1515,7 @@ public class Hero extends Char {
 		RingOfElements.Resistance r = buff( RingOfElements.Resistance.class );
         ElementalResistance r2 = buff ( ElementalResistance.class );
 
-        HashSet<Class<?>> resistances = super.resistances();
+        HashSet<Class<?>> resistances = new HashSet<>();
         if (r!=null) resistances.addAll(r.resistances());
         if (r2!=null) resistances.addAll(r2.resistances());
 
@@ -1524,7 +1524,7 @@ public class Hero extends Char {
 	
 	@Override
 	public HashSet<Class<?>> immunities() {
-        HashSet<Class<?>> immunities = super.immunities();
+        HashSet<Class<?>> immunities = new HashSet<>();
 
         if (buff( GasesImmunity.class ) != null){
             immunities.addAll( GasesImmunity.IMMUNITIES );
