@@ -17,6 +17,8 @@
  */
 package com.johngohce.phoenixpd.items.wands;
 
+import android.util.Log;
+
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
@@ -492,10 +494,11 @@ public abstract class Wand extends KindOfWeapon {
 		
 		protected void delay() {
 			float time2charge = TIME_TO_CHARGE;
+            Log.i("Normal Charger", "time2charge: " + time2charge);
 //                    ((Hero)target).heroClass == HeroClass.MAGE ?
 //				TIME_TO_CHARGE / (float)Math.sqrt( 1 + level ) :
 //				TIME_TO_CHARGE;
-			spend( time2charge );
+			spend(time2charge);
 		}
 	}
 }

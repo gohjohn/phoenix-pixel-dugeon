@@ -34,30 +34,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Char.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MonsterWand.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/wands/monsterwands/MonsterWand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1332" max-vertical-offset="1650">
+              <caret line="120" column="50" selection-start-line="120" selection-start-column="50" selection-end-line="120" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Char.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/Char.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.5" vertical-offset="7274" max-vertical-offset="7575">
-              <caret line="521" column="68" selection-start-line="521" selection-start-column="63" selection-end-line="521" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.38545454" vertical-offset="3569" max-vertical-offset="7455">
+              <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
               <folding>
-                <element signature="e#0#13720#0" expanded="true" />
+                <element signature="e#0#13536#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#3575#3581#0" expanded="true" />
-                <element signature="e#13697#13698#0" expanded="true" />
-                <element signature="e#13716#13717#0" expanded="true" />
+                <element signature="e#3549#3555#0" expanded="true" />
+                <element signature="e#13395#13405#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hero.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/Hero.java">
+      <file leaf-file-name="Wand.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/wands/Wand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44921875" vertical-offset="22220" max-vertical-offset="22980">
-              <caret line="1517" column="52" selection-start-line="1517" selection-start-column="52" selection-end-line="1517" selection-end-column="52" />
+            <state vertical-scroll-proportion="-6.8076925" vertical-offset="1788" max-vertical-offset="6675">
+              <caret line="177" column="12" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="12" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#5205#5206#0" expanded="true" />
+                <element signature="e#5226#5227#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeroClass.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/HeroClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3634" max-vertical-offset="5370">
+              <caret line="285" column="49" selection-start-line="285" selection-start-column="49" selection-end-line="285" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -632,7 +652,6 @@
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/melee/monstermeleeweapon/BoneSword.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/armor/heromonsterarmor/SkeletonBonesArmor.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/melee/monstermeleeweapon/FlyStinger.java" />
-        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/wands/Wand.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/buffs/monsterbuffs/LightningImmunity.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/MonsterItem.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/melee/monstermeleeweapon/MonsterMeleeWeapon.java" />
@@ -652,15 +671,16 @@
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/melee/monstermeleeweapon/CrabClaws.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/enchantments/Poison.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/buffs/Buff.java" />
-        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/HeroClass.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/armor/heromonsterarmor/SpiderSkin.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/melee/monstermeleeweapon/SpiderFangs.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/buffs/monsterbuffs/WebLaying.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/HeroMonsterClass.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/wands/monsterwands/ShamanStaff.java" />
+        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/Hero.java" />
+        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/wands/Wand.java" />
+        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/HeroClass.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/wands/monsterwands/MonsterWand.java" />
         <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/Char.java" />
-        <option value="$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/Hero.java" />
       </list>
     </option>
   </component>
@@ -683,7 +703,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -695,8 +715,18 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pixel-dungeon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -717,7 +747,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -946,8 +975,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976827" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5026738" sideWeight="0.70468277" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42424244" sideWeight="0.7907855" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43672013" sideWeight="0.7907855" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -968,6 +996,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30659536" sideWeight="0.70468277" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -989,14 +1018,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/Char.java</url>
-          <line>262</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1011,48 +1032,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/Tengu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="2820">
-          <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="102" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/TomeOfMastery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="499" max-vertical-offset="1725">
-          <caret line="73" column="12" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/scenes/StartScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41954023" vertical-offset="3079" max-vertical-offset="7365">
-          <caret line="266" column="23" selection-start-line="266" selection-start-column="23" selection-end-line="266" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/missiles/MissileWeapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46264368" vertical-offset="214" max-vertical-offset="1740">
-          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/weapon/Weapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="1294" max-vertical-offset="3375">
-          <caret line="130" column="33" selection-start-line="130" selection-start-column="33" selection-end-line="132" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/mobs/King.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2902299" vertical-offset="1204" max-vertical-offset="4410">
-          <caret line="140" column="49" selection-start-line="140" selection-start-column="49" selection-end-line="142" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/ArmorKit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04310345" vertical-offset="60" max-vertical-offset="1425">
@@ -1232,15 +1211,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="690">
           <caret line="37" column="82" selection-start-line="37" selection-start-column="82" selection-end-line="37" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/HeroClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3319" max-vertical-offset="5355">
-          <caret line="295" column="8" selection-start-line="295" selection-start-column="8" selection-end-line="295" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1248,7 +1218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="636" max-vertical-offset="1005">
           <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1256,7 +1225,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
           <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1264,15 +1232,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="1245">
           <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/buffs/monsterbuffs/MonsterFlavorBuff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1280,7 +1239,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1211" max-vertical-offset="1635">
           <caret line="134" column="5" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1288,7 +1246,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="49" max-vertical-offset="1230">
           <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1304,7 +1261,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46583852" vertical-offset="0" max-vertical-offset="690">
           <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1312,7 +1268,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="373" max-vertical-offset="2130">
           <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1320,7 +1275,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="743" max-vertical-offset="1065">
           <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1328,7 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="703" max-vertical-offset="1455">
           <caret line="81" column="9" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1336,15 +1289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1500">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/wands/Wand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5837" max-vertical-offset="6630">
-          <caret line="459" column="0" selection-start-line="459" selection-start-column="0" selection-end-line="459" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1352,7 +1296,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4183267" vertical-offset="0" max-vertical-offset="345">
           <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1360,43 +1303,110 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="322" max-vertical-offset="1755">
           <caret line="48" column="47" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
-          <folding>
-            <element signature="e#2784#2790#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/wands/monsterwands/MonsterWand.java">
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/buffs/monsterbuffs/MonsterFlavorBuff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4183267" vertical-offset="900" max-vertical-offset="1665">
-          <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
-          <folding>
-            <element signature="e#2347#2348#0" expanded="true" />
-            <element signature="e#2387#2388#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/Char.java">
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/scenes/GameScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5" vertical-offset="7274" max-vertical-offset="7575">
-          <caret line="521" column="68" selection-start-line="521" selection-start-column="63" selection-end-line="521" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#13720#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3575#3581#0" expanded="true" />
-            <element signature="e#13697#13698#0" expanded="true" />
-            <element signature="e#13716#13717#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="3022" max-vertical-offset="8400">
+          <caret line="280" column="12" selection-start-line="280" selection-start-column="12" selection-end-line="280" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44921875" vertical-offset="22220" max-vertical-offset="22980">
-          <caret line="1517" column="52" selection-start-line="1517" selection-start-column="52" selection-end-line="1517" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="14471" max-vertical-offset="22980">
+          <caret line="1007" column="20" selection-start-line="1007" selection-start-column="20" selection-end-line="1007" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/levels/features/Chasm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="712" max-vertical-offset="1395">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/levels/painters/Painter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1005">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/levels/painters/WeakFloorPainter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/levels/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="457" max-vertical-offset="3045">
+          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/levels/RegularLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1991" max-vertical-offset="9960">
+          <caret line="181" column="46" selection-start-line="181" selection-start-column="46" selection-end-line="181" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/wands/Wand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.8076925" vertical-offset="1788" max-vertical-offset="6675">
+          <caret line="177" column="12" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="12" />
+          <folding>
+            <element signature="e#5205#5206#0" expanded="true" />
+            <element signature="e#5226#5227#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/hero/HeroClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3634" max-vertical-offset="5370">
+          <caret line="285" column="49" selection-start-line="285" selection-start-column="49" selection-end-line="285" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/items/wands/monsterwands/MonsterWand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1332" max-vertical-offset="1650">
+          <caret line="120" column="50" selection-start-line="120" selection-start-column="50" selection-end-line="120" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixeldungeon/src/main/java/com/johngohce/phoenixpd/actors/Char.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38545454" vertical-offset="3569" max-vertical-offset="7455">
+          <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13536#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3549#3555#0" expanded="true" />
+            <element signature="e#13395#13405#0" expanded="true" />
           </folding>
         </state>
       </provider>

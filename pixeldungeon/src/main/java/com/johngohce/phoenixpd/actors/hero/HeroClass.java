@@ -285,6 +285,7 @@ public enum HeroClass {
     }
     private static void initShaman( Hero hero ) {
         hero.belongings.weapon = new ShamanStaff();
+        ((ShamanStaff)hero.belongings.weapon).charge(hero);
         hero.belongings.armor = new GnollSkin();
         
         QuickSlot.primaryValue = hero.belongings.weapon;

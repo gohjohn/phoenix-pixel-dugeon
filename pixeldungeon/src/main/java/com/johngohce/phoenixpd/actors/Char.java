@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.actors;
 
-import android.util.Log;
-
 import com.johngohce.noosa.Camera;
 import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
@@ -260,12 +258,8 @@ public abstract class Char extends Actor {
 		
 		Class<?> srcClass = src.getClass();
         if(this != Dungeon.hero){
-            Log.i("immunes","here");
         }
-        HashSet immunes = new HashSet();
-        immunes = immunities();
-		if (immunes.contains( srcClass )) {
-            Log.d("immune",this.buffs().toString());
+		if (immunities().contains( srcClass )) {
             dmg = 0;
 		} else if (resistances().contains( srcClass )) {
 			dmg = Random.IntRange( 0, dmg );

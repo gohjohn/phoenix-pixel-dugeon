@@ -1,5 +1,7 @@
 package com.johngohce.phoenixpd.items.wands.monsterwands;
 
+import android.util.Log;
+
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
@@ -113,10 +115,11 @@ public abstract class MonsterWand extends Wand implements MonsterItem {
         protected void delay() {
             int time2charge = INITIAL_CHARGE_TIME;
             if(Dungeon.hero != null && Dungeon.hero.belongings != null && Dungeon.hero.belongings.weapon instanceof MonsterWand){
-                time2charge -= ((MonsterWand)Dungeon.hero.belongings.weapon).level() * 5;
-                time2charge = Math.min(time2charge,5);
+                time2charge -= ((MonsterWand)Dungeon.hero.belongings.weapon).level * 5;
+                time2charge = Math.max(time2charge,5);
             }
-            spend( time2charge );
+            Log.i("MonsterCharger","time2charge: " + time2charge);
+            spend(time2charge);
         }
     }
 }
