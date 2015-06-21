@@ -78,7 +78,7 @@ public class Belongings implements Iterable<Item> {
 		
 		weapon = (KindOfWeapon)bundle.get( WEAPON );
 		if (weapon != null) {
-			weapon.activate( owner );
+			weapon.activate( owner ); //esp for wands
 		}
 		
 		armor = (Armor)bundle.get( ARMOR );

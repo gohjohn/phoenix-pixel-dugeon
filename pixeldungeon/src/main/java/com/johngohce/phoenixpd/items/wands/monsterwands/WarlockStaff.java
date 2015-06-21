@@ -39,7 +39,7 @@ public class WarlockStaff extends MonsterWand {
 
         Char ch = Actor.findChar(cell);
         if (ch != null) {
-            hit(ch, Random.Int(1, 8 + (int)(level * level / 1.5))); //WandOfFirebolt damage / ~1.5
+            hit(ch, Random.Int(1, 8 + level * level)); //WandOfFirebolt damage
         }
     }
 
@@ -81,6 +81,6 @@ public class WarlockStaff extends MonsterWand {
     public String desc() {
         return "This is your trusty staff of weakening. Made of holly, it has a phoenix feather core, " +
                 "and it is deadly against all enemies, second only to Wand of Firebolt.\n\n" +
-                "It charges faster than normal wands when upgraded and has a chance to gain charges when attacking with it.";
+                "It charges faster than normal wands when upgraded and has a chance to gain charges when used in melee attack.";
     }
 }

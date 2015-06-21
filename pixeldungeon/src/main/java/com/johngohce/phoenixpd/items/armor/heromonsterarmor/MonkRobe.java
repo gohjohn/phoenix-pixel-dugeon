@@ -13,6 +13,7 @@ public class MonkRobe extends HeroMonsterArmor {
     {
         name = "Monk Robe";
         image = ItemSpriteSheet.ARMOR;
+        isPermanentlyEquipped = true;
     }
 
     public MonkRobe() {
@@ -38,8 +39,7 @@ public class MonkRobe extends HeroMonsterArmor {
         return
                 "You must be shapeless, formless, like water. When you pour water in a cup, it becomes the cup. " +
                         "When you pour water in a bottle, it becomes the bottle. When you pour water in a teapot, " +
-                        "it becomes the teapot. Water can drip and it can crash. Become like water my friend. " +
-                        "This robe is equivalent to an evasive mail armor" +
-                        "You may remove it if you wish.";
+                        "it becomes the teapot. Water can drip and it can crash. Become like water my friend.\n\n" +
+                        "Monks don't wear armor, so you can't remove this.";
     }
 }

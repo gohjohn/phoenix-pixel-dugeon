@@ -62,7 +62,7 @@ public abstract class Wand extends KindOfWeapon {
 	
 	private static final String TXT_IDENTIFY	= "You are now familiar enough with your %s.";
 	
-	private static final float TIME_TO_ZAP	= 1f;
+	protected static final float TIME_TO_ZAP	= 1f;
 	
 	public int maxCharges = initialCharges();
 	public int curCharges = maxCharges;
@@ -328,7 +328,7 @@ public abstract class Wand extends KindOfWeapon {
 		return 2;
 	}
 	
-	private void calculateDamage() {
+	protected void calculateDamage() {
 		int tier = 1 + level / 3;
 		MIN = tier;
 		MAX = (tier * tier - tier + 10) / 2 + level;

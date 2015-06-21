@@ -22,13 +22,13 @@ import com.johngohce.phoenixpd.windows.WndStory;
 
 public class IntroScene extends PixelScene {
 
-	private static final String TEXT = 	
+	private static final String TEXT =
 		"Many heroes of all kinds ventured into the Dungeon before you. Some of them have returned with treasures and magical " +
 		"artifacts, most have never been heard of since. But none have succeeded in retrieving the Amulet of Yendor, " +
 		"which is told to be hidden in the depths of the Dungeon.\n\n" +
 		"" +
-		"You consider yourself ready for the challenge, but most importantly, you feel that fortune smiles on you. " +
-		"It's time to start your own adventure!";
+		"You have dreamt so many times of holding the Amulet in your hands.\n" +
+        "You feel today is the day to make the dream a reality.";
 	
 	@Override
 	public void create() {

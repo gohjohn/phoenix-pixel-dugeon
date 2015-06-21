@@ -46,16 +46,14 @@ import com.johngohce.phoenixpd.items.rings.RingOfShadows;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfEnchantment;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfIdentify;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
-import com.johngohce.phoenixpd.items.wands.Wand;
-import com.johngohce.phoenixpd.items.wands.WandOfBlink;
-import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
 import com.johngohce.phoenixpd.items.wands.WandOfMagicMissile;
+import com.johngohce.phoenixpd.items.wands.monsterwands.BlinkDagger;
+import com.johngohce.phoenixpd.items.wands.monsterwands.EyeLaser;
 import com.johngohce.phoenixpd.items.wands.monsterwands.ShamanStaff;
 import com.johngohce.phoenixpd.items.wands.monsterwands.WarlockStaff;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
 import com.johngohce.phoenixpd.items.weapon.melee.Dagger;
 import com.johngohce.phoenixpd.items.weapon.melee.Knuckles;
-import com.johngohce.phoenixpd.items.weapon.melee.Mace;
 import com.johngohce.phoenixpd.items.weapon.melee.ShortSword;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.BatFangs;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.BoneFist;
@@ -64,6 +62,8 @@ import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.Claws;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.CrabClaws;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.FireElementalFist;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.FlyStinger;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.MonkFist;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.RockFist;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.SpiderFangs;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.ThiefDagger;
 import com.johngohce.phoenixpd.items.weapon.missiles.Boomerang;
@@ -330,33 +330,31 @@ public enum HeroClass {
         new ScrollOfIdentify().setKnown();
     }
     private static void initMonk( Hero hero ) {
-        (hero.belongings.weapon = new Knuckles()).identify().upgrade(3);
+        hero.belongings.weapon = new MonkFist();
         hero.belongings.armor = new MonkRobe();
 
         new Food().collect();
     }
     private static void initGolem( Hero hero ) {
-        (hero.belongings.weapon = new Mace()).identify().upgrade(2);
+        hero.belongings.weapon = new RockFist();
         hero.belongings.armor = new RockSkin();
 
         new PotionOfStrength().setKnown();
     }
 
     private static void initSuccubus( Hero hero ) {
-        (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.weapon = new BlinkDagger();
         hero.belongings.armor = new SuccubusLeather();
 
-        Wand wand = new WandOfBlink();
-        wand.upgrade().identify().collect();
-        QuickSlot.primaryValue = wand;
+        hero.belongings.weapon.activate(hero);
+        QuickSlot.primaryValue = hero.belongings.weapon;
     }
     private static void initEvilEye( Hero hero ) {
-        (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.weapon = new EyeLaser();
         hero.belongings.armor = new EyeLid();
 
-        Wand wand = new WandOfDisintegration();
-        wand.upgrade(2).identify().collect();
-        QuickSlot.primaryValue = wand;
+        hero.belongings.weapon.activate(hero);
+        QuickSlot.primaryValue = hero.belongings.weapon;
 
     }
     private static void initScorpio( Hero hero ) {

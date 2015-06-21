@@ -1,7 +1,7 @@
 package com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon;
 
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.AttackHaste;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
-import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.MultiplicityBuff;
 import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class CrabClaws extends MonsterMeleeWeapon {
     @Override
     protected ArrayList<HeroMonsterBuff> updatedBuffs(){
         ArrayList<HeroMonsterBuff> newBuffs = new ArrayList<>();
-        newBuffs.add(new MultiplicityBuff(level));
+        newBuffs.add(new AttackHaste(level));
         return newBuffs;
     }
 

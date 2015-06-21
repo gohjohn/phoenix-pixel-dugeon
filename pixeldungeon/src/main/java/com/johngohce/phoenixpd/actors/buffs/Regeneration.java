@@ -17,6 +17,7 @@
  */
 package com.johngohce.phoenixpd.actors.buffs;
 
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.RegenerationBuff;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.items.rings.RingOfMending;
 
@@ -36,6 +37,9 @@ public class Regeneration extends Buff {
 			for (Buff buff : target.buffs( RingOfMending.Rejuvenation.class )) {
 				bonus += ((RingOfMending.Rejuvenation)buff).level;
 			}
+            for (Buff buff : target.buffs( RegenerationBuff.class )) {
+                bonus += ((RegenerationBuff)buff).level;
+            }
 			
 			spend( (float)(REGENERATION_DELAY / Math.pow( 1.2, bonus )) );
 			

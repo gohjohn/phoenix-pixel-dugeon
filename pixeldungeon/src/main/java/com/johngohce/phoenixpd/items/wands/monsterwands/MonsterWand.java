@@ -33,7 +33,7 @@ public abstract class MonsterWand extends Wand implements MonsterItem {
         unique = true;
         buffs = new ArrayList<>();
     }
-    private void calculateDamage() {
+    protected void calculateDamage() {
         int tier = 1 + level / 3;
         MIN = tier;
         MAX = (tier * tier - tier + 10) / 2 + level;

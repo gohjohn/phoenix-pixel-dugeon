@@ -49,7 +49,7 @@ public class BatFangs extends MonsterMeleeWeapon {
     protected ArrayList<HeroMonsterBuff> updatedBuffs(){
         ArrayList<HeroMonsterBuff> newBuffs = new ArrayList<>();
         if(Dungeon.nightMode){
-            newBuffs.add(new AttackHaste(4));
+            newBuffs.add(new AttackHaste(3));
         }
         return newBuffs;
     }

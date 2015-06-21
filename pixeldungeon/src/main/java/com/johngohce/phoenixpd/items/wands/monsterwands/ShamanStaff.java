@@ -125,7 +125,7 @@ public class ShamanStaff extends MonsterWand {
     public String desc() {
         return "This is your trusty staff of lightning. Presented to you during the Gnoll tribe's shaman ritual, " +
                 "you have bound your soul with this staff and cannot part with it.\n\n" +
-               "It charges faster than normal wands when upgraded and has a chance to gain charges when attacking with it.\n\n" +
+               "It charges faster than normal wands when upgraded and has a chance to gain charges when used in melee attack.\n\n" +
                 ((level >= SPECIAL_LEVEL)?
                         "It pulses with electricity, dissipating all excess lightning around you.":
                         "At higher upgrades, it absorbs all lightning near you, making you immune to lightning.");
