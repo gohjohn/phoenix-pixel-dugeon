@@ -33,6 +33,7 @@ import com.johngohce.phoenixpd.items.food.ChargrilledMeat;
 import com.johngohce.phoenixpd.items.food.MysteryMeat;
 import com.johngohce.phoenixpd.items.rings.RingOfElements.Resistance;
 import com.johngohce.phoenixpd.items.scrolls.Scroll;
+import com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls.SpecificEnchantmentScroll;
 import com.johngohce.phoenixpd.levels.Level;
 import com.johngohce.phoenixpd.scenes.GameScene;
 import com.johngohce.phoenixpd.ui.BuffIndicator;
@@ -78,7 +79,7 @@ public class Burning extends Buff implements Hero.Doom {
 			if (target instanceof Hero) {
 				
 				Item item = ((Hero)target).belongings.randomUnequipped();
-				if (item instanceof Scroll) {
+				if (item instanceof Scroll || item instanceof SpecificEnchantmentScroll) {
 					
 					item = item.detach( ((Hero)target).belongings.backpack );
 					GLog.w( TXT_BURNS_UP, item.toString() );

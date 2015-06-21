@@ -2,6 +2,7 @@ package com.johngohce.phoenixpd.items.armor.heromonsterarmor;
 
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ElementalResistance;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.WeaknessImmunity;
 import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
@@ -23,12 +24,13 @@ public class WarlockCloak extends HeroMonsterArmor {
     protected ArrayList<HeroMonsterBuff> updatedBuffs(){
         ArrayList<HeroMonsterBuff> newBuffs = new ArrayList<>();
         newBuffs.add(new ElementalResistance(level));
+        newBuffs.add(new WeaknessImmunity());
         return newBuffs;
     }
 
     @Override
     public int price(){
-        return 10 * level;
+        return 20 * (level + 1);
     }
 
 

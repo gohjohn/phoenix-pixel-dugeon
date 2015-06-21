@@ -17,6 +17,9 @@
  */
 package com.johngohce.phoenixpd.actors.buffs;
 
+import android.util.Log;
+
+import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ElementalResistance;
 import com.johngohce.phoenixpd.actors.hero.Hero;
@@ -40,10 +43,13 @@ public class Weakness extends FlavourBuff {
 	@Override
 	public boolean attachTo( Char target ) {
 		if (super.attachTo( target )) {
-			Hero hero = (Hero)target;
-			hero.weakened = true;
-			hero.belongings.discharge();
-			
+            if(target == Dungeon.hero){
+                Hero hero = (Hero)target;
+                hero.weakened = true;
+                hero.belongings.discharge();
+            }
+            Log.i("Weakness",target.name + " is weakened.");
+
 			return true;
 		} else {
 			return false;
@@ -53,7 +59,9 @@ public class Weakness extends FlavourBuff {
 	@Override
 	public void detach() {
 		super.detach();
-		((Hero)target).weakened = false;
+        if(target == Dungeon.hero) {
+            ((Hero) target).weakened = false;
+        }
 	}
 
 
@@ -65,5 +73,9 @@ public class Weakness extends FlavourBuff {
         if(r2 != null) durationFactor *= r2.resistanceReductionDurationFactor();
 
         return durationFactor * DURATION;
+    }
+
+    public int weakenedDamage(int dmg) {
+        return (int) (dmg * 0.8f);
     }
 }

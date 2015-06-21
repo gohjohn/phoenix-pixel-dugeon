@@ -17,13 +17,13 @@
  */
 package com.johngohce.phoenixpd.items;
 
-import java.util.ArrayList;
-
 import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.ui.QuickSlot;
 import com.johngohce.phoenixpd.utils.GLog;
 import com.johngohce.utils.Random;
+
+import java.util.ArrayList;
 
 public class KindOfWeapon extends EquipableItem {
 
@@ -95,7 +95,7 @@ public class KindOfWeapon extends EquipableItem {
 		return Random.NormalIntRange( MIN, MAX );
 	}
 	
-	public float acuracyFactor( Hero hero ) {
+	public float accuracyFactor(Hero hero) {
 		return 1f;
 	}
 	

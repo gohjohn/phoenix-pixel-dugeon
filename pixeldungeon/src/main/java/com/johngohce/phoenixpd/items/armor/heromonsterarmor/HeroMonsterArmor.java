@@ -2,6 +2,7 @@ package com.johngohce.phoenixpd.items.armor.heromonsterarmor;
 
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
+import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.MonsterItem;
 import com.johngohce.phoenixpd.items.armor.Armor;
@@ -44,6 +45,20 @@ public abstract class HeroMonsterArmor extends Armor implements MonsterItem {
                 buff.attachTo(Dungeon.hero);
             }
         }
+    }
+
+    @Override
+    public boolean doUnequip( Hero hero, boolean collect, boolean single ) {
+        if(buffs == null) buffs = new ArrayList<>();
+        if(super.doUnequip(hero,collect,single)){
+            for (HeroMonsterBuff buff : buffs) {
+                buff.detach();
+            }
+            buffs = new ArrayList<>();
+
+            return true;
+        }
+        return false;
     }
 
     protected ArrayList<HeroMonsterBuff> updatedBuffs(){

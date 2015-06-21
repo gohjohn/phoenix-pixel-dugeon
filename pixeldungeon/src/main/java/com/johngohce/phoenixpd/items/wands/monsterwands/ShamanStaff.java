@@ -29,7 +29,7 @@ public class ShamanStaff extends MonsterWand {
 
     {
         name = "Shaman Staff of Lightning";
-        image = ItemSpriteSheet.WAND_HOLLY;
+        image = ItemSpriteSheet.WAND_EBONY;
         isPermanentlyEquipped = true;
     }
 
@@ -123,9 +123,11 @@ public class ShamanStaff extends MonsterWand {
 
     @Override
     public String desc() {
-        return "This is your trusty staff of lightning. Presented to you during the the Gnoll tribe's shaman ritual, " +
-                "you have bound your soul with this staff and cannot part with it.\n" +
-               "It charges faster than normal wands when upgraded and has a chance to gain charges on hit.\n" +
-               "At higher upgrades, it absorbs all lightning near you, making you immune to lightning.";
+        return "This is your trusty staff of lightning. Presented to you during the Gnoll tribe's shaman ritual, " +
+                "you have bound your soul with this staff and cannot part with it.\n\n" +
+               "It charges faster than normal wands when upgraded and has a chance to gain charges when attacking with it.\n\n" +
+                ((level >= SPECIAL_LEVEL)?
+                        "It pulses with electricity, dissipating all excess lightning around you.":
+                        "At higher upgrades, it absorbs all lightning near you, making you immune to lightning.");
     }
 }

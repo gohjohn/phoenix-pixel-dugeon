@@ -78,6 +78,7 @@ public class BatSkin extends HeroMonsterArmor{
             if(levitation==null) {
                 Buff.affect(hero, Levitation.class, (level + 1 - SPECIAL_LEVEL) * 5);
                 GLog.i("WHEEEE");
+                hero.spend(1f);
             }
         } else if (action.equals( AC_LAND )) {
             Levitation levitation = hero.buff(Levitation.class);

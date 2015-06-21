@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.actors.mobs;
 
-import java.util.HashSet;
-
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Challenges;
 import com.johngohce.phoenixpd.Dungeon;
@@ -42,6 +40,8 @@ import com.johngohce.phoenixpd.utils.Utils;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.Random;
 
+import java.util.HashSet;
+
 public abstract class Mob extends Char {
 	
 	private static final String	TXT_DIED	= "You hear something died in the distance";
@@ -52,12 +52,12 @@ public abstract class Mob extends Char {
 	protected static final String TXT_RAGE		= "#$%^";
 	protected static final String TXT_EXP		= "%+dEXP";
 	
-	public AiState SLEEPEING	= new Sleeping();
+	public AiState SLEEPING = new Sleeping();
 	public AiState HUNTING		= new Hunting();
 	public AiState WANDERING	= new Wandering();
 	public AiState FLEEING		= new Fleeing();
 	public AiState PASSIVE		= new Passive();
-	public AiState state = SLEEPEING;
+	public AiState state = SLEEPING;
 	
 	public Class<? extends CharSprite> spriteClass;
 	
@@ -84,7 +84,7 @@ public abstract class Mob extends Char {
 		
 		super.storeInBundle( bundle );
 		
-		if (state == SLEEPEING) {
+		if (state == SLEEPING) {
 			bundle.put( STATE, Sleeping.TAG );
 		} else if (state == WANDERING) {
 			bundle.put( STATE, Wandering.TAG );
@@ -105,7 +105,7 @@ public abstract class Mob extends Char {
 		
 		String state = bundle.getString( STATE );
 		if (state.equals( Sleeping.TAG )) {
-			this.state = SLEEPEING;
+			this.state = SLEEPING;
 		} else if (state.equals( Wandering.TAG )) {
 			this.state = WANDERING;
 		} else if (state.equals( Hunting.TAG )) {
@@ -207,7 +207,7 @@ public abstract class Mob extends Char {
 			if (sprite != null) {
 				new Flare( 4, 32 ).color( 0x44ffff, true ).show( sprite, 2f ) ;
 			}
-			state = SLEEPEING;
+			state = SLEEPING;
 			postpone( Sleep.SWS );
 		}
 	}
@@ -311,7 +311,7 @@ public abstract class Mob extends Char {
 
 		Terror.recover( this );
 		
-		if (state == SLEEPEING) {
+		if (state == SLEEPING) {
 			state = WANDERING;
 		}
 		alerted = true;

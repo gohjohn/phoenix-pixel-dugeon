@@ -1,30 +1,28 @@
 package com.johngohce.phoenixpd.actors.buffs.monsterbuffs;
 
+import com.johngohce.phoenixpd.actors.buffs.FlavourBuff;
+
 /**
  * Created by johngoh on 6/8/15.
  */
-public class WebLaying extends HeroMonsterBuff implements MonsterFlavorBuff {
+public class WebLaying extends FlavourBuff {
 
-    int counter = 2;
+    public static final float DURATION	= 1f;
 
-    public WebLaying(){
-        super();
-        counter = 2;
-    }
+//
+//    @Override
+//    public boolean attachTo( Char target ) {
+//        if (super.attachTo( target )) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
-    public WebLaying(int level){
-        super(level);
-        counter = Math.max(2,level);
-    }
-
-    @Override
-    public boolean act() {
-        if(counter==0) {
-            detach();
-        }
-        if(counter>=0) counter--;
-        return true;
-    }
+//    @Override
+//    public int icon() {
+//        return BuffIndicator.LEVITATION;
+//    }
 
     @Override
     public String toString() {

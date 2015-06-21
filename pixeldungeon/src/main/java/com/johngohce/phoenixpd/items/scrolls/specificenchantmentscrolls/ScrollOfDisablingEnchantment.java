@@ -2,6 +2,7 @@ package com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls;
 
 import com.johngohce.phoenixpd.items.armor.glyphs.Entanglement;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Paralysis;
+import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import com.johngohce.phoenixpd.windows.WndBag;
 
 /**
@@ -15,5 +16,6 @@ public class ScrollOfDisablingEnchantment extends SpecificEnchantmentScroll {
         glyph = new Entanglement();
         enchantmentText = "stunning";
         glyphText = "entanglement";
+        image = ItemSpriteSheet.SCROLL_NAUDIZ;
     }
 }

@@ -1,6 +1,7 @@
 package com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls;
 
 import com.johngohce.phoenixpd.items.weapon.enchantments.Death;
+import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import com.johngohce.phoenixpd.windows.WndBag;
 
 /**
@@ -12,5 +13,7 @@ public class ScrollOfGrimEnchantment extends SpecificEnchantmentScroll {
         mode = WndBag.Mode.WEAPON;
         enchantment = new Death();
         enchantmentText = "grim";
+        image = ItemSpriteSheet.SCROLL_GYFU;
+
     }
 }

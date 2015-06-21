@@ -55,6 +55,7 @@ import com.johngohce.phoenixpd.actors.buffs.Vertigo;
 import com.johngohce.phoenixpd.actors.buffs.Weakness;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.AttackHaste;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ElementalResistance;
+import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.EnrageAbleBuff;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.ExplosiveThorns;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.FireImmunity;
 import com.johngohce.phoenixpd.actors.buffs.monsterbuffs.HeroMonsterBuff;
@@ -293,7 +294,7 @@ public class Hero extends Char {
 		
 		KindOfWeapon wep = rangedWeapon != null ? rangedWeapon : belongings.weapon;
 		if (wep != null) {
-			return (int)(attackSkill * accuracy * wep.acuracyFactor( this ));
+			return (int)(attackSkill * accuracy * wep.accuracyFactor(this));
 		} else {
 			return (int)(attackSkill * accuracy);
 		}
@@ -349,7 +350,18 @@ public class Hero extends Char {
 		} else {
 			dmg = STR() > 10 ? Random.IntRange( 1, STR() - 9 ) : 1;
 		}
-		return buff( Fury.class ) != null ? (int)(dmg * 1.5f) : dmg;
+
+        Fury fBuff = buff(Fury.class);
+        if(fBuff != null){
+            EnrageAbleBuff eBuff = buff(EnrageAbleBuff.class);
+            if(eBuff!=null){
+                dmg *= Math.pow(1.15, eBuff.level + 1);
+            }else{
+                dmg *= 1.5f; //Old berserker
+            }
+        }
+
+		return dmg;
 	}
 	
 	@Override
@@ -956,10 +968,15 @@ public class Hero extends Char {
 	public void damage( int dmg, Object src ) {		
 		restoreHealth = false;
 		super.damage( dmg, src );
-		
-		if (subClass == HeroSubClass.BERSERKER && 0 < HP && HP <= HT * Fury.LEVEL) {
+
+        EnrageAbleBuff buff = buff(EnrageAbleBuff.class);
+        if (buff != null && 0 < HP && HP <= HT * Fury.LEVEL) {
 			Buff.affect( this, Fury.class );
 		}
+
+//		if (subClass == HeroSubClass.BERSERKER && 0 < HP && HP <= HT * Fury.LEVEL) {
+//			Buff.affect( this, Fury.class );
+//		}
 	}
 	
 	private void checkVisibleMobs() {

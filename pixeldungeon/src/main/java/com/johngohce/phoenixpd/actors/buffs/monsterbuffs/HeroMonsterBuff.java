@@ -9,6 +9,9 @@ import com.johngohce.phoenixpd.actors.buffs.Buff;
  * Created by johngoh on 6/6/15.
  */
 public class HeroMonsterBuff extends Buff {
+    // TODO Buff logic needs work
+    // Buffs should be attached to the hero for as long as the item is equipped. Currently doesn't work properly.
+
     public int level = 1;
 
     public HeroMonsterBuff(){

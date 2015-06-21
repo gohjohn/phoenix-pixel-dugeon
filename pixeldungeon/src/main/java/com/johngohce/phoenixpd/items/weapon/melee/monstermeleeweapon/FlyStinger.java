@@ -26,7 +26,7 @@ public class FlyStinger extends MonsterMeleeWeapon {
     }
 
     public FlyStinger() {
-        super( 2, 1f, 1f );
+        super( 1, 1f, 1f );
     }
 
     @Override

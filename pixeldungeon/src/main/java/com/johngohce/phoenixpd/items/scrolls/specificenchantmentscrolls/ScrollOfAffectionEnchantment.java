@@ -1,6 +1,7 @@
 package com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls;
 
 import com.johngohce.phoenixpd.items.armor.glyphs.Affection;
+import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import com.johngohce.phoenixpd.windows.WndBag;
 
 /**
@@ -12,5 +13,6 @@ public class ScrollOfAffectionEnchantment extends SpecificEnchantmentScroll {
         mode = WndBag.Mode.ARMOR;
         glyph = new Affection();
         glyphText = "affection";
+        image = ItemSpriteSheet.SCROLL_ODAL;
     }
 }

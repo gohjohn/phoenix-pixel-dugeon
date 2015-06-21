@@ -23,7 +23,7 @@ public class BatFangs extends MonsterMeleeWeapon {
     }
 
     public BatFangs() {
-        super( 3, 1f, 1f );
+        super( 2, 1f, 1f );
     }
 
     @Override

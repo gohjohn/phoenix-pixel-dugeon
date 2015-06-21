@@ -2,6 +2,7 @@ package com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls;
 
 import com.johngohce.phoenixpd.items.armor.glyphs.Metabolism;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Leech;
+import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import com.johngohce.phoenixpd.windows.WndBag;
 
 /**
@@ -15,5 +16,7 @@ public class ScrollOfHealthEnchantment extends SpecificEnchantmentScroll {
         glyph = new Metabolism();
         enchantmentText = "vampiric";
         glyphText = "metabolism";
+
+        image = ItemSpriteSheet.SCROLL_ISAZ;
     }
 }

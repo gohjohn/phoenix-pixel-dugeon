@@ -26,7 +26,7 @@ public class SpiderFangs extends MonsterMeleeWeapon {
     }
 
     public SpiderFangs() {
-        super( 3, 1f, 1f );
+        super( 2, 1f, 1f );
     }
 
     @Override
@@ -42,11 +42,8 @@ public class SpiderFangs extends MonsterMeleeWeapon {
 
 //            Buff.prolong(attacker, WebLaying.class, Random.Float( 1.0f, 1.5f ) );
             if(Dungeon.hero.belongings.armor instanceof SpiderSkin && ((SpiderSkin) Dungeon.hero.belongings.armor).level >= SpiderSkin.SPECIAL_LEVEL)
-//            Buff.affect(attacker, WebLaying.class);//TODO More than one turn
-            Buff.append(attacker, WebLaying.class);
+            Buff.affect(attacker, WebLaying.class, Random.Int((int)(WebLaying.DURATION * level)) + 1);
 
-//            Buff.affect(defender, WebLaying.class).
-//                    set(com.johngohce.phoenixpd.actors.buffs.Poison.duration(defender) * (level + 1));
         }
 
         super.proc(attacker,defender,damage);
@@ -59,6 +56,7 @@ public class SpiderFangs extends MonsterMeleeWeapon {
 
     @Override
     public String desc() {
-        return "";
+        return "Your fangs drip with venom, giving you the ability to poison your foes.\n" +
+                "The chance for poison and poison damage increases with level.";
     }
 }

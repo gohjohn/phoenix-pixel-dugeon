@@ -2,6 +2,7 @@ package com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls;
 
 import com.johngohce.phoenixpd.items.armor.glyphs.Stench;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
+import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import com.johngohce.phoenixpd.windows.WndBag;
 
 /**
@@ -15,5 +16,6 @@ public class ScrollOfPoisonEnchantment extends SpecificEnchantmentScroll {
         glyph = new Stench();
         enchantmentText = "venom";
         glyphText = "stench";
+        image = ItemSpriteSheet.SCROLL_KAUNAN;
     }
 }

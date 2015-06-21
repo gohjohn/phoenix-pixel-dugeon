@@ -103,7 +103,7 @@ public class Weapon extends KindOfWeapon {
 	}
 	
 	@Override
-	public float acuracyFactor( Hero hero ) {
+	public float accuracyFactor(Hero hero) {
 		
 		int encumbrance = STR - hero.STR();
 		

@@ -27,6 +27,7 @@ public abstract class MonsterWand extends Wand implements MonsterItem {
         wood = "ebony";
 
         levelKnown = true;
+        curChargeKnown = true;
         cursed = false;
         cursedKnown = true;
         unique = true;
@@ -53,22 +54,14 @@ public abstract class MonsterWand extends Wand implements MonsterItem {
     }
 
     @Override
-    public boolean isIdentified(){
-        return true;
-    }
-
-    @Override
-    protected boolean isKnown() {
-        return true;
-    }
-
-    @Override
     public void setKnown(){}
+    protected boolean isKnown(){return true;}
 
     @Override
     public Item identify() {
         levelKnown = true;
         cursedKnown = true;
+        curChargeKnown = true;
         return this;
     }
     @Override

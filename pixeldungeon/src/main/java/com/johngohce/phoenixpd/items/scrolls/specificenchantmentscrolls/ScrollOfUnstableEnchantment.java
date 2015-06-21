@@ -2,6 +2,7 @@ package com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls;
 
 import com.johngohce.phoenixpd.items.armor.glyphs.Multiplicity;
 import com.johngohce.phoenixpd.items.weapon.enchantments.Instability;
+import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import com.johngohce.phoenixpd.windows.WndBag;
 
 /**
@@ -15,5 +16,6 @@ public class ScrollOfUnstableEnchantment extends SpecificEnchantmentScroll {
         glyph = new Multiplicity();
         enchantmentText = "unstable";
         glyphText = "multiplicity";
+        image = ItemSpriteSheet.SCROLL_RAIDO;
     }
 }

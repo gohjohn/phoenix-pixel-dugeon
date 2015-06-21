@@ -88,7 +88,7 @@ public class ThiefDagger extends MonsterMeleeWeapon {
     }
 
     public ThiefDagger() {
-        super( 2, 1.1f, 1f );
+        super( 1, 1.1f, 1f );
     }
 
     @Override

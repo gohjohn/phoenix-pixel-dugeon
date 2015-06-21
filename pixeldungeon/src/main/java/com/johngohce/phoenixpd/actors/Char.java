@@ -42,6 +42,7 @@ import com.johngohce.phoenixpd.actors.buffs.Slow;
 import com.johngohce.phoenixpd.actors.buffs.Speed;
 import com.johngohce.phoenixpd.actors.buffs.Terror;
 import com.johngohce.phoenixpd.actors.buffs.Vertigo;
+import com.johngohce.phoenixpd.actors.buffs.Weakness;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.hero.HeroSubClass;
 import com.johngohce.phoenixpd.actors.mobs.Bestiary;
@@ -144,8 +145,13 @@ public abstract class Char extends Actor {
 				Random.IntRange( 0, enemy.dr() );
 			
 			int dmg = damageRoll();
-			int effectiveDamage = Math.max( dmg - dr, 0 );
-			
+            Weakness wBuff = buff(Weakness.class);
+            if(wBuff != null && !(this instanceof Hero)){
+                dmg = wBuff.weakenedDamage(dmg);
+            }
+
+            int effectiveDamage = Math.max( dmg - dr, 0 );
+
 			effectiveDamage = attackProc( enemy, effectiveDamage );
 			effectiveDamage = enemy.defenseProc( this, effectiveDamage );
 			enemy.damage( effectiveDamage, this );
@@ -259,7 +265,7 @@ public abstract class Char extends Actor {
 		Class<?> srcClass = src.getClass();
         if(this != Dungeon.hero){
         }
-		if (immunities().contains( srcClass )) {
+		if (immunities().contains(srcClass)) {
             dmg = 0;
 		} else if (resistances().contains( srcClass )) {
 			dmg = Random.IntRange( 0, dmg );
