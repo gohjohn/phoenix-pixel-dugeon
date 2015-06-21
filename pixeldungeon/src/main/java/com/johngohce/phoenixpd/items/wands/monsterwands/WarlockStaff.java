@@ -36,7 +36,11 @@ public class WarlockStaff extends MonsterWand {
 
     @Override
     protected void onZap(int cell) {
-        // Everything is processed in fx() method
+
+        Char ch = Actor.findChar(cell);
+        if (ch != null) {
+            hit(ch, Random.Int(1, 8 + (int)(level * level / 1.5))); //WandOfFirebolt damage / ~1.5
+        }
     }
 
     private void hit(Char ch, int damage) {
@@ -52,13 +56,8 @@ public class WarlockStaff extends MonsterWand {
 
     @Override
     protected void fx(int cell, Callback callback) {
-        Char ch = Actor.findChar(cell);
-        if (ch != null) {
-            hit(ch, Random.Int(1, 8 + (int)(level * level / 1.5))); //WandOfFirebolt damage / ~1.5
-        }
-
         MagicMissile.shadow(curUser.sprite.parent, curUser.pos, cell, callback);
-        Sample.INSTANCE.play(Assets.SND_ZAP);
+        Sample.INSTANCE.play( Assets.SND_ZAP );
     }
 
     @Override
