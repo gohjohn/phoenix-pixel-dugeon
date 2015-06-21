@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by johngoh on 6/8/15.
  */
-public class FireElementalBody extends HeroMonsterArmor{
+public class FireElementalBody extends HeroMonsterArmor implements FlyingArmour{
     public static final String AC_FLY	    = "FLY";
     public static final String AC_LAND		= "LAND";
 
@@ -23,6 +23,7 @@ public class FireElementalBody extends HeroMonsterArmor{
         name = "Fire Elemental Body";
         image = ItemSpriteSheet.ARMOR;
         isPermanentlyEquipped = true;
+        defaultAction = special();
     }
 
     public FireElementalBody() {
@@ -56,6 +57,7 @@ public class FireElementalBody extends HeroMonsterArmor{
     }
 
     private String special(){
+        if(Dungeon.hero == null) return AC_FLY;
         Levitation levitation = Dungeon.hero.buff(Levitation.class);
         if(levitation==null){
             return AC_FLY;

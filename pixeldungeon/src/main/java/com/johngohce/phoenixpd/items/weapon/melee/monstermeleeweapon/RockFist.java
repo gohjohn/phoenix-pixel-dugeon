@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by johngoh on 6/21/15.
  */
 public class RockFist extends MonsterMeleeWeapon {
-    public final int SPECIAL_LEVEL = 6;
+    public final int SPECIAL_LEVEL = 7;
 
     {
         name = "Rock Fists";
@@ -19,7 +19,7 @@ public class RockFist extends MonsterMeleeWeapon {
     }
 
     public RockFist() {
-        super( 5, 1f, 1.1f );
+        super( 5, 0.8f, 1.1f );
     }
 
     @Override

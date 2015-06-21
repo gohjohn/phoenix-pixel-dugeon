@@ -102,8 +102,8 @@ import com.johngohce.phoenixpd.items.scrolls.ScrollOfRecharging;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
 import com.johngohce.phoenixpd.items.wands.Wand;
 import com.johngohce.phoenixpd.items.wands.WandOfBlink;
+import com.johngohce.phoenixpd.items.weapon.Weapon;
 import com.johngohce.phoenixpd.items.weapon.melee.MeleeWeapon;
-import com.johngohce.phoenixpd.items.weapon.missiles.MissileWeapon;
 import com.johngohce.phoenixpd.levels.Level;
 import com.johngohce.phoenixpd.levels.Terrain;
 import com.johngohce.phoenixpd.levels.features.AlchemyPot;
@@ -174,7 +174,7 @@ public class Hero extends Char {
 	
 	public boolean restoreHealth = false;
 	
-	public MissileWeapon rangedWeapon = null;
+	public Weapon rangedWeapon = null;
 	public Belongings belongings;
 	
 	public int STR;
@@ -269,16 +269,24 @@ public class Hero extends Char {
 	public int tier() {
 		return belongings.armor == null ? 0 : belongings.armor.tier;
 	}
-	
-	public boolean shoot( Char enemy, MissileWeapon wep ) {
-		
+
+//    public boolean shoot( Char enemy, MissileWeapon wep ) {
+//
+//		rangedWeapon = wep;
+//		boolean result = attack( enemy );
+//		rangedWeapon = null;
+//
+//		return result;
+//	}
+	public boolean shoot( Char enemy, Weapon wep ) {
+
 		rangedWeapon = wep;
 		boolean result = attack( enemy );
 		rangedWeapon = null;
-		
+
 		return result;
 	}
-	
+
 	@Override
 	public int attackSkill( Char target ) {
 		

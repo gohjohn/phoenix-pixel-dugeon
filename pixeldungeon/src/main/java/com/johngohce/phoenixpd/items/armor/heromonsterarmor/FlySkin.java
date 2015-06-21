@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by johngoh on 6/7/15.
  */
-public class FlySkin extends HeroMonsterArmor{
+public class FlySkin extends HeroMonsterArmor implements FlyingArmour{
     public int SPECIAL_LEVEL = 4;
     public static final String AC_FLY	    = "FLY";
     public static final String AC_LAND		= "LAND";

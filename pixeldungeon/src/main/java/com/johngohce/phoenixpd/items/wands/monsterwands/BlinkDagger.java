@@ -6,6 +6,8 @@ import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.Actor;
 import com.johngohce.phoenixpd.actors.Char;
+import com.johngohce.phoenixpd.actors.buffs.Buff;
+import com.johngohce.phoenixpd.actors.buffs.Charm;
 import com.johngohce.phoenixpd.actors.buffs.Invisibility;
 import com.johngohce.phoenixpd.effects.MagicMissile;
 import com.johngohce.phoenixpd.effects.Speck;
@@ -28,12 +30,23 @@ public class BlinkDagger extends MonsterWand {
 
     @Override
     public void proc(Char attacker, Char defender, int damage) {
-        if (curCharges < maxCharges && damage > 0 && Random.IntRange(0, 2) == 0) {
+        if (curCharges < maxCharges && damage > 0 && Random.IntRange(0, 2) == 0) {// 1/3 unlike other monster wands
             curCharges++;
             updateQuickslot();
 
             ScrollOfRecharging.chargeAnimation(Dungeon.hero);
         }
+
+
+        //Standard affection
+        if( Random.Int( level / 2 + 5 ) >= 4){
+            int duration = Random.IntRange(3, 7);
+
+            Buff.affect(defender, Charm.class, Charm.duration(attacker) * duration).object = attacker.id();
+            defender.sprite.centerEmitter().start(Speck.factory(Speck.HEART), 0.2f, 5);
+        }
+
+        super.proc(attacker,defender,damage);
     }
 
     @Override

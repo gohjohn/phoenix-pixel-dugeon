@@ -20,7 +20,6 @@ package com.johngohce.phoenixpd.actors.hero;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
-import com.johngohce.phoenixpd.ScrollOfDebugging;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.BatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.CrabShell;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.EyeLid;
@@ -51,7 +50,6 @@ import com.johngohce.phoenixpd.items.wands.monsterwands.BlinkDagger;
 import com.johngohce.phoenixpd.items.wands.monsterwands.EyeLaser;
 import com.johngohce.phoenixpd.items.wands.monsterwands.ShamanStaff;
 import com.johngohce.phoenixpd.items.wands.monsterwands.WarlockStaff;
-import com.johngohce.phoenixpd.items.weapon.enchantments.Poison;
 import com.johngohce.phoenixpd.items.weapon.melee.Dagger;
 import com.johngohce.phoenixpd.items.weapon.melee.Knuckles;
 import com.johngohce.phoenixpd.items.weapon.melee.ShortSword;
@@ -64,6 +62,7 @@ import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.FireElement
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.FlyStinger;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.MonkFist;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.RockFist;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.ScorpioStinger;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.SpiderFangs;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.ThiefDagger;
 import com.johngohce.phoenixpd.items.weapon.missiles.Boomerang;
@@ -184,7 +183,7 @@ public enum HeroClass {
 		new Food().identify().collect();
 		new Keyring().collect();
 
-        new ScrollOfDebugging().collect();
+//        new ScrollOfDebugging().collect();
 	}
 	
 	public Badges.Badge masteryBadge() {
@@ -358,12 +357,10 @@ public enum HeroClass {
 
     }
     private static void initScorpio( Hero hero ) {
-        (hero.belongings.weapon = new Dagger()).identify();
+        hero.belongings.weapon = new ScorpioStinger();
         hero.belongings.armor = new ScorpioShell();
 
-        Boomerang boomerang = new Boomerang();
-        boomerang.enchant(new Poison()).upgrade().identify().collect();
-        QuickSlot.primaryValue = boomerang;
+        QuickSlot.primaryValue = hero.belongings.weapon;
 
         new MysteryMeat().collect();
         new MysteryMeat().collect();

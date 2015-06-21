@@ -3,7 +3,7 @@
     package="com.johngohce.phoenixpd"
     android:installLocation="auto"
     android:versionCode="70"
-    android:versionName="ppd.alpha.1.03" >
+    android:versionName="1.00 ppd beta" >
 
     <uses-sdk
         android:minSdkVersion="9"

@@ -538,19 +538,72 @@ public class Item implements Bundlable {
 				}
 			} );
 	}
-	
+
+    public void shoot( final Hero user, int dst ) {
+        //almost the same as cast
+
+        final int cell = Ballistica.cast( user.pos, dst, false, true );
+        user.sprite.zap( cell );
+        user.busy();
+
+        Sample.INSTANCE.play( Assets.SND_MISS, 0.6f, 0.6f, 1.5f );
+
+        Char enemy = Actor.findChar( cell );
+        QuickSlot.target( this, enemy );
+
+        // FIXME!!!
+        float delay = TIME_TO_THROW;
+        if (this instanceof MissileWeapon) {
+            delay *= ((MissileWeapon)this).speedFactor( user );
+            if (enemy != null) {
+                SnipersMark mark = user.buff( SnipersMark.class );
+                if (mark != null) {
+                    if (mark.object == enemy.id()) {
+                        delay *= 0.5f;
+                    }
+                    user.remove( mark );
+                }
+            }
+        }
+        final float finalDelay = delay;
+
+        ((MissileSprite)user.sprite.parent.recycle( MissileSprite.class )).
+                reset( user.pos, cell, this, new Callback() {
+                    @Override
+                    public void call() {
+//                        Item.this.detach( user.belongings.backpack ).onThrow( cell );
+                        onThrow( cell );//no detach
+                        user.spendAndNext( finalDelay );
+                    }
+                } );
+    }
+
 	protected static Hero curUser = null;
 	protected static Item curItem = null;
-	protected static CellSelector.Listener thrower = new CellSelector.Listener() {	
-		@Override
-		public void onSelect( Integer target ) {
-			if (target != null) {
-				curItem.cast( curUser, target );
-			}
-		}
-		@Override
-		public String prompt() {
-			return "Choose direction of throw";
-		}
-	};
+    protected static CellSelector.Listener thrower = new CellSelector.Listener() {
+        @Override
+        public void onSelect( Integer target ) {
+            if (target != null) {
+                curItem.cast( curUser, target );
+            }
+        }
+        @Override
+        public String prompt() {
+            return "Choose direction of throw";
+        }
+    };
+
+
+    protected static CellSelector.Listener shooter = new CellSelector.Listener() {
+        @Override
+        public void onSelect( Integer target ) {
+            if (target != null) {
+                curItem.shoot( curUser, target );
+            }
+        }
+        @Override
+        public String prompt() {
+            return "Choose direction of shot";
+        }
+    };
 }
