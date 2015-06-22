@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.items.wands;
 
-import java.util.ArrayList;
-
 import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.DungeonTilemap;
 import com.johngohce.phoenixpd.actors.Actor;
@@ -33,6 +31,8 @@ import com.johngohce.phoenixpd.scenes.GameScene;
 import com.johngohce.utils.Callback;
 import com.johngohce.utils.Random;
 
+import java.util.ArrayList;
+
 public class WandOfDisintegration extends Wand {
 
 	{
@@ -44,9 +44,9 @@ public class WandOfDisintegration extends Wand {
 	protected void onZap( int cell ) {
 		
 		boolean terrainAffected = false;
-		
+
 		int level = level();
-		
+
 		int maxDistance = distance();
 		Ballistica.distance = Math.min( Ballistica.distance, maxDistance );
 		

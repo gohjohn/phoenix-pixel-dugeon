@@ -25,11 +25,11 @@ import java.util.ArrayList;
  * Created by johngoh on 6/21/15.
  */
 public class EyeLaser extends MonsterWand {
-//TODO FIX... currently doesnt go thru enemies
     {
         name = "Evil Eye of Doom";
         image = ItemSpriteSheet.SMTH;
         isPermanentlyEquipped = true;
+        hitChars = false;
     }
 
     @Override
