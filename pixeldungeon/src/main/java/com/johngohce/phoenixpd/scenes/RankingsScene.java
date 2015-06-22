@@ -82,7 +82,7 @@ public class RankingsScene extends PixelScene {
 			float top = align( (h - rowHeight  * Rankings.INSTANCE.records.size()) / 2 );
 			
 			BitmapText title = PixelScene.createText( TXT_TITLE, 9 );
-			title.hardlight( Window.TITLE_COLOR );
+			title.hardlight( Window.PPD_COLOR );
 			title.measure();
 			title.x = align( (w - title.width()) / 2 );
 			title.y = align( top - title.height() - GAP );
@@ -105,7 +105,7 @@ public class RankingsScene extends PixelScene {
 				add( label );
 				
 				BitmapText won = PixelScene.createText( Integer.toString( Rankings.INSTANCE.wonNumber ), 8 );
-				won.hardlight( Window.TITLE_COLOR );
+				won.hardlight( Window.PPD_COLOR );
 				won.measure();
 				add( won );
 				

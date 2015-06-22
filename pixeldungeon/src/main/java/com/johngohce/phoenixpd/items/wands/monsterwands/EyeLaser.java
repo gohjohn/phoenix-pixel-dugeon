@@ -25,7 +25,7 @@ import java.util.ArrayList;
  * Created by johngoh on 6/21/15.
  */
 public class EyeLaser extends MonsterWand {
-
+//TODO FIX... currently doesnt go thru enemies
     {
         name = "Evil Eye of Doom";
         image = ItemSpriteSheet.SMTH;
@@ -54,6 +54,7 @@ public class EyeLaser extends MonsterWand {
 
     @Override
     protected void onZap(int cell) {
+
         boolean terrainAffected = false;
 
         int level = level();
@@ -75,8 +76,8 @@ public class EyeLaser extends MonsterWand {
             int terr = Dungeon.level.map[c];
             if (terr == Terrain.DOOR || terr == Terrain.BARRICADE) {
 
-                Level.set(c, Terrain.EMBERS);
-                GameScene.updateMap(c);
+                Level.set( c, Terrain.EMBERS );
+                GameScene.updateMap( c );
                 terrainAffected = true;
 
             } else if (terr == Terrain.HIGH_GRASS) {
@@ -87,7 +88,7 @@ public class EyeLaser extends MonsterWand {
 
             }
 
-            CellEmitter.center(c).burst( PurpleParticle.BURST, Random.IntRange( 1, 2 ) );
+            CellEmitter.center( c ).burst( PurpleParticle.BURST, Random.IntRange( 1, 2 ) );
         }
 
         if (terrainAffected) {
@@ -96,7 +97,7 @@ public class EyeLaser extends MonsterWand {
 
         int lvl = level + chars.size();
         int dmgMin = lvl;
-        int dmgMax = 8 + lvl * lvl / 3;
+        int dmgMax = 8 + lvl * lvl;// wand has /3
         for (Char ch : chars) {
             ch.damage( Random.NormalIntRange( dmgMin, dmgMax ), this );
             ch.sprite.centerEmitter().burst( PurpleParticle.BURST, Random.IntRange( 1, 2 ) );

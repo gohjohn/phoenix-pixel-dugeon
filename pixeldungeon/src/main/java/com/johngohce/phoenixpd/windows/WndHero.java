@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.windows;
 
-import java.util.Locale;
-
 import com.johngohce.gltextures.SmartTexture;
 import com.johngohce.gltextures.TextureCache;
 import com.johngohce.noosa.BitmapText;
@@ -35,6 +33,8 @@ import com.johngohce.phoenixpd.scenes.PixelScene;
 import com.johngohce.phoenixpd.ui.BuffIndicator;
 import com.johngohce.phoenixpd.ui.RedButton;
 import com.johngohce.phoenixpd.utils.Utils;
+
+import java.util.Locale;
 
 public class WndHero extends WndTabbed {
 	
@@ -106,7 +106,7 @@ public class WndHero extends WndTabbed {
 
 			BitmapText title = PixelScene.createText( 
 				Utils.format( TXT_TITLE, hero.lvl, hero.className() ).toUpperCase( Locale.ENGLISH ), 9 );
-			title.hardlight( TITLE_COLOR );
+			title.hardlight( PPD_COLOR );
 			title.measure();
 			add( title );
 			

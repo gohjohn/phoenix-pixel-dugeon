@@ -17,9 +17,6 @@
  */
 package com.johngohce.phoenixpd.ui;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import com.johngohce.input.Keys;
 import com.johngohce.input.Keys.Key;
 import com.johngohce.input.Touchscreen.Touch;
@@ -33,6 +30,9 @@ import com.johngohce.phoenixpd.effects.ShadowBox;
 import com.johngohce.phoenixpd.scenes.PixelScene;
 import com.johngohce.utils.Signal;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Window extends Group implements Signal.Listener<Key> {
 
 	protected int width;
@@ -42,7 +42,8 @@ public class Window extends Group implements Signal.Listener<Key> {
 	protected ShadowBox shadow;
 	protected NinePatch chrome;
 	
-	public static final int TITLE_COLOR = 0xFFFF44;
+	public static final int PPD_COLOR = 0xFFA500;
+    public static final int TITLE_COLOR = 0xFFFF44;
 	
 	public Window() {
 		this( 0, 0, Chrome.get( Chrome.Type.WINDOW ) );

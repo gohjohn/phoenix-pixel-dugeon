@@ -20,6 +20,7 @@ package com.johngohce.phoenixpd.actors.hero;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.Badges;
 import com.johngohce.phoenixpd.Dungeon;
+import com.johngohce.phoenixpd.ScrollOfDebugging;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.BatSkin;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.CrabShell;
 import com.johngohce.phoenixpd.items.armor.heromonsterarmor.EyeLid;
@@ -45,6 +46,7 @@ import com.johngohce.phoenixpd.items.rings.RingOfShadows;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfEnchantment;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfIdentify;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
+import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
 import com.johngohce.phoenixpd.items.wands.WandOfMagicMissile;
 import com.johngohce.phoenixpd.items.wands.monsterwands.BlinkDagger;
 import com.johngohce.phoenixpd.items.wands.monsterwands.EyeLaser;
@@ -183,7 +185,7 @@ public enum HeroClass {
 		new Food().identify().collect();
 		new Keyring().collect();
 
-//        new ScrollOfDebugging().collect();
+        new ScrollOfDebugging().collect();
 	}
 	
 	public Badges.Badge masteryBadge() {
@@ -351,6 +353,8 @@ public enum HeroClass {
     private static void initEvilEye( Hero hero ) {
         hero.belongings.weapon = new EyeLaser();
         hero.belongings.armor = new EyeLid();
+
+        new WandOfDisintegration().upgrade(15).identify().collect();
 
         hero.belongings.weapon.activate(hero);
         QuickSlot.primaryValue = hero.belongings.weapon;

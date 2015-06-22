@@ -17,8 +17,6 @@
  */
 package com.johngohce.phoenixpd.scenes;
 
-import javax.microedition.khronos.opengles.GL10;
-
 import android.opengl.GLES20;
 
 import com.johngohce.noosa.BitmapText;
@@ -36,7 +34,11 @@ import com.johngohce.phoenixpd.ui.Archs;
 import com.johngohce.phoenixpd.ui.ExitButton;
 import com.johngohce.phoenixpd.ui.PrefsButton;
 
+import javax.microedition.khronos.opengles.GL10;
+
 public class TitleScene extends PixelScene {
+
+    public static TitleScene scene;
 
 	private static final String TXT_PLAY		= "Play";
 	private static final String TXT_HIGHSCORES	= "Rankings";
@@ -45,8 +47,10 @@ public class TitleScene extends PixelScene {
 	
 	@Override
 	public void create() {
-		
+
 		super.create();
+
+        scene =  this;
 		
 		Music.INSTANCE.play( Assets.THEME, true );
 		Music.INSTANCE.volume( 1f );

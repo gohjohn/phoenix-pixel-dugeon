@@ -22,6 +22,7 @@ import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.Assets;
 import com.johngohce.phoenixpd.PixelDungeon;
 import com.johngohce.phoenixpd.scenes.PixelScene;
+import com.johngohce.phoenixpd.scenes.TitleScene;
 import com.johngohce.phoenixpd.ui.CheckBox;
 import com.johngohce.phoenixpd.ui.RedButton;
 import com.johngohce.phoenixpd.ui.Toolbar;
@@ -35,8 +36,11 @@ public class WndSettings extends Window {
 
 	private static final String TXT_SCALE_UP		= "Scale up UI";
 	private static final String TXT_IMMERSIVE		= "Immersive mode";
-	
-	private static final String TXT_MUSIC	= "Music";
+
+    private static final String TXT_MONSTER		= "Choose start class";
+
+
+    private static final String TXT_MUSIC	= "Music";
 	
 	private static final String TXT_SOUND	= "Sound FX";
 	
@@ -164,16 +168,28 @@ public class WndSettings extends Window {
 			resize( WIDTH, (int)btnQuickslot.bottom() );
 			
 		} else {
-			
+            RedButton btnMonster = new RedButton( TXT_MONSTER ){
+                @Override
+                protected void onClick() {
+                    hide();
+                    TitleScene.scene.add(new WndChooseMonster(0));
+                }
+            };
+
+            btnMonster.setRect( 0, btnSound.bottom() + GAP, WIDTH, BTN_HEIGHT );
+            add( btnMonster );
+
 			RedButton btnOrientation = new RedButton( orientationText() ) {
 				@Override
 				protected void onClick() {
 					PixelDungeon.landscape( !PixelDungeon.landscape() );
 				}
 			};
-			btnOrientation.setRect( 0, btnSound.bottom() + GAP, WIDTH, BTN_HEIGHT );
+			btnOrientation.setRect( 0, btnMonster.bottom() + GAP, WIDTH, BTN_HEIGHT );
 			add( btnOrientation );
-			
+
+
+
 			resize( WIDTH, (int)btnOrientation.bottom() );
 			
 		}

@@ -68,6 +68,7 @@ public class ScrollOfDebugging extends Item {
 
     @Override
     public String desc() {
-        return "This item is from debugging purposes only.";
+        return "This item is from debugging purposes only.\n" +
+                "Gives the player more starting items.";
     }
 }

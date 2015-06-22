@@ -36,8 +36,7 @@ public class Claws extends MonsterMeleeWeapon {
         if (level>=SPECIAL_LEVEL) {
             return "It's that blood on your hands? Looks like your claws are sharp enough to tear skin.";
         }
-        return "It's your claws. Slightly more accurate because part of your arms. " +
-                "It's almost as good as a typical dagger..\n" +
+        return "Your claws are almost as good as a typical dagger..\n" +
                 "You hear that upgrading your claws may cause your enemies to bleed.";
     }
 }

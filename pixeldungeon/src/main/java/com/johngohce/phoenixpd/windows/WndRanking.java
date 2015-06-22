@@ -168,7 +168,8 @@ public class WndRanking extends WndTabbed {
 			IconTitle title = new IconTitle();
 			title.icon(HeroMonsterSprite.avatar( Dungeon.hero.heroClass, Dungeon.hero.tier() ) );
 			title.label( Utils.format( TXT_TITLE, Dungeon.hero.lvl, heroClass ).toUpperCase( Locale.ENGLISH ) );
-			title.setRect( 0, 0, WIDTH, 0 );
+            title.color( PPD_COLOR );
+            title.setRect( 0, 0, WIDTH, 0 );
 			add( title );
 			
 			float pos = title.bottom();

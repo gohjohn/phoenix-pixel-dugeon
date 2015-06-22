@@ -71,6 +71,7 @@ public enum HeroMonsterClass {
 
     private String title;
     private MobSprite image;
+    public static HeroMonsterClass testerDefaultClass = null;
 
     private HeroMonsterClass( String title, MobSprite image) {
         this.title = title; this.image = image;
@@ -135,7 +136,8 @@ public enum HeroMonsterClass {
     }
 
     public static HeroMonsterClass defaultClass() {
-        return RAT;
+        if(testerDefaultClass != null) return testerDefaultClass;
+        else return EVIL_EYE;
     }
 
     public static void preview(GamesInProgress.Info info, Bundle bundle) {

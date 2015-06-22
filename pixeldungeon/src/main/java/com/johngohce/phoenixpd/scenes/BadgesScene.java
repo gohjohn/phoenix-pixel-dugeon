@@ -66,7 +66,7 @@ public class BadgesScene extends PixelScene {
 		add( panel );
 		
 		BitmapText title = PixelScene.createText( TXT_TITLE, 9 );
-		title.hardlight( Window.TITLE_COLOR );
+		title.hardlight( Window.PPD_COLOR );
 		title.measure();
 		title.x = align( (w - title.width()) / 2 );
 		title.y = align( (panel.y - title.baseLine()) / 2 );

@@ -400,11 +400,14 @@ public class Hero extends Char {
         }
         float speed = (float) (super.speed() * Math.pow( 1.1, hasteLevel )) ;
 
+        if(speed<=0){
+            speed = 1;
+        }
 		KindOfWeapon wep = rangedWeapon != null ? rangedWeapon : belongings.weapon;
 		if (wep != null) {
-			return wep.speedFactor( this ) * speed;
+			return wep.speedFactor( this ) / speed;
 		} else {
-			return speed;
+			return 1 / speed;
 		}
 	}
 	
@@ -1287,6 +1290,9 @@ public class Hero extends Char {
                 Log.d("Unrecognized death",""+cause);
                 GameScene.show(new WndRespawn(monsterClass, false, cause));
             }else{
+                Log.d("Unrecognized death",""+cause);
+                Log.d("HERO DIE","BUG, should not reach here");//TODO TEST
+
                 GameScene.show( new WndRespawn( HeroMonsterClass.defaultClass() , false , cause ) );
             }
 		} else {
