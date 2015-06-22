@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class CrabClaws extends MonsterMeleeWeapon {
 
     {
-        name = "Crab Claw";
+        name = "Crab Claws";
         image = ItemSpriteSheet.WEAPON;
         isPermanentlyEquipped = true;
     }
@@ -25,7 +25,9 @@ public class CrabClaws extends MonsterMeleeWeapon {
     @Override
     protected ArrayList<HeroMonsterBuff> updatedBuffs(){
         ArrayList<HeroMonsterBuff> newBuffs = new ArrayList<>();
-        newBuffs.add(new AttackHaste(level));
+        if(level>1) {
+            newBuffs.add(new AttackHaste(level / 2));
+        }
         return newBuffs;
     }
 

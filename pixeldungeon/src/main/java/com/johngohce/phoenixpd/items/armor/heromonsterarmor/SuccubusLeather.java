@@ -13,7 +13,7 @@ public class SuccubusLeather extends HeroMonsterArmor {
     public final int DWARF_KING_SPECIAL_LEVEL = 8;
 
     {
-        name = "Sexy Leather";
+        name = "Succubus Leather";
         image = ItemSpriteSheet.ARMOR;
     }
 
@@ -35,8 +35,8 @@ public class SuccubusLeather extends HeroMonsterArmor {
     public String desc() {
 
         return
-                "It's your favorite leather.. " +
-                        "Upgrading this should increase your sexiness. " +
+                "It's your favorite leather. " +
+                        "Upgrading this should increase your sexiness.\n" +
                         "But there isn't anybody in this dungeon you want to seduce... Is there? ;)";
     }
 }

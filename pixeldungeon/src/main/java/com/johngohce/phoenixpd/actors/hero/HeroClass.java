@@ -46,7 +46,6 @@ import com.johngohce.phoenixpd.items.rings.RingOfShadows;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfEnchantment;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfIdentify;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
-import com.johngohce.phoenixpd.items.wands.WandOfDisintegration;
 import com.johngohce.phoenixpd.items.wands.WandOfMagicMissile;
 import com.johngohce.phoenixpd.items.wands.monsterwands.BlinkDagger;
 import com.johngohce.phoenixpd.items.wands.monsterwands.EyeLaser;
@@ -353,8 +352,6 @@ public enum HeroClass {
     private static void initEvilEye( Hero hero ) {
         hero.belongings.weapon = new EyeLaser();
         hero.belongings.armor = new EyeLid();
-
-        new WandOfDisintegration().upgrade(15).identify().collect();
 
         hero.belongings.weapon.activate(hero);
         QuickSlot.primaryValue = hero.belongings.weapon;

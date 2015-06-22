@@ -137,7 +137,7 @@ public enum HeroMonsterClass {
 
     public static HeroMonsterClass defaultClass() {
         if(testerDefaultClass != null) return testerDefaultClass;
-        else return EVIL_EYE;
+        else return RAT;
     }
 
     public static void preview(GamesInProgress.Info info, Bundle bundle) {

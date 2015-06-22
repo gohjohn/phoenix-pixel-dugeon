@@ -27,8 +27,8 @@ public class IntroScene extends PixelScene {
 		"artifacts, most have never been heard of since. But none have succeeded in retrieving the Amulet of Yendor, " +
 		"which is told to be hidden in the depths of the Dungeon.\n\n" +
 		"" +
-		"You have dreamt so many times of holding the Amulet in your hands.\n" +
-        "You feel today is the day to make the dream a reality.";
+		"Countless times, you've dreamt of holding the Amulet in your hands.\n" +
+        "You feel today is the day to make that dream a reality.";
 	
 	@Override
 	public void create() {

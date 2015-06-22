@@ -146,8 +146,9 @@ public class MeleeWeapon extends Weapon {
 		
 		if (isEquipped( Dungeon.hero )) {
 			info.append( p );
-			info.append( "You hold the " + name + " at the ready" + 
-				(cursed ? ", and because it is cursed, you are powerless to let go." : ".") ); 
+			info.append((isPermanentlyEquipped)? "You wield your " + name + " at the ready":
+                    "You hold the " + name + " at the ready");
+            info.append((cursed ? ", and because it is cursed, you are powerless to let go." : ".") );
 		} else {
 			if (cursedKnown && cursed) {
 				info.append( p );

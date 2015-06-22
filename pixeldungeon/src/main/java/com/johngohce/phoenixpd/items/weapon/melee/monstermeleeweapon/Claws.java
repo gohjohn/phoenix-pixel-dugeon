@@ -13,7 +13,7 @@ public class Claws extends MonsterMeleeWeapon {
     public final int SPECIAL_LEVEL = 4;
 
     {
-        name = "Claw";
+        name = "Claws";
         image = ItemSpriteSheet.WEAPON;
         isPermanentlyEquipped = true;
     }
@@ -34,9 +34,11 @@ public class Claws extends MonsterMeleeWeapon {
     @Override
     public String desc() {
         if (level>=SPECIAL_LEVEL) {
-            return "It's that blood on your hands? Looks like your claws are sharp enough to tear skin.";
+            return "You claws look somewhat the same but they feel different.\n" +
+                    "They faintly pulse with magical energy, granting your attacks the ability to cause your foes to bleed.\n\n" +
+                    "You suspect that this same phenomenon occurs for other equipment as well.";
         }
-        return "Your claws are almost as good as a typical dagger..\n" +
-                "You hear that upgrading your claws may cause your enemies to bleed.";
+        return "Your dirt-crusted claws have seen better days. Well worn from scratching signs and doors, they are faded and dull in color\n." +
+                "Yet you feel the presence of priceless artifacts deep within the dungeon that can improve your attack.";
     }
 }
