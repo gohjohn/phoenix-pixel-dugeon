@@ -76,7 +76,7 @@ public class FireElementalBody extends HeroMonsterArmor implements FlyingArmour{
             if(levitation==null) {
                 Buff.affect(hero, Levitation.class, (level + 1) * 5);
                 GLog.i("MUHAHAHAHAHA!");
-                hero.spend(1f);
+                hero.spendAndNext(1f);
             }
         } else if (action.equals( AC_LAND )) {
             Levitation levitation = hero.buff(Levitation.class);

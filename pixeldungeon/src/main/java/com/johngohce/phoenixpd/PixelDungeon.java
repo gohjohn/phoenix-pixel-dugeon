@@ -30,14 +30,16 @@ import com.johngohce.noosa.audio.Sample;
 import com.johngohce.phoenixpd.scenes.GameScene;
 import com.johngohce.phoenixpd.scenes.PixelScene;
 import com.johngohce.phoenixpd.scenes.TitleScene;
+import com.johngohce.phoenixpd.scenes.WelcomeScene;
 
 import javax.microedition.khronos.opengles.GL10;
 
 public class PixelDungeon extends Game {
 	
 	public PixelDungeon() {
-		super( TitleScene.class );
-		
+//		super( TitleScene.class );
+		super(WelcomeScene.class);
+
 		com.johngohce.utils.Bundle.addAlias(
 			com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade.class,
 			"com.johngohce.phoenixpd.items.scrolls.ScrollOfEnhancement" );

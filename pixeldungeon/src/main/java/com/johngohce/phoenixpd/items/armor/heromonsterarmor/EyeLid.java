@@ -23,6 +23,7 @@ public class EyeLid extends HeroMonsterArmor{
         name = "Evil EyeLid";
         image = ItemSpriteSheet.ARMOR;
         isPermanentlyEquipped = true;
+        defaultAction = AC_FLY;
     }
 
     public EyeLid() {
@@ -74,7 +75,7 @@ public class EyeLid extends HeroMonsterArmor{
             if(levitation==null) {
                 Buff.affect(hero, Levitation.class, (level + 1) * 5);
                 GLog.i("Whoooosh");
-                hero.spend(1f);
+                hero.spendAndNext(1f);
             }
         } else if (action.equals( AC_LAND )) {
             Levitation levitation = hero.buff(Levitation.class);

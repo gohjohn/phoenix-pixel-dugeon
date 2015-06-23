@@ -8,6 +8,7 @@ import com.johngohce.phoenixpd.scenes.TitleScene;
 import com.johngohce.phoenixpd.sprites.ItemSprite;
 import com.johngohce.phoenixpd.ui.RedButton;
 import com.johngohce.phoenixpd.ui.Window;
+import com.johngohce.phoenixpd.utils.Utils;
 
 import java.util.ArrayList;
 
@@ -16,7 +17,9 @@ import java.util.ArrayList;
  */
 public class WndChooseMonster extends Window {
 
-    private static final String TXT_MESSAGE	= "This feature is meant for testers only.\n";
+    private static final String TXT_MESSAGE	=
+            "This feature is meant for testers only. The starting class for the actual game is always "+
+            HeroMonsterClass.RAT.title();
     private static final String TXT_CANCEL	= "I'll decide later";
 
     private static final int WIDTH		= 120;
@@ -46,8 +49,8 @@ public class WndChooseMonster extends Window {
         titlebar.setRect( 0, 0, WIDTH, 0 );
         add( titlebar );
 
-        String text = TXT_MESSAGE + "Current starting class = "+ HeroMonsterClass.defaultClass().title() +
-                "\n\ntier: "+(page+1);
+        String text = TXT_MESSAGE + "\nCurrent starting class = "+ Utils.capitalize( HeroMonsterClass.defaultClass().title() ) +
+                "\n\nTier: "+(page+1);
 
         BitmapTextMultiline normal = PixelScene.createMultiline(text, 6);
         normal.maxWidth = WIDTH;
@@ -79,7 +82,7 @@ public class WndChooseMonster extends Window {
         ArrayList<RedButton> monsterButtons = new ArrayList<>();
         for(int i=0;i<classes[actualPage].length;i++){
             final int newI = i;
-            RedButton btnMonster = new RedButton( classes[actualPage][i].title() ) {
+            RedButton btnMonster = new RedButton( Utils.capitalize( classes[actualPage][i].title() ) ) {
                 @Override
                 protected void onClick() {
                     hide();

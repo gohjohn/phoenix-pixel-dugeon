@@ -51,8 +51,10 @@ public class TitleScene extends PixelScene {
 		super.create();
 
         scene =  this;
-		
-		Music.INSTANCE.play( Assets.THEME, true );
+
+        //TODO Version check here then: Game.switchScene(WelcomeScene.class);
+
+        Music.INSTANCE.play( Assets.THEME, true );
 		Music.INSTANCE.volume( 1f );
 		
 		uiCamera.visible = false;

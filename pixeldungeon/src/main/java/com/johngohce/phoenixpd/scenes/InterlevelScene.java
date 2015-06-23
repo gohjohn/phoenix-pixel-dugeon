@@ -234,7 +234,9 @@ public class InterlevelScene extends PixelScene {
 
             if (Dungeon.hero.buff( TearBuff.class ) != null){
                 level.drop( new Dewdrop(), level.entrance );
-                level.drop( new Dewdrop(), level.exit );
+                if(!Dungeon.bossLevel(Dungeon.depth)) {
+                    level.drop(new Dewdrop(), level.exit);
+                }
             }
 		} else {
 			Dungeon.depth++;
