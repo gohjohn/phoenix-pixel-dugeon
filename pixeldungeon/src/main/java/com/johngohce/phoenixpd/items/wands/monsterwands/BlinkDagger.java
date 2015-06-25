@@ -9,6 +9,7 @@ import com.johngohce.phoenixpd.actors.Char;
 import com.johngohce.phoenixpd.actors.buffs.Buff;
 import com.johngohce.phoenixpd.actors.buffs.Charm;
 import com.johngohce.phoenixpd.actors.buffs.Invisibility;
+import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.effects.MagicMissile;
 import com.johngohce.phoenixpd.effects.Speck;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfRecharging;
@@ -16,6 +17,8 @@ import com.johngohce.phoenixpd.mechanics.Ballistica;
 import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import com.johngohce.utils.Callback;
 import com.johngohce.utils.Random;
+
+import java.util.ArrayList;
 
 /**
  * Created by johngoh on 6/22/15.
@@ -27,6 +30,8 @@ public class BlinkDagger extends MonsterWand {
         image = ItemSpriteSheet.DAGGER;
         isPermanentlyEquipped = true;
     }
+
+    public static final String AC_BLINK	= "BLINK";
 
     @Override
     public void proc(Char attacker, Char defender, int damage) {
@@ -50,10 +55,27 @@ public class BlinkDagger extends MonsterWand {
     }
 
     @Override
+    public ArrayList<String> actions( Hero hero ) {
+        ArrayList<String> actions = super.actions( hero );
+        actions.remove(AC_ZAP);
+        actions.add( AC_BLINK );
+        return actions;
+    }
+
+    @Override
     protected void calculateDamage() {
         //Sword (tier 3)
         MIN = 3 + level;
         MAX = 16 + 3 * level;
+    }
+
+    @Override
+    public void execute( Hero hero, String action ) {
+        if (action.equals( AC_BLINK )) {
+            super.execute( hero, AC_ZAP );
+        } else {
+            super.execute( hero, action );
+        }
     }
 
     @Override

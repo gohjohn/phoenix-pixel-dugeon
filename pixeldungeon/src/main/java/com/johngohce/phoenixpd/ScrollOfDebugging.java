@@ -3,14 +3,9 @@ package com.johngohce.phoenixpd;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.food.Food;
-import com.johngohce.phoenixpd.items.scrolls.ScrollOfEnchantment;
+import com.johngohce.phoenixpd.items.potions.PotionOfHealing;
+import com.johngohce.phoenixpd.items.potions.PotionOfMight;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
-import com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls.ScrollOfAffectionEnchantment;
-import com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls.ScrollOfDisablingEnchantment;
-import com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls.ScrollOfGrimEnchantment;
-import com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls.ScrollOfHealthEnchantment;
-import com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls.ScrollOfPoisonEnchantment;
-import com.johngohce.phoenixpd.items.scrolls.specificenchantmentscrolls.ScrollOfUnstableEnchantment;
 import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
@@ -34,20 +29,15 @@ public class ScrollOfDebugging extends Item {
 	@Override
 	public void execute( Hero hero, String action ) {
 		if (action.equals( AC_READ )) {
-            new ScrollOfEnchantment().collect();
-            new ScrollOfAffectionEnchantment().collect();
-            new ScrollOfPoisonEnchantment().collect();
-            new ScrollOfDisablingEnchantment().collect();
-            new ScrollOfGrimEnchantment().collect();
-            new ScrollOfHealthEnchantment().collect();
-            new ScrollOfUnstableEnchantment().collect();
-
             new ScrollOfUpgrade().setKnown();
-            new ScrollOfEnchantment().setKnown();
+            new PotionOfHealing().setKnown();
+            new PotionOfMight().setKnown();
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 5; i++) {
                 new Food().collect();
                 new ScrollOfUpgrade().collect();
+                new PotionOfMight().collect();
+                new PotionOfHealing().collect();
             }
 		} else {
 		
@@ -68,6 +58,8 @@ public class ScrollOfDebugging extends Item {
 
     @Override
     public String desc() {
-        return "This item gives the player more starting items";
+        return "This item is given to testers only.\n" +
+                "Upon use, it gives items to make gameplay easy.\n" +
+                "It has unlimited use.";
     }
 }
