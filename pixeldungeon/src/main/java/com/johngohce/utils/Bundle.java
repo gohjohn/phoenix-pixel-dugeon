@@ -112,7 +112,7 @@ public class Bundle {
 				return null;
 			}
 		} catch (Exception e) {
-            e.printStackTrace();
+            //common exception
 			e = null;
 			return null;
 		}	

@@ -18,7 +18,7 @@ public class BruteClaws extends MonsterMeleeWeapon {
 
     {
         name = "Brute Claws";
-        image = ItemSpriteSheet.WEAPON;
+        image = ItemSpriteSheet.BRUTE_FIST;
         isPermanentlyEquipped = true;
     }
 

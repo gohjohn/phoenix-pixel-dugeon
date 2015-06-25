@@ -29,7 +29,7 @@ public class ShamanStaff extends MonsterWand {
 
     {
         name = "Shaman Staff of Lightning";
-        image = ItemSpriteSheet.WAND_EBONY;
+        image = ItemSpriteSheet.SHAMAN_STAFF;
         isPermanentlyEquipped = true;
     }
 

@@ -21,7 +21,7 @@ public class FlyStinger extends MonsterMeleeWeapon {
 
     {
         name = "Fly Stinger";
-        image = ItemSpriteSheet.WEAPON;
+        image = ItemSpriteSheet.FLY_STINGER;
         isPermanentlyEquipped = true;
     }
 

@@ -13,7 +13,7 @@ public class MonkFist extends MonsterMeleeWeapon {
 
     {
         name = "Monk Fists";
-        image = ItemSpriteSheet.WEAPON;
+        image = ItemSpriteSheet.MONK_FIST;
         isPermanentlyEquipped = true;
     }
 

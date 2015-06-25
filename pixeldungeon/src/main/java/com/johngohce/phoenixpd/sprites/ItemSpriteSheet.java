@@ -177,4 +177,28 @@ public class ItemSpriteSheet {
 	public static final int WEIGHT	= 123;
 	public static final int BOMB	= 124;
 	public static final int HONEYPOT= 125;
+
+    // New weapons
+    public static final int RAT_CLAW        = 128;
+    public static final int SCOUT_CLAW      = 129;
+    public static final int CRAB_CLAW       = 130;
+
+    public static final int SHAMAN_STAFF    = 131;
+    public static final int THIEF_DAGGER    = 132;
+    public static final int BONE_SWORD      = 133;
+    public static final int FLY_STINGER     = 134;
+
+    public static final int SPIDER_FANG     = 135;
+    public static final int BRUTE_FIST      = 136;
+    public static final int BAT_FANG        = 137;
+
+    public static final int WARLOCK_STAFF   = 138;
+    public static final int ROCK_FIST      = 139;
+    public static final int MONK_FIST       = 140;
+    public static final int FIRE_ELE_FIST   = 141;
+
+    public static final int BLINK_DAGGER    = 142;
+    public static final int SCORPIO_STINGER = 143;
+    public static final int EYE_LASER       = 144;
+
 }

@@ -20,7 +20,7 @@ public class WarlockStaff extends MonsterWand {
 
     {
         name = "Warlock Staff of Weakening";
-        image = ItemSpriteSheet.WAND_HOLLY;
+        image = ItemSpriteSheet.WARLOCK_STAFF;
     }
 
     @Override

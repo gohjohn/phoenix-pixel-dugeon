@@ -55,7 +55,7 @@ import com.johngohce.phoenixpd.items.weapon.melee.Dagger;
 import com.johngohce.phoenixpd.items.weapon.melee.Knuckles;
 import com.johngohce.phoenixpd.items.weapon.melee.ShortSword;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.BatFangs;
-import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.BoneFist;
+import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.BoneSword;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.BruteClaws;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.Claws;
 import com.johngohce.phoenixpd.items.weapon.melee.monstermeleeweapon.CrabClaws;
@@ -266,7 +266,7 @@ public enum HeroClass {
     }
 
     private static void initSkeleton( Hero hero ) {
-        hero.belongings.weapon = new BoneFist();
+        hero.belongings.weapon = new BoneSword();
         hero.belongings.armor = new SkeletonBonesArmor();
 
         new ScrollOfEnchantment().setKnown();

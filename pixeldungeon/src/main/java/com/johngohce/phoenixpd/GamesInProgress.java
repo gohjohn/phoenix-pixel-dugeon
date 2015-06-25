@@ -47,7 +47,6 @@ public class GamesInProgress {
 			} catch (Exception e) {
 
                 Log.d("GamesInProgress exception",e.toString());
-                e.printStackTrace();
                 info = null;
 			}
 			

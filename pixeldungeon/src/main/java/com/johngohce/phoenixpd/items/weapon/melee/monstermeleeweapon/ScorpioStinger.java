@@ -21,7 +21,7 @@ public class ScorpioStinger extends MonsterMeleeWeapon {
 
     {
         name = "Scorpio Stinger";
-        image = ItemSpriteSheet.WEAPON;
+        image = ItemSpriteSheet.SCORPIO_STINGER;
         isPermanentlyEquipped = true;
         defaultAction = AC_SHOOT;
     }

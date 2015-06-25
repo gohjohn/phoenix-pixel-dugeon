@@ -27,7 +27,7 @@ public class BlinkDagger extends MonsterWand {
 
     {
         name = "Succubus Blink Dagger";
-        image = ItemSpriteSheet.DAGGER;
+        image = ItemSpriteSheet.BLINK_DAGGER;
         isPermanentlyEquipped = true;
         defaultAction = AC_BLINK;
     }
@@ -99,9 +99,9 @@ public class BlinkDagger extends MonsterWand {
         Dungeon.observe();
 
         if(charFound && Actor.findChar(cellCharFound) != null && Actor.findChar(cellCharFound) != Dungeon.hero){
-            MAX += level * level;
+            MAX += level * level / 2;
             Dungeon.hero.attack(Actor.findChar(cellCharFound));
-            MAX -= level * level;
+            MAX -= level * level / 2;
             Invisibility.dispel();
         }
         curUser.spendAndNext(TIME_TO_ZAP);

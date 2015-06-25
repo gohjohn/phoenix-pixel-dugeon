@@ -10,11 +10,12 @@ import com.johngohce.utils.Random;
  * Created by johngoh on 6/10/15.
  */
 public class Claws extends MonsterMeleeWeapon {
+    //TODO Split rat from scout claw
     public final int SPECIAL_LEVEL = 4;
 
     {
         name = "Claws";
-        image = ItemSpriteSheet.WEAPON;
+        image = ItemSpriteSheet.RAT_CLAW;
         isPermanentlyEquipped = true;
     }
 

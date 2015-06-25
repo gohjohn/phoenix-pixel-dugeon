@@ -14,7 +14,7 @@ public class RockFist extends MonsterMeleeWeapon {
 
     {
         name = "Rock Fists";
-        image = ItemSpriteSheet.WEAPON;
+        image = ItemSpriteSheet.ROCK_FIST;
         isPermanentlyEquipped = true;
     }
 

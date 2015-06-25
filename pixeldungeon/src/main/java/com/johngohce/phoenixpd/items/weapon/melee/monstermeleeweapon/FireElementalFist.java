@@ -14,7 +14,7 @@ public class FireElementalFist extends MonsterMeleeWeapon {
     //Future.. AOE Fire Blast
     {
         name = "Fire Ball";
-        image = ItemSpriteSheet.WEAPON;
+        image = ItemSpriteSheet.FIRE_ELE_FIST;
         isPermanentlyEquipped = true;
     }
 
@@ -42,6 +42,7 @@ public class FireElementalFist extends MonsterMeleeWeapon {
 
     @Override
     public String desc() {
-        return "Your touch sets everything ablaze.";
+        return "Your touch sets everything ablaze.\n" +
+                "The chance for ignition increases with level.";
     }
 }

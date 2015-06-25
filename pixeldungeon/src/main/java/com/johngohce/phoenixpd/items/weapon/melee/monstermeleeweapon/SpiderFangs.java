@@ -18,7 +18,7 @@ public class SpiderFangs extends MonsterMeleeWeapon {
     //If you kill an enemy, spawn a friendly spider.
     {
         name = "Spider Fangs";
-        image = ItemSpriteSheet.WEAPON;
+        image = ItemSpriteSheet.SPIDER_FANG;
         isPermanentlyEquipped = true;
     }
 
@@ -36,7 +36,7 @@ public class SpiderFangs extends MonsterMeleeWeapon {
 
 //            Buff.prolong(attacker, WebLaying.class, Random.Float( 1.0f, 1.5f ) );
             if(Dungeon.hero.belongings.armor instanceof SpiderSkin && ((SpiderSkin) Dungeon.hero.belongings.armor).level >= SpiderSkin.SPECIAL_LEVEL)
-            Buff.affect(attacker, WebLaying.class, Random.Int((int)(WebLaying.DURATION * level)) + 1);
+            Buff.affect(attacker, WebLaying.class, Random.Int((int)(WebLaying.DURATION * level)) + 2);
 
         }
 

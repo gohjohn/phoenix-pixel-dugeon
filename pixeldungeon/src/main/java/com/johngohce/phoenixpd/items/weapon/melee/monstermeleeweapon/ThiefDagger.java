@@ -83,7 +83,7 @@ public class ThiefDagger extends MonsterMeleeWeapon {
 
     {
         name = "Thief Dagger";
-        image = ItemSpriteSheet.DAGGER;
+        image = ItemSpriteSheet.THIEF_DAGGER;
         isPermanentlyEquipped = true;
     }
 

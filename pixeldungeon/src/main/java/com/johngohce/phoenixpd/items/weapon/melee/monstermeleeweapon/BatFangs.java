@@ -18,7 +18,7 @@ public class BatFangs extends MonsterMeleeWeapon {
     //Future special ability... Transform into vampire.
     {
         name = "Bat Fangs";
-        image = ItemSpriteSheet.WEAPON;
+        image = ItemSpriteSheet.BAT_FANG;
         isPermanentlyEquipped = true;
     }
 

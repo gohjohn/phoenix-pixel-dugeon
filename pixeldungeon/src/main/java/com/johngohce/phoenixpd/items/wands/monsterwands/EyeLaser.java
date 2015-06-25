@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class EyeLaser extends MonsterWand {
     {
         name = "Evil Eye of Doom";
-        image = ItemSpriteSheet.SMTH;
+        image = ItemSpriteSheet.EYE_LASER;
         isPermanentlyEquipped = true;
         hitChars = false;
     }

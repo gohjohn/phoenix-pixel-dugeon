@@ -9,15 +9,15 @@ import com.johngohce.utils.Random;
 /**
  * Created by johngoh on 6/14/15.
  */
-public class BoneFist extends MonsterMeleeWeapon {
+public class BoneSword extends MonsterMeleeWeapon {
 
     {
-        name = "Bone Fist";
-        image = ItemSpriteSheet.WEAPON;
+        name = "Bone Sword";
+        image = ItemSpriteSheet.BONE_SWORD;
         isPermanentlyEquipped = true;
     }
 
-    public BoneFist() {
+    public BoneSword() {
         super( 2, 1.1f, 1f );
     }
 
@@ -46,7 +46,13 @@ public class BoneFist extends MonsterMeleeWeapon {
 
     @Override
     public String desc() {
-        return "This fist was in the service of the Crown of the Ivory King. " +
-                "Though it occasionally shatters and damages you, the attack damages nearby foes as well.";
+        return "This is the sword of my bones\n" +
+                "Steel is its body and necromancy in my blood\n" +
+                "I have created over a thousand blades\n" +
+                "Unknown to Death, Nor known to Life\n" +
+                "Have withstood pain to create many weapons\n" +
+                "Yet, these hands will never hold anything else\n" +
+                "So as I pray, unlimited blade works.\n\n" +
+                "Though your sword occasionally shatters and damages you, the attack damages nearby foes as well.";
     }
 }

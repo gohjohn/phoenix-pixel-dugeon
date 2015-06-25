@@ -99,8 +99,9 @@ public class FlySkin extends HeroMonsterArmor implements FlyingArmour{
         }
 
         return
-                "My wings are too small to fly for now. " +
-                        "At least it seems that I can make copies of myself when I get hit.";
+                "My wings are too small to fly for now.\n" +
+                        "At least it seems that I can make copies of myself when I get hit.\n" +
+                        "Your multiplicity chance increases with level.";
 
     }
 }
