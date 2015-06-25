@@ -22,7 +22,9 @@ import com.johngohce.phoenixpd.Dungeon;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.actors.mobs.npcs.Ghost;
 import com.johngohce.phoenixpd.items.Item;
+import com.johngohce.phoenixpd.items.potions.PotionOfMight;
 import com.johngohce.phoenixpd.items.quest.DriedRose;
+import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
 import com.johngohce.phoenixpd.scenes.PixelScene;
 import com.johngohce.phoenixpd.sprites.ItemSprite;
 import com.johngohce.phoenixpd.ui.RedButton;
@@ -42,8 +44,11 @@ public class WndSadGhost extends Window {
 		"will be useful to you in your journey...";
 	private static final String TXT_WEAPON	= "Ghost's weapon";
 	private static final String TXT_ARMOR	= "Ghost's armor";
-	
-	private static final int WIDTH		= 120;
+
+    private static final String TXT_SCROLL	= "Scroll of Upgrade";
+    private static final String TXT_POTION	= "Potion of Might";
+
+    private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;
 	private static final float GAP		= 2;
 	
@@ -62,26 +67,50 @@ public class WndSadGhost extends Window {
 		message.measure();
 		message.y = titlebar.bottom() + GAP;
 		add( message );
+        boolean giveScroll = (Dungeon.hero.belongings.weapon != null && Dungeon.hero.belongings.weapon.isPermanentlyEquipped);
+        boolean givePotion = (Dungeon.hero.belongings.armor != null && Dungeon.hero.belongings.armor.isPermanentlyEquipped);
+
+		RedButton btn1;
+        if(giveScroll) {
+            btn1= new RedButton( TXT_SCROLL ) {
+                @Override
+                protected void onClick() {
+                    new ScrollOfUpgrade().setKnown();
+                    selectReward( ghost, item, new ScrollOfUpgrade() );
+                }
+            };
+        }else{
+            btn1= new RedButton( TXT_WEAPON ) {
+                @Override
+                protected void onClick() {
+                    selectReward( ghost, item, Ghost.Quest.weapon );
+                }
+            };
+        }
+		btn1.setRect(0, message.y + message.height() + GAP, WIDTH, BTN_HEIGHT);
+		add( btn1 );
+        
+		RedButton btn2;
+        if(givePotion){
+            btn2 = new RedButton( TXT_POTION ) {
+                @Override
+                protected void onClick() {
+                    new PotionOfMight().setKnown();
+                    selectReward( ghost, item, new PotionOfMight());
+                }
+            };
+        }else{
+            btn2 = new RedButton( TXT_ARMOR ) {
+                @Override
+                protected void onClick() {
+                    selectReward( ghost, item, Ghost.Quest.armor );
+                }
+            };
+        }
+		btn2.setRect(0, btn1.bottom() + GAP, WIDTH, BTN_HEIGHT);
+		add( btn2 );
 		
-		RedButton btnWeapon = new RedButton( TXT_WEAPON ) {
-			@Override
-			protected void onClick() {
-				selectReward( ghost, item, Ghost.Quest.weapon );
-			}
-		};
-		btnWeapon.setRect( 0, message.y + message.height() + GAP, WIDTH, BTN_HEIGHT );
-		add( btnWeapon );
-		
-		RedButton btnArmor = new RedButton( TXT_ARMOR ) {
-			@Override
-			protected void onClick() {
-				selectReward( ghost, item, Ghost.Quest.armor );
-			}
-		};
-		btnArmor.setRect( 0, btnWeapon.bottom() + GAP, WIDTH, BTN_HEIGHT );
-		add( btnArmor );
-		
-		resize( WIDTH, (int)btnArmor.bottom() );
+		resize( WIDTH, (int)btn2.bottom() );
 	}
 	
 	private void selectReward( Ghost ghost, Item item, Item reward ) {

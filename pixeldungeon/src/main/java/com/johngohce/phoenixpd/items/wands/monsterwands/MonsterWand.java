@@ -108,8 +108,8 @@ public abstract class MonsterWand extends Wand implements MonsterItem {
         protected void delay() {
             int time2charge = INITIAL_CHARGE_TIME;
             if(Dungeon.hero != null && Dungeon.hero.belongings != null && Dungeon.hero.belongings.weapon instanceof MonsterWand){
-                time2charge -= ((MonsterWand)Dungeon.hero.belongings.weapon).level * 5;
-                time2charge = Math.max(time2charge,5);
+                time2charge -= ((MonsterWand)Dungeon.hero.belongings.weapon).level * 3;
+                time2charge = Math.max(time2charge,10);
             }
             Log.i("MonsterCharger","time2charge: " + time2charge);
             spend(time2charge);
