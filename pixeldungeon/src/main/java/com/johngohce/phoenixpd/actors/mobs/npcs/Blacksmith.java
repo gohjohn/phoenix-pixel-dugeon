@@ -347,9 +347,10 @@ public class Blacksmith extends NPC {
 						blacksmith.type = Type.BLACKSMITH;
 						
 						spawned = true;
-						alternative = Random.Int( 2 ) == 0;
-						
-						given = false;
+                        boolean cannotHoldWeapon = (Dungeon.hero.belongings.weapon != null && Dungeon.hero.belongings.weapon.isPermanentlyEquipped);
+                        alternative = !cannotHoldWeapon && (Random.Int( 2 ) == 0);
+
+                        given = false;
 						
 						break;
 					}

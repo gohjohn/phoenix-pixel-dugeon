@@ -89,7 +89,7 @@ public class WndSadGhost extends Window {
         }
 		btn1.setRect(0, message.y + message.height() + GAP, WIDTH, BTN_HEIGHT);
 		add( btn1 );
-        
+
 		RedButton btn2;
         if(givePotion){
             btn2 = new RedButton( TXT_POTION ) {
