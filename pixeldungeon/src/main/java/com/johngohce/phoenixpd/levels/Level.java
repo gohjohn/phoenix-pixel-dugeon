@@ -51,6 +51,7 @@ import com.johngohce.phoenixpd.items.potions.PotionOfStrength;
 import com.johngohce.phoenixpd.items.scrolls.Scroll;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfEnchantment;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
+import com.johngohce.phoenixpd.items.weapon.melee.MeleeWeapon;
 import com.johngohce.phoenixpd.levels.features.Chasm;
 import com.johngohce.phoenixpd.levels.features.Door;
 import com.johngohce.phoenixpd.levels.features.HighGrass;
@@ -520,11 +521,16 @@ public abstract class Level implements Bundlable {
 	}
 	
 	public Heap drop( Item item, int cell ) {
-		
-		if (Dungeon.isChallenged( Challenges.NO_FOOD ) && item instanceof Food) {
+        boolean cannotHoldWeapon = (Dungeon.hero != null && Dungeon.hero.belongings != null && Dungeon.hero.belongings.weapon != null && Dungeon.hero.belongings.weapon.isPermanentlyEquipped);
+        boolean cannotHoldArmor = (Dungeon.hero != null && Dungeon.hero.belongings != null && Dungeon.hero.belongings.armor != null && Dungeon.hero.belongings.armor.isPermanentlyEquipped);
+
+        if (Dungeon.isChallenged( Challenges.NO_FOOD ) && item instanceof Food) {
 			item = new Gold( item.price() );
 		} else
-		if (Dungeon.isChallenged( Challenges.NO_ARMOR ) && item instanceof Armor) {
+        if (cannotHoldWeapon && item instanceof MeleeWeapon) {
+            item = new Gold( item.price() );
+        } else
+        if ((Dungeon.isChallenged( Challenges.NO_ARMOR ) || cannotHoldArmor) && item instanceof Armor) {
 			item = new Gold( item.price() );
 		} else
 		if (Dungeon.isChallenged( Challenges.NO_HEALING ) && item instanceof PotionOfHealing) {
