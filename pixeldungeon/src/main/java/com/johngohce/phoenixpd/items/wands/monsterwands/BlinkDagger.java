@@ -29,6 +29,7 @@ public class BlinkDagger extends MonsterWand {
         name = "Succubus Blink Dagger";
         image = ItemSpriteSheet.DAGGER;
         isPermanentlyEquipped = true;
+        defaultAction = AC_BLINK;
     }
 
     public static final String AC_BLINK	= "BLINK";
@@ -57,7 +58,7 @@ public class BlinkDagger extends MonsterWand {
     @Override
     public ArrayList<String> actions( Hero hero ) {
         ArrayList<String> actions = super.actions( hero );
-        actions.remove(AC_ZAP);
+        actions.remove( AC_ZAP );
         actions.add( AC_BLINK );
         return actions;
     }
@@ -98,7 +99,9 @@ public class BlinkDagger extends MonsterWand {
         Dungeon.observe();
 
         if(charFound && Actor.findChar(cellCharFound) != null && Actor.findChar(cellCharFound) != Dungeon.hero){
+            MAX += level * level;
             Dungeon.hero.attack(Actor.findChar(cellCharFound));
+            MAX -= level * level;
             Invisibility.dispel();
         }
         curUser.spendAndNext(TIME_TO_ZAP);
@@ -140,7 +143,8 @@ public class BlinkDagger extends MonsterWand {
     @Override
     public String desc() {
         return "The fabled dagger used by Kelen, the fastest assassin ever to walk the lands.\n" +
-                "Kelen was said to be able to escape every trap. Luckily for us, he wasn't able to escape yours.\n\n" +
-                "It has a chance of replenishing charges on successful hit.";
+                "He was said to be able to escape every trap. Luckily for us, he wasn't able to escape yours.\n\n" +
+                "Your attacks have a chance of charming your foes and replenishing blink charges.\n" +
+                "Blink attacks do more damage, especially at higher levels";
     }
 }

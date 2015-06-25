@@ -5,6 +5,7 @@ import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.food.Food;
 import com.johngohce.phoenixpd.items.potions.PotionOfHealing;
 import com.johngohce.phoenixpd.items.potions.PotionOfMight;
+import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfUpgrade;
 import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 
@@ -31,13 +32,15 @@ public class ScrollOfDebugging extends Item {
 		if (action.equals( AC_READ )) {
             new ScrollOfUpgrade().setKnown();
             new PotionOfHealing().setKnown();
+            new ScrollOfMagicMapping().setKnown();
             new PotionOfMight().setKnown();
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 new Food().collect();
                 new ScrollOfUpgrade().collect();
                 new PotionOfMight().collect();
                 new PotionOfHealing().collect();
+                new ScrollOfMagicMapping().collect();
             }
 		} else {
 		
@@ -59,7 +62,7 @@ public class ScrollOfDebugging extends Item {
     @Override
     public String desc() {
         return "This item is given to testers only.\n" +
-                "Upon use, it gives items to make gameplay easy.\n" +
+                "Upon use, you get items to make gameplay easier.\n" +
                 "It has unlimited use.";
     }
 }
