@@ -57,8 +57,8 @@ public class BatFangs extends MonsterMeleeWeapon {
     @Override
     public String desc() {
         if(Dungeon.nightMode) {
-            return "It’s a nice night to grab a bite to drink..\n" +
-                    "Oh and REAL vampires don't sparkle.";
+            return "It's a nice night to grab a bite to drink..\n" +
+                    "I feel so much faster.";
         }else{
             return "I know there isn't any sun.. But I hate daytime.\n" +
                     "And no, I don't sparkle.";

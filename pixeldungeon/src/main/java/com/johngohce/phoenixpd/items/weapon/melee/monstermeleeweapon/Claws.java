@@ -39,7 +39,7 @@ public class Claws extends MonsterMeleeWeapon {
                     "They faintly pulse with magical energy, granting your attacks the ability to cause your foes to bleed.\n\n" +
                     "You suspect that this same phenomenon occurs for other equipment as well.";
         }
-        return "Your dirt-crusted claws have seen better days. Well worn from scratching signs and doors, they are faded and dull in color\n." +
+        return "Your dirt-crusted claws have seen better days. Well worn from scratching signs and doors, they are faded and dull in color.\n" +
                 "Yet you feel the presence of priceless artifacts deep within the dungeon that can improve your attack.";
     }
 }

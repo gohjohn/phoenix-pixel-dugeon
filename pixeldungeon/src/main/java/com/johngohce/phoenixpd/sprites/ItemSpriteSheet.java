@@ -178,7 +178,7 @@ public class ItemSpriteSheet {
 	public static final int BOMB	= 124;
 	public static final int HONEYPOT= 125;
 
-    // New weapons
+    // New weapons. 32 slots. 128 to 159
     public static final int RAT_CLAW        = 128;
     public static final int SCOUT_CLAW      = 129;
     public static final int CRAB_CLAW       = 130;
@@ -193,12 +193,31 @@ public class ItemSpriteSheet {
     public static final int BAT_FANG        = 137;
 
     public static final int WARLOCK_STAFF   = 138;
-    public static final int ROCK_FIST      = 139;
+    public static final int ROCK_FIST       = 139;
     public static final int MONK_FIST       = 140;
     public static final int FIRE_ELE_FIST   = 141;
 
     public static final int BLINK_DAGGER    = 142;
     public static final int SCORPIO_STINGER = 143;
     public static final int EYE_LASER       = 144;
+
+        //extra 15 extra slots
+    public static final int PIRANHA_FANGS   = 145;
+    public static final int MIMIC_TEETH     = 146;
+    public static final int STATUE_FIST     = 147;
+    public static final int WRAITH_BITE     = 148;
+
+    public static final int GOO_SLIME       = 149;
+    public static final int TENKU_SHURIKEN  = 150;
+    public static final int ROBOT_ARM       = 151;
+    public static final int KING_SWORD      = 152;
+    public static final int UNDEAD_FIST     = 153;
+    public static final int LARVAE_ATTACK   = 154;
+    public static final int ROTTING_FIST    = 155;
+    public static final int BURNING_FIST    = 156;
+    public static final int EXTRA_1         = 157;
+    public static final int EXTRA_2         = 158;
+    public static final int EXTRA_3         = 159;
+    //Potential future mobs Fire, Poison, Falling, Lightning, Hunger, Toxic, Bleeding, Yog, Ghost, Fetid, Rat King?
 
 }

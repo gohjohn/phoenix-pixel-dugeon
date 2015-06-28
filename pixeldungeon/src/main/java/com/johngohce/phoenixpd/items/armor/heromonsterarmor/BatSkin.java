@@ -33,7 +33,8 @@ public class BatSkin extends HeroMonsterArmor implements FlyingArmour{
     @Override
     protected ArrayList<HeroMonsterBuff> updatedBuffs(){
         ArrayList<HeroMonsterBuff> newBuffs = new ArrayList<>();
-        newBuffs.add(new MovementHaste((int)(level * 1.34)));
+        int nightModeBonus = (Dungeon.nightMode)? 3 : 0;
+        newBuffs.add(new MovementHaste((int)(level * 1.34 + nightModeBonus)));
         return newBuffs;
     }
     @Override
@@ -95,11 +96,11 @@ public class BatSkin extends HeroMonsterArmor implements FlyingArmour{
     public String desc() {
         if(level >= SPECIAL_LEVEL){
             return "Its a bird! Its a plane! Its Vampire Bat! " +
-                    "I can fly and I am super fast!";
+                    "I can fly and am super fast!";
         }
 
         return
-                "NANANANANANANA. Oops! Wrong game." +
+                "NANANANANANA. Oops! Wrong game.\n" +
                         "I can't fly yet. " +
                         "But I seem to move faster than everybody else.";
 

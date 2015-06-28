@@ -29,8 +29,9 @@ public class WelcomeScene extends PixelScene {
 
     private static final String TXT_Welcome =
             "Phoenix Pixel Dungeon is a rework of Watabou's Pixel Dungeon.\n\n"+
-                    "Instead of humans, you play as the mobs.\n\n"+
-                    "You can resurrect as other mobs by dying to them.\n\n"+
+                    "Instead of humans, you play as the mobs.\n"+
+                    "You can resurrect as other mobs by dying to them.\n" +
+                    "Work your way up by dying!\n"+
                     "Currently, only standard, non-boss mobs work.\n\n" +
                     "Changes from PD:\n" +
                     "- 17 different playable classes instead of 4\n" +
@@ -42,6 +43,7 @@ public class WelcomeScene extends PixelScene {
                     "- Sprites for new items are not done\n" +
                     "- Ranking screen is not done\n" +
                     "- Warrior/Mage/Rogue/Huntress icons still appear at various places\n" +
+                    "- Monster sprites sometimes appear as black squares (restart to fix)\n" +
                     "- Old class perks still appear on start screen\n\n" +
                     "Testing features available:\n" +
                     "- You can choose the default class from the settings in the main menu\n" +
@@ -51,7 +53,8 @@ public class WelcomeScene extends PixelScene {
                     "- Rework final boss fight\n" +
                     "- Better descriptions\n" +
                     "- More class-specific items and abilities\n" +
-                    "- Vanilla armor and weapon rework";
+                    "- Vanilla armor and weapon rework\n\n" +
+                    "Thank you for downloading and trying PPD out!\n<3";
 
     private static final String TXT_Update =
             "v0.3.0d:\n" +

@@ -51,7 +51,7 @@ public class BoneSword extends MonsterMeleeWeapon {
                 "I have created over a thousand blades\n" +
                 "Unknown to Death, Nor known to Life\n" +
                 "Have withstood pain to create many weapons\n" +
-                "Yet, these hands will never hold anything else\n" +
+                "Yet these hands will never hold anything else\n" +
                 "So as I pray, unlimited blade works.\n\n" +
                 "Though your sword occasionally shatters and damages you, the attack damages nearby foes as well.";
     }
