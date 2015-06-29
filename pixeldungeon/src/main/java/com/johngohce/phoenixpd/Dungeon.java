@@ -55,6 +55,7 @@ import com.johngohce.phoenixpd.scenes.StartScene;
 import com.johngohce.phoenixpd.ui.QuickSlot;
 import com.johngohce.phoenixpd.utils.BArray;
 import com.johngohce.phoenixpd.utils.Utils;
+import com.johngohce.phoenixpd.windows.WndRespawn;
 import com.johngohce.phoenixpd.windows.WndResurrect;
 import com.johngohce.utils.Bundlable;
 import com.johngohce.utils.Bundle;
@@ -445,11 +446,12 @@ public class Dungeon {
 			GamesInProgress.set( hero.heroClass, depth, hero.lvl, challenges != 0, hero.monsterClass );
 			
 		} else if (WndResurrect.instance != null) {
-			
 			WndResurrect.instance.hide();
 			Hero.reallyDie( WndResurrect.causeOfDeath );
-			
-		}
+		}else if (WndRespawn.instance != null) {
+            WndRespawn.instance.hide();
+            Hero.reallyDie( WndRespawn.causeOfDeath );
+        }
 	}
 	
 	public static void loadGame( HeroClass cl ) throws IOException {
@@ -590,7 +592,8 @@ public class Dungeon {
 	
 	public static void fail( String desc ) {
 		resultDescription = desc;
-		if (hero.belongings.getItem( Ankh.class ) == null) { 
+		if (hero.belongings.getItem( Ankh.class ) == null && Dungeon.hero.monsterClass == null) {
+            //Should not happen in PPD. This should fix the ranking bug.
 			Rankings.INSTANCE.submit( false );
 		}
 	}
