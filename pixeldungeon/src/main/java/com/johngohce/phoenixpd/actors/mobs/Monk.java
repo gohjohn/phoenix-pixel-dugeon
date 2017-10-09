@@ -91,7 +91,7 @@ public class Monk extends Mob {
 			Hero hero = Dungeon.hero;
 			KindOfWeapon weapon = hero.belongings.weapon;
 			
-			if (weapon != null && !(weapon instanceof Knuckles) && !weapon.cursed) {
+			if (weapon != null && !(weapon instanceof Knuckles) && !weapon.cursed && !weapon.isPermanentlyEquipped) {
 				hero.belongings.weapon = null;
 				Dungeon.level.drop( weapon, hero.pos ).sprite.drop();
 				GLog.w( TXT_DISARM, name, weapon.name() );

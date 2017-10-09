@@ -149,8 +149,9 @@ public class WndRanking extends WndTabbed {
 		
 		private static final String TXT_HEALTH	= "Health";
 		private static final String TXT_STR		= "Strength";
-		
-		private static final String TXT_DURATION	= "Game Duration";
+
+        private static final String TXT_DURATION	= "Game Duration";
+        private static final String TXT_DEATHS	= "Death";
 		
 		private static final String TXT_DEPTH	= "Maximum Depth";
 		private static final String TXT_ENEMIES	= "Mobs Killed";
@@ -166,7 +167,7 @@ public class WndRanking extends WndTabbed {
 			String heroClass = Dungeon.hero.className();
 			
 			IconTitle title = new IconTitle();
-			title.icon(HeroMonsterSprite.avatar( Dungeon.hero.heroClass, Dungeon.hero.tier() ) );
+			title.icon(HeroMonsterSprite.avatar( Dungeon.hero.monsterClass ) );
 			title.label( Utils.format( TXT_TITLE, Dungeon.hero.lvl, heroClass ).toUpperCase( Locale.ENGLISH ) );
             title.color( PPD_COLOR );
             title.setRect( 0, 0, WIDTH, 0 );
@@ -193,8 +194,9 @@ public class WndRanking extends WndTabbed {
 			pos = statSlot( this, TXT_HEALTH, Integer.toString( Dungeon.hero.HT ), pos );
 			
 			pos += GAP;
-			
-			pos = statSlot( this, TXT_DURATION, Integer.toString( (int)Statistics.duration ), pos );
+
+            pos = statSlot( this, TXT_DURATION, Integer.toString( (int)Statistics.duration ), pos );
+            pos = statSlot( this, TXT_DEATHS, Integer.toString( (int)Dungeon.deaths ), pos );
 			
 			pos += GAP;
 			

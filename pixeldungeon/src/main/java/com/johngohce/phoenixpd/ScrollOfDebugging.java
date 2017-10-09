@@ -3,6 +3,7 @@ package com.johngohce.phoenixpd;
 import com.johngohce.phoenixpd.actors.hero.Hero;
 import com.johngohce.phoenixpd.items.Item;
 import com.johngohce.phoenixpd.items.food.Food;
+import com.johngohce.phoenixpd.items.potions.PotionOfExperience;
 import com.johngohce.phoenixpd.items.potions.PotionOfHealing;
 import com.johngohce.phoenixpd.items.potions.PotionOfMight;
 import com.johngohce.phoenixpd.items.scrolls.ScrollOfMagicMapping;
@@ -12,13 +13,13 @@ import com.johngohce.phoenixpd.sprites.ItemSpriteSheet;
 import java.util.ArrayList;
 
 public class ScrollOfDebugging extends Item {
+    public static final String AC_READ	= "READ";
 
 	{
 		name = "Scroll of Debugging";
         image = ItemSpriteSheet.SCROLL_SOWILO;
+        defaultAction = AC_READ;
 	}
-	
-	public static final String AC_READ	= "READ";
 	
 	@Override
 	public ArrayList<String> actions( Hero hero ) {
@@ -34,10 +35,12 @@ public class ScrollOfDebugging extends Item {
             new PotionOfHealing().setKnown();
             new ScrollOfMagicMapping().setKnown();
             new PotionOfMight().setKnown();
+            new PotionOfExperience().setKnown();
 
             for (int i = 0; i < 10; i++) {
                 new Food().collect();
                 new ScrollOfUpgrade().collect();
+                new PotionOfExperience().collect();
                 new PotionOfMight().collect();
                 new PotionOfHealing().collect();
                 new ScrollOfMagicMapping().collect();

@@ -17,19 +17,19 @@
  */
 package com.johngohce.phoenixpd;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-
 import com.johngohce.noosa.Game;
 import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.utils.Utils;
 import com.johngohce.utils.Bundlable;
 import com.johngohce.utils.Bundle;
 import com.johngohce.utils.SystemTime;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public enum Rankings {
 	
@@ -50,12 +50,13 @@ public enum Rankings {
 		load();
 		
 		Record rec = new Record();
-		
+
+        rec.deaths  = Dungeon.deaths;
 		rec.info	= Dungeon.resultDescription;
 		rec.win		= win;
 		rec.heroClass	= Dungeon.hero.heroClass;
 		rec.armorTier	= Dungeon.hero.tier();
-		rec.score	= score( win );
+		rec.score	= score( win, Dungeon.deaths );
 		
 		String gameFile = Utils.format( DETAILS_FILE, SystemTime.now );
 		try {
@@ -96,8 +97,8 @@ public enum Rankings {
 		save();
 	}
 	
-	private int score( boolean win ) {
-		return (Statistics.goldCollected + Dungeon.hero.lvl * Dungeon.depth * 100) * (win ? 2 : 1);
+	private int score( boolean win, int deaths ) {
+		return (Statistics.goldCollected + Dungeon.hero.lvl * Statistics.deepestFloor * 100) * (win ? 2 : 1) - deaths * 500;
 	}
 	
 	private static final String RECORDS	= "records";
@@ -157,13 +158,15 @@ public enum Rankings {
 	}
 	
 	public static class Record implements Bundlable {
-		
-		private static final String REASON	= "reason";
+
+        private static final String DEATHS	= "death";
+        private static final String REASON	= "reason";
 		private static final String WIN		= "win";
 		private static final String SCORE	= "score";
 		private static final String TIER	= "tier";
 		private static final String GAME	= "gameFile";
-		
+
+        public int deaths;
 		public String info;
 		public boolean win;
 		
@@ -176,7 +179,8 @@ public enum Rankings {
 		
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
-			
+
+            deaths  = bundle.getInt( DEATHS );
 			info	= bundle.getString( REASON );
 			win		= bundle.getBoolean( WIN );
 			score	= bundle.getInt( SCORE );
@@ -189,7 +193,8 @@ public enum Rankings {
 		
 		@Override
 		public void storeInBundle( Bundle bundle ) {
-			
+
+            bundle.put( DEATHS, deaths );
 			bundle.put( REASON, info );
 			bundle.put( WIN, win );
 			bundle.put( SCORE, score );

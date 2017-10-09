@@ -5,7 +5,6 @@ import android.graphics.RectF;
 import com.johngohce.noosa.Image;
 import com.johngohce.noosa.TextureFilm;
 import com.johngohce.phoenixpd.Dungeon;
-import com.johngohce.phoenixpd.actors.hero.HeroClass;
 import com.johngohce.phoenixpd.actors.hero.HeroMonsterClass;
 
 /**
@@ -81,7 +80,6 @@ public class HeroMonsterSprite extends HeroSprite {
         if (tiers == null) {
             tiers = mobSprite.frames;
         }
-
         return tiers;
     }
 
@@ -100,13 +98,13 @@ public class HeroMonsterSprite extends HeroSprite {
          */
     }
 
-    public static Image avatar( HeroClass cl, int armorTier ) {
+    public static Image avatar( HeroMonsterClass heroMonsterClass ) {
 
 //        RectF patch = tiers().get( armorTier );
-        RectF patch = tiers().get( 0 );
-        Image avatar = new Image( HeroMonsterClass.defaultClass().image() );
+        Image avatar = new Image( heroMonsterClass.image() );
 
-        if(Dungeon.hero.monsterClass!=null) avatar = new Image(Dungeon.hero.monsterClass.image());
+        RectF patch = tiers().get( 0 );
+//        if(Dungeon.hero.monsterClass!=null) avatar = new Image(Dungeon.hero.monsterClass.image());
         RectF frame = avatar.texture.uvRect( 1, 0, 16, 15 );
 
         if(lastMobSprite != null){

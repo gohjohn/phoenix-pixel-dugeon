@@ -190,7 +190,8 @@ public class Hero extends Char {
 	public Hero() {
 		super();
 		name = "you";
-		
+
+        monsterClass = HeroMonsterClass.defaultClass();
 		HP = HT = 20;
 		STR = STARTING_STR;
 		awareness = 0.1f;
@@ -1279,10 +1280,12 @@ public class Hero extends Char {
 		
 		Actor.fixTime();
 		super.die( cause );
-		
+
 		Ankh ankh = (Ankh)belongings.getItem( Ankh.class );
         HeroMonsterClass newMonsterClass = HeroMonsterClass.getMonsterClassFromCause(cause);
 		if (ankh == null) {
+            Dungeon.deaths++; //Non-ankh deaths (for chances)
+
             Dungeon.deleteGame( Dungeon.hero.heroClass, false );
             if(newMonsterClass != null){
                 GameScene.show( new WndRespawn( newMonsterClass , true , cause ) );

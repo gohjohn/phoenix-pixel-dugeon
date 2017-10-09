@@ -57,7 +57,10 @@ public class EyeLid extends HeroMonsterArmor{
     }
 
     private String special(){
-        Levitation levitation = Dungeon.hero.buff(Levitation.class);
+        Levitation levitation = null;
+        if(Dungeon.hero != null) {
+            levitation = Dungeon.hero.buff(Levitation.class);
+        }
         if(levitation==null){
             return AC_FLY;
         }else{

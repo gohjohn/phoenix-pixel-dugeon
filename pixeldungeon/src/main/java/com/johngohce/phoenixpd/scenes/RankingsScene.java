@@ -177,7 +177,9 @@ public class RankingsScene extends PixelScene {
 			
 			position.text( Integer.toString( pos+1 ) );
 			position.measure();
-			
+
+            //Do we need to rec.deaths here?
+
 			desc.text( rec.info );
 			desc.measure();
 			

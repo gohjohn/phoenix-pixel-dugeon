@@ -83,7 +83,8 @@ public class Dungeon {
 	
 	public static Hero hero;
 	public static Level level;
-	
+
+    public static int deaths;
 	public static int depth;
 	public static int gold;
 	// Reason of death
@@ -113,7 +114,8 @@ public class Dungeon {
 		
 		Statistics.reset();
 		Journal.reset();
-		
+
+        deaths = 0;
 		depth = 0;
 		gold = 0;
 		
@@ -327,8 +329,9 @@ public class Dungeon {
 	
 	private static final String VERSION		= "version";
 	private static final String CHALLENGES	= "challenges";
+    private static final String DEATHS		= "deaths";
 	private static final String HERO		= "hero";
-	private static final String GOLD		= "gold";
+    private static final String GOLD		= "gold";
 	private static final String DEPTH		= "depth";
 	private static final String LEVEL		= "level";
 	private static final String DROPPED		= "dropped%d";
@@ -373,7 +376,8 @@ public class Dungeon {
 			
 			bundle.put( VERSION, Game.version );
 			bundle.put( CHALLENGES, challenges );
-			bundle.put( HERO, hero );
+            bundle.put( DEATHS, deaths );
+            bundle.put( HERO, hero );
 			bundle.put( GOLD, gold );
 			bundle.put( DEPTH, depth );
 			
@@ -527,7 +531,8 @@ public class Dungeon {
 		hero = (Hero)bundle.get( HERO );
 		
 		QuickSlot.compress();
-		
+
+        deaths = bundle.getInt( DEATHS );
 		gold = bundle.getInt( GOLD );
 		depth = bundle.getInt( DEPTH );
 		

@@ -523,6 +523,9 @@ public abstract class RegularLevel extends Level {
 	
 	@Override
 	public int nMobs() {
+        if(Dungeon.depth == 1){
+            return 10;
+        }
 		return 2 + Dungeon.depth % 5 + Random.Int( 3 );
 	}
 	

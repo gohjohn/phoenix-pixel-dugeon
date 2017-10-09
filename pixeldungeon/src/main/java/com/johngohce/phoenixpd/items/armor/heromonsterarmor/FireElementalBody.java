@@ -57,8 +57,10 @@ public class FireElementalBody extends HeroMonsterArmor implements FlyingArmour{
     }
 
     private String special(){
-        if(Dungeon.hero == null) return AC_FLY;
-        Levitation levitation = Dungeon.hero.buff(Levitation.class);
+        Levitation levitation = null;
+        if(Dungeon.hero != null) {
+            levitation = Dungeon.hero.buff(Levitation.class);
+        }
         if(levitation==null){
             return AC_FLY;
         }else{

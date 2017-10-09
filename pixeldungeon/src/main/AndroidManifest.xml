@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.johngohce.phoenixpd"
 	android:versionCode="70"
-	android:versionName="1.02 ppd beta"
+	android:versionName="1.022 beta"
 	android:installLocation="auto">
 
     <uses-permission android:name="android.permission.VIBRATE"/>
